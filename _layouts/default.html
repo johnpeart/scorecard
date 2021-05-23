@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body id="body" class="{{ page.layout | slugify }}" data-connection="false">
+
+  	{% include skiplink.html %}
+
+    <section id="app">
+
+      {% include interface/sidebar.html %}
+
+      <section id="app-panel">
+
+        <main id="content">
+    	  {{ content }}
+        </main>
+
+      </section>
+
+    </section>
+
+    {% if page.layout == "scorecard" %}
+      {% include firebase.html %}
+    {% endif %}
+
+  </body>
+
+</html>

@@ -1,0 +1,31 @@
+<header class="{{ page.layout }}">
+
+	<div class="container">
+		{% if page.layout == "scorecard" %}
+		<h1 class="header">
+			<span class="site">{{ site.title }}</span>
+			<span class="page">{{ page.title }}</span>
+		</h1>
+		{% endif %}
+	
+		{% if page.layout == "vote" %}
+		<h1 class="header">
+			<span class="site">{{ site.title }}</span>
+			<span class="page">{{ page.title }}</span>
+		</h1>
+		<p>Award 1, 2, 3, 4, 5, 6, 7, 8, 10 or 12 points to each country during the show.</p>
+		<p>Vote for every country. You can vote once per country.</p>
+		{% endif %}
+	
+		{% if page.layout == "admin" %}
+		<h1 class="header">
+			<span class="site">{{ site.title }}</span>
+			<span class="page">{{ page.title }}</span>
+		</h1>
+		<p>Use these settings to control the scorecard.</p>
+		{% endif %}
+	</div>
+
+</header>
+
+	

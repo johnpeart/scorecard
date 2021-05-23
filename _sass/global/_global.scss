@@ -1,0 +1,38 @@
+// Global styles
+
+@at-root {
+	@-ms-viewport {
+		width: device-width;
+	} // stylelint-disable-line at-rule-no-vendor-prefix
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
+	min-height: 100vh;
+
+	font-family: 			$font-family;
+	font-kerning: 			auto;
+	letter-spacing: 		normal;
+
+	@include toggleDarkMode(background, systemGray6);
+	@include toggleDarkMode(color, systemForeground);
+
+	@each $style, $sizes in $body {
+		@include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+	}
+
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+body {
+	@include toggleDarkMode(background, systemGray6);
+	@include toggleDarkMode(color, systemForeground);
+}

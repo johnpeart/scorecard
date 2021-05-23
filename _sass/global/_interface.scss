@@ -1,0 +1,106 @@
+section#app {
+	position: 	relative;
+	display: 	flex;
+
+	width: 100vw;
+	height: 100vh;
+
+	padding: 0;
+	margin: 0;
+
+	flex-direction: row;
+	flex-wrap: nowrap;
+	overflow: hidden;
+}
+
+section#app-sidebar {
+
+	display: flex;
+
+	@include toggleSizes(position, fixed, fixed, relative, relative, relative);
+	@include toggleSizes(width, 100vw, 100vw, 30vw, 25vw, 20vw);
+
+	padding: $container-padding;
+	margin: 0;
+
+	@include md-up {
+		overflow: scroll;
+	}
+
+	@include toggleDarkMode(background, systemGray6);
+
+	-webkit-overflow-scrolling: touch;
+
+	-webkit-backdrop-filter: blur(5px);
+			backdrop-filter: blur(5px);
+
+}
+
+section#app-sidebar nav#sidebar-navigation {
+
+	width: 100%;
+
+	h1 {
+		@extend h2;
+	}
+
+	ul.sidebar {
+
+		display: block;
+		width: 100%;
+
+		padding: 0;
+		margin: 0;
+
+	}
+
+	li.menu-item {
+		display: block;
+		width: 100%;
+
+		padding: 0;
+
+		border-radius: 5pt;
+	}
+
+	li.separator {
+
+		margin-top: $container-padding * 2;
+
+	}
+
+	a.menu-item {
+		display: block;
+		position: relative;
+
+		padding: $container-padding / 2;
+		width: 100%;
+	}
+
+	a.active {
+		@include toggleDarkMode(color, systemForegroundActive);
+		&:link {
+			@include toggleDarkMode(background, systemBlue);
+		}
+	}
+
+}
+
+section#app-panel {
+
+	position: relative;
+	display: flex;
+
+	@include toggleSizes(width, 100vw, 100vw, 70vw, 75vw, 80vw);
+
+	padding: $container-padding;
+	margin: 0;
+
+	@include md-up {
+		overflow: scroll;
+	}
+
+	@include toggleDarkMode(background, systemBackground);
+	-webkit-overflow-scrolling: touch;
+
+}

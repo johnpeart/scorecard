@@ -1,0 +1,98 @@
+a {
+    font-weight: 		normal;
+    text-decoration: 	none;
+    cursor: pointer;
+
+    &:link {
+        @include toggleDarkMode(color, systemBlue);
+    }
+    &:visited {
+        @include toggleDarkMode(color, systemBlue);
+    }
+    &:hover {
+        @include toggleDarkMode(color, systemTeal);
+        text-decoration: 	underline;
+    }
+    &:focus {
+        @include toggleDarkMode(color, systemForegroundFocus);
+        @include toggleDarkMode(background, systemYellow);
+        @include toggleDarkMode(outline, systemYellow);
+    }
+    &:active {
+        text-decoration: 	none;
+    }
+
+    border-radius: 6px;
+}
+
+
+
+
+
+p,
+dt,
+dd,
+li {
+
+@each $style, $sizes in $body {
+    @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+}
+
+}
+
+li {
+    padding-bottom: 0;
+}
+
+ul {
+
+    list-style: none;
+    padding-top: 0;
+
+}
+ol {
+
+    list-style: decimal;
+    padding-top: 0;
+
+}
+
+strong, b,dt {
+    font-weight: 	bold;
+}
+
+em, i {
+    font-style: 	italic;
+}
+
+u {
+    text-decoration: underline;
+}
+
+center {
+    text-align: center;
+}
+
+h1 {
+    @each $style, $sizes in $title1 {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    }
+
+    &.largeTitle {
+        @each $style, $sizes in $largeTitle {
+            @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+        }
+    }
+}
+
+h2 {
+    @each $style, $sizes in $title2 {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    }
+}
+
+h3 {
+    @each $style, $sizes in $title3 {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    }
+}

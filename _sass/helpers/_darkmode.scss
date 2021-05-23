@@ -1,0 +1,12 @@
+@mixin toggleDarkMode($attribute, $color) {
+	#{$attribute}: map-get($colors-light, $color);
+	@media (prefers-color-scheme: dark) {
+		#{$attribute}: map-get($colors-dark, $color);
+	}
+}
+
+@mixin dark-mode {
+	@media (prefers-color-scheme: dark) {
+		@content;
+	}
+}
