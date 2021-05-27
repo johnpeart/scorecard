@@ -17,7 +17,7 @@ section#app {
 	overflow: hidden;
 }
 
-section#app[data-sidebar='true']  {
+section#app[data-sidebar='show']  {
 
 	@include tablet {
 		grid-template-columns: 1fr 3fr;
@@ -27,7 +27,7 @@ section#app[data-sidebar='true']  {
 
 }
 
-section#app[data-sidebar='false']  {
+section#app[data-sidebar='hide']  {
 
 	@include tablet {
 		grid-template-columns: 1fr;

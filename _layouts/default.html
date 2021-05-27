@@ -7,7 +7,7 @@
 
   	{% include skiplink.html %}
 
-    <section id="app" data-connection="false" data-sidebar="true">
+    <section id="app" data-connection="false" data-sidebar="show">
 
       {% include interface/sidebar.html %}
 
@@ -19,9 +19,7 @@
 
     </section>
 
-    {% if page.layout == "scorecard" %}
-      {% include firebase.html %}
-    {% endif %}
+    {% include firebase.html %}
 
   </body>
 
