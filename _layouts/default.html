@@ -7,13 +7,31 @@
 
   	{% include skiplink.html %}
 
-    <section id="app" data-connection="false" data-sidebar="show">
+    <section id="app" data-connection="false" data-sidebar="show" data-page="page-home">
 
       {% include interface/sidebar.html %}
 
       <section id="app-panel">
 
-    	  {{ content }}
+          <section id="page-home" class="scorecard container">
+            <h1>Home</h1>
+          </section>
+
+          <section id="page-semi-final-1" class="scorecard container">
+          <h1>Semi-final 1</h1>
+          </section>
+
+          <section id="page-semi-final-2" class="scorecard container">
+            <h1>Semi-final 2</h1>
+          </section>
+
+          <section id="page-grand-final" class="scorecard container">
+            <h1>Grand Final</h1>
+          </section>
+
+          <section id="page-more" class="scorecard container">
+            <h1>More</h1>
+          </section>
 
       </section>
 

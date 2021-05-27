@@ -50,8 +50,7 @@ section#app-sidebar {
 		padding: 0;
 	}
 	@include tablet {
-		padding: $container-padding;
-		padding-top: $container-padding * 6;
+		padding: ($container-padding * 6) $container-padding;
 		grid-gap: $container-padding;
 	}
 
@@ -72,11 +71,13 @@ button#toggle-menu {
 	position: fixed;
 	display: block;
 
+
 	top: $container-padding * 3;
 	left: $container-padding;
 	bottom: auto;
 	right: auto;
 
+	-webkit-appearance: none;
 	background: none;
 	color: none;
 	border: none;
@@ -140,7 +141,6 @@ section#app-sidebar nav#sidebar-navigation {
 		@include tablet {
 			text-align: left;
 		}
-		border-radius: 5pt;
 
 	}
 
@@ -151,12 +151,17 @@ section#app-sidebar nav#sidebar-navigation {
 		border: none;
 		border-top: 1px solid;
 		width: 100%;
-		@include toggleDarkMode(border-color, systemGray1);
+		@include toggleDarkMode(border-color, systemGray4);
 	}
 
-	a.menu-item {
+	button.menu-item--button {
 
 		display: grid;
+
+		-webkit-appearance: none;
+		background: none;
+		color: none;
+		border: none;
 
 		@include phone {
 			grid-template: auto auto / auto;
@@ -166,28 +171,25 @@ section#app-sidebar nav#sidebar-navigation {
 		@include tablet {
 			grid-template: auto / auto auto;
 			justify-content: flex-start;
-			grid-gap: $container-padding;
+			grid-gap: $container-padding * 1.5;
 			align-items: center;
 		}
+
+		border-radius: 5pt;
 
 		padding: $container-padding / 2;
 		width: 100%;
 
-		&:link,
-		&:visited {
-			@include phone {
-				@include toggleDarkMode(color, systemGray1);
-			}
-			@include toggleDarkMode(color, systemBlue);
-			path {
-				@include phone {
-					@include toggleDarkMode(fill, systemGray1);
-				}
-				@include tablet {
-					@include toggleDarkMode(fill, systemBlue);
-				}
-			}
+		@include phone {
+			@include toggleDarkMode(color, systemGray1);
 		}
+		@include tablet {
+			@include toggleDarkMode(color, systemForeground);
+		}
+		path {
+			@include toggleDarkMode(fill, systemGray1);
+		}
+
 		&:hover {
 			@include toggleDarkMode(color, systemSidebarForegroundHover);
 			@include toggleDarkMode(background, systemSidebarBackgroundHover);
@@ -199,9 +201,11 @@ section#app-sidebar nav#sidebar-navigation {
 		&:focus {
 			@include toggleDarkMode(color, systemSidebarForegroundFocus);
 			@include toggleDarkMode(background, systemSidebarBackgroundFocus);
+
 		}
 		&:active,
-		&.active {
+		&.active,
+		&[data-status="active"] {
 			@include toggleDarkMode(color, systemSidebarForegroundActive);
 			@include toggleDarkMode(background, systemSidebarBackgroundActive);
 
@@ -213,15 +217,22 @@ section#app-sidebar nav#sidebar-navigation {
 
 	span.label {
 
+		padding-bottom: 0 !important;
+		font-weight: 600;
+		line-height: 1;
+
 		@include phone {
 			display: block;
-			font-size: 50%;
-			font-weight: 600;
-			line-height: 1;
+			@each $style, $sizes in $label {
+				@include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+			}
 		}
 
 		@include tablet {
 			display: inline-block;
+			@each $style, $sizes in $body {
+				@include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+			}
 		}
 	}
 
@@ -244,7 +255,8 @@ section#app-panel {
 
 }
 
-main.container {
+main.container,
+section.container {
 
 	display: grid;
 
@@ -253,5 +265,109 @@ main.container {
 	margin: 0 auto;
 	padding: $container-padding;
 	padding-bottom: 5 * $container-padding;
+
+}
+
+section.scorecard {
+	min-height: 100vh;
+}
+
+section#app[data-page='page-home'] {
+
+	section#page-home {
+		display: block;
+	}
+	section#page-semi-final-1 {
+		display: none;
+	}
+	section#page-semi-final-2 {
+		display: none;
+	}
+	section#page-grand-final {
+		display: none;
+	}
+	section#page-more {
+		display: none;
+	}
+
+}
+
+section#app[data-page='page-semi-final-1'] {
+
+	section#page-home {
+		display: none;
+	}
+	section#page-semi-final-1 {
+		display: block;
+	}
+	section#page-semi-final-2 {
+		display: none;
+	}
+	section#page-grand-final {
+		display: none;
+	}
+	section#page-more {
+		display: none;
+	}
+
+}
+
+section#app[data-page='page-semi-final-2'] {
+
+	section#page-home {
+		display: none;
+	}
+	section#page-semi-final-1 {
+		display: none;
+	}
+	section#page-semi-final-2 {
+		display: block;
+	}
+	section#page-grand-final {
+		display: none;
+	}
+	section#page-more {
+		display: none;
+	}
+
+}
+
+section#app[data-page='page-grand-final'] {
+
+	section#page-home {
+		display: none;
+	}
+	section#page-semi-final-1 {
+		display: none;
+	}
+	section#page-semi-final-2 {
+		display: none;
+	}
+	section#page-grand-final {
+		display: block;
+	}
+	section#page-more {
+		display: none;
+	}
+
+}
+
+section#app[data-page='page-more'] {
+
+	section#page-home {
+		display: none;
+	}
+	section#page-semi-final-1 {
+		display: none;
+	}
+	section#page-semi-final-2 {
+		display: none;
+	}
+	section#page-grand-final {
+		display: none;
+	}
+	section#page-more {
+		display: block;
+	}
 
 }

@@ -57,10 +57,10 @@ $colors-light: (
     "systemForegroundActive": rgb(250,250,250),
 
     "systemSidebarForegroundHover": rgb(242,242,247),
-    "systemSidebarForegroundFocus": rgb(142,142,147),
+    "systemSidebarForegroundFocus": rgb(28,28,30),
     "systemSidebarForegroundActive": rgb(242,242,247),
-    "systemSidebarBackgroundHover": rgb(90,200,250),
-    "systemSidebarBackgroundFocus": rgb(255,204,0),
+    "systemSidebarBackgroundHover": rgb(0,122,255),
+    "systemSidebarBackgroundFocus": rgb(100,210,255),
     "systemSidebarBackgroundActive": rgb(0,122,255),
 
     "systemGray1": rgb(142,142,147),
@@ -92,8 +92,8 @@ $colors-dark: (
     "systemSidebarForegroundHover": rgb(28,28,30),
     "systemSidebarForegroundFocus": rgb(28,28,30),
     "systemSidebarForegroundActive": rgb(28,28,30),
-    "systemSidebarBackgroundHover": rgb(90,200,250),
-    "systemSidebarBackgroundFocus": rgb(255,204,0),
+    "systemSidebarBackgroundHover": rgb(0,122,255),
+    "systemSidebarBackgroundFocus": rgb(100,210,255),
     "systemSidebarBackgroundActive": rgb(0,122,255),
 
     "systemGray1": rgb(142,142,147),
@@ -144,6 +144,58 @@ $body: (
         "md": 0 0 16pt 0,
         "lg": 0 0 17pt 0,
         "xl": 0 0 19pt 0
+    ),
+    "font-weight":  (
+        "xs": normal,
+        "sm": normal,
+        "md": normal,
+        "lg": normal,
+        "xl": normal
+    ),
+    "font-style":  (
+        "xs": normal,
+        "sm": normal,
+        "md": normal,
+        "lg": normal,
+        "xl": normal
+    ),
+    "text-transform":  (
+        "xs": none,
+        "sm": none,
+        "md": none,
+        "lg": none,
+        "xl": none
+    ),
+    "text-align":  (
+        "xs": left,
+        "sm": left,
+        "md": left,
+        "lg": left,
+        "xl": left
+    ),
+);
+
+$label: (
+    "font-size": (
+        "xs": 7pt,
+        "sm": 8pt,
+        "md": 9pt,
+        "lg": 10pt,
+        "xl": 12pt
+    ),
+    "line-height": (
+        "xs": 7pt,
+        "sm": 8pt,
+        "md": 9pt,
+        "lg": 10pt,
+        "xl": 12pt
+    ),
+    "padding": (
+        "xs": 0 0 7pt 0,
+        "sm": 0 0 8pt 0,
+        "md": 0 0 9pt 0,
+        "lg": 0 0 10pt 0,
+        "xl": 0 0 12pt 0
     ),
     "font-weight":  (
         "xs": normal,
