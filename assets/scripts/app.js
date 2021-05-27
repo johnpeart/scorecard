@@ -12,22 +12,16 @@ buttonHome.addEventListener("click", function() {
 	goToPage(pageHome)
 }, false);
 
-var pageSemiFinal1 = "semi-final-1";
-var buttonSemiFinal1 = document.getElementById("button-semi-final-1");
-buttonSemiFinal1.addEventListener("click", function() {
-	goToPage(pageSemiFinal1)
+var pageScorecard = "scorecard";
+var buttonScorecard = document.getElementById("button-scorecard");
+buttonScorecard.addEventListener("click", function() {
+	goToPage(pageScorecard)
 }, false);
 
-var pageSemiFinal2 = "semi-final-2";
-var buttonSemiFinal2 = document.getElementById("button-semi-final-2");
-buttonSemiFinal2.addEventListener("click", function() {
-	goToPage(pageSemiFinal2)
-}, false);
-
-var pageGrandFinal = "grand-final";
-var buttonGrandFinal = document.getElementById("button-grand-final");
-buttonGrandFinal.addEventListener("click", function() {
-	goToPage(pageGrandFinal)
+var pageVote = "vote";
+var buttonVote = document.getElementById("button-vote");
+buttonVote.addEventListener("click", function() {
+	goToPage(pageVote)
 }, false);
 
 var pageMore = "more";

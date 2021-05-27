@@ -58,10 +58,10 @@ $colors-light: (
 
     "systemSidebarForegroundHover": rgb(242,242,247),
     "systemSidebarForegroundFocus": rgb(28,28,30),
-    "systemSidebarForegroundActive": rgb(242,242,247),
+    "systemSidebarForegroundActive": rgb(0,122,255),
     "systemSidebarBackgroundHover": rgb(0,122,255),
     "systemSidebarBackgroundFocus": rgb(100,210,255),
-    "systemSidebarBackgroundActive": rgb(0,122,255),
+    "systemSidebarBackgroundActive": rgb(242,242,247),
 
     "systemGray1": rgb(142,142,147),
     "systemGray2": rgb(174,174,178),
@@ -91,10 +91,10 @@ $colors-dark: (
 
     "systemSidebarForegroundHover": rgb(28,28,30),
     "systemSidebarForegroundFocus": rgb(28,28,30),
-    "systemSidebarForegroundActive": rgb(28,28,30),
+    "systemSidebarForegroundActive": rgb(0,122,255),
     "systemSidebarBackgroundHover": rgb(0,122,255),
     "systemSidebarBackgroundFocus": rgb(100,210,255),
-    "systemSidebarBackgroundActive": rgb(0,122,255),
+    "systemSidebarBackgroundActive": rgb(28,28,30),
 
     "systemGray1": rgb(142,142,147),
     "systemGray2": rgb(99,99,102),
@@ -231,25 +231,25 @@ $label: (
 
 $largeTitle: (
     "font-size": (
-        "xs": 31pt,
-        "sm": 32pt,
-        "md": 33pt,
-        "lg": 34pt,
-        "xl": 36pt
+        "xs": 42pt,
+        "sm": 43pt,
+        "md": 44pt,
+        "lg": 46pt,
+        "xl": 48pt
     ),
     "line-height": (
-        "xs": 38pt,
-        "sm": 39pt,
-        "md": 40pt,
-        "lg": 41pt,
-        "xl": 43pt
+        "xs": 49pt,
+        "sm": 50pt,
+        "md": 51pt,
+        "lg": 53pt,
+        "xl": 53pt
     ),
     "padding": (
-        "xs": 31pt 0,
-        "sm": 32pt 0,
-        "md": 33pt 0,
-        "lg": 34pt 0,
-        "xl": 36pt 0
+        "xs": 75pt 0 42pt,
+        "sm": 76pt 0 43pt,
+        "md": 77pt 0 44pt,
+        "lg": 78pt 0 46pt,
+        "xl": 80pt 0 48pt
     ),
     "font-weight":  (
         "xs": 800,

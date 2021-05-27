@@ -70,7 +70,7 @@ button#toggle-menu {
 
 	position: fixed;
 	display: block;
-
+	cursor: pointer;
 
 	top: $container-padding * 3;
 	left: $container-padding;
@@ -89,6 +89,7 @@ button#toggle-menu {
 	margin: 0;
 
 	svg {
+		display: block;
 		height: 23pt;
 	}
 
@@ -100,8 +101,11 @@ button#toggle-menu {
 	&:focus,
 	&:active,
 	&.active {
+		@include toggleDarkMode(color, systemSidebarForegroundActive);
+		@include toggleDarkMode(background, systemSidebarBackgroundActive);
+
 		path {
-			@include toggleDarkMode(fill, systemBlue);
+			@include toggleDarkMode(fill, systemSidebarForegroundActive);
 		}
 	}
 }
@@ -120,7 +124,7 @@ section#app-sidebar nav#sidebar-navigation {
 			padding: $container-padding / 2;
 			grid-gap: $container-padding / 2;
 			grid-template-rows: auto;
-			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
 		}
 		@include tablet {
 			grid-gap: $container-padding * 0.5;
@@ -162,6 +166,7 @@ section#app-sidebar nav#sidebar-navigation {
 		background: none;
 		color: none;
 		border: none;
+		cursor: pointer;
 
 		@include phone {
 			grid-template: auto auto / auto;
@@ -202,6 +207,10 @@ section#app-sidebar nav#sidebar-navigation {
 			@include toggleDarkMode(color, systemSidebarForegroundFocus);
 			@include toggleDarkMode(background, systemSidebarBackgroundFocus);
 
+			path {
+				@include toggleDarkMode(fill, systemSidebarForegroundFocus);
+			}
+
 		}
 		&:active,
 		&.active,
@@ -210,7 +219,7 @@ section#app-sidebar nav#sidebar-navigation {
 			@include toggleDarkMode(background, systemSidebarBackgroundActive);
 
 			path {
-				@include toggleDarkMode(fill, systemGray6);
+				@include toggleDarkMode(fill, systemSidebarForegroundActive);
 			}
 		}
 	}
@@ -277,13 +286,10 @@ section#app[data-page='page-home'] {
 	section#page-home {
 		display: block;
 	}
-	section#page-semi-final-1 {
+	section#page-scorecard {
 		display: none;
 	}
-	section#page-semi-final-2 {
-		display: none;
-	}
-	section#page-grand-final {
+	section#page-vote {
 		display: none;
 	}
 	section#page-more {
@@ -292,18 +298,15 @@ section#app[data-page='page-home'] {
 
 }
 
-section#app[data-page='page-semi-final-1'] {
+section#app[data-page='page-scorecard'] {
 
 	section#page-home {
 		display: none;
 	}
-	section#page-semi-final-1 {
+	section#page-scorecard {
 		display: block;
 	}
-	section#page-semi-final-2 {
-		display: none;
-	}
-	section#page-grand-final {
+	section#page-vote {
 		display: none;
 	}
 	section#page-more {
@@ -312,38 +315,15 @@ section#app[data-page='page-semi-final-1'] {
 
 }
 
-section#app[data-page='page-semi-final-2'] {
+section#app[data-page='page-vote'] {
 
 	section#page-home {
 		display: none;
 	}
-	section#page-semi-final-1 {
+	section#page-scorecard {
 		display: none;
 	}
-	section#page-semi-final-2 {
-		display: block;
-	}
-	section#page-grand-final {
-		display: none;
-	}
-	section#page-more {
-		display: none;
-	}
-
-}
-
-section#app[data-page='page-grand-final'] {
-
-	section#page-home {
-		display: none;
-	}
-	section#page-semi-final-1 {
-		display: none;
-	}
-	section#page-semi-final-2 {
-		display: none;
-	}
-	section#page-grand-final {
+	section#page-vote {
 		display: block;
 	}
 	section#page-more {
@@ -357,13 +337,10 @@ section#app[data-page='page-more'] {
 	section#page-home {
 		display: none;
 	}
-	section#page-semi-final-1 {
+	section#page-scorecard {
 		display: none;
 	}
-	section#page-semi-final-2 {
-		display: none;
-	}
-	section#page-grand-final {
+	section#page-vote {
 		display: none;
 	}
 	section#page-more {
