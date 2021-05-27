@@ -1,6 +1,12 @@
 section#app {
 	position: 	relative;
-	display: 	flex;
+	display: 	grid;
+
+	@include phone {
+		grid-template-columns: 100vw;
+		grid-template-rows: auto 54pt;
+		grid-template-areas: 'content' 'sidebar';
+	}
 
 	width: 100vw;
 	height: 100vh;
@@ -8,37 +14,98 @@ section#app {
 	padding: 0;
 	margin: 0;
 
-	flex-direction: row;
-	flex-wrap: nowrap;
 	overflow: hidden;
+}
+
+section#app[data-sidebar='true']  {
+
+	@include tablet {
+		grid-template-columns: 1fr 3fr;
+		grid-template-rows: auto;
+		grid-template-areas: 'sidebar content';
+	}
+
+}
+
+section#app[data-sidebar='false']  {
+
+	@include tablet {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: 'content';
+
+		section#app-sidebar {
+			display: none;
+		}
+	}
+
 }
 
 section#app-sidebar {
 
-	display: flex;
-
-	@include toggleSizes(position, fixed, fixed, relative, relative, relative);
-	@include toggleSizes(width, 100vw, 100vw, 30vw, 25vw, 20vw);
-
-	padding: $container-padding;
-	margin: 0;
-
-	@include md-up {
-		overflow: scroll;
-	}
-
+	grid-area: sidebar;
 	@include toggleDarkMode(background, systemGray6);
 
-	-webkit-overflow-scrolling: touch;
-
-	-webkit-backdrop-filter: blur(5px);
-			backdrop-filter: blur(5px);
+	@include phone {
+		padding: 0;
+	}
+	@include tablet {
+		padding: $container-padding;
+		padding-top: $container-padding * 6;
+		grid-gap: $container-padding;
+	}
 
 }
 
-section#app-sidebar nav#sidebar-navigation {
+section#app-sidebar h1#app-title {
+	@include sm-down {
+		display: none;
+	}
+}
 
-	width: 100%;
+button#toggle-menu {
+
+	@include phone {
+		display: none;
+	}
+
+	position: fixed;
+	display: block;
+
+	top: $container-padding * 3;
+	left: $container-padding;
+	bottom: auto;
+	right: auto;
+
+	background: none;
+	color: none;
+	border: none;
+
+	text-align: left;
+	display: inline-block;
+
+	padding: 0;
+	margin: 0;
+
+	svg {
+		height: 23pt;
+	}
+
+	path {
+		@include toggleDarkMode(fill, systemGray1);
+	}
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		path {
+			@include toggleDarkMode(fill, systemBlue);
+		}
+	}
+}
+
+section#app-sidebar nav#sidebar-navigation {
 
 	h1 {
 		@extend h2;
@@ -46,7 +113,18 @@ section#app-sidebar nav#sidebar-navigation {
 
 	ul.sidebar {
 
-		display: block;
+		display: grid;
+
+		@include phone {
+			padding: $container-padding / 2;
+			grid-gap: $container-padding / 2;
+			grid-template-rows: auto;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		}
+		@include tablet {
+			grid-gap: $container-padding * 0.5;
+		}
+
 		width: 100%;
 
 		padding: 0;
@@ -55,52 +133,125 @@ section#app-sidebar nav#sidebar-navigation {
 	}
 
 	li.menu-item {
-		display: block;
-		width: 100%;
 
-		padding: 0;
-
+		@include phone {
+			text-align: center;
+		}
+		@include tablet {
+			text-align: left;
+		}
 		border-radius: 5pt;
+
 	}
 
-	li.separator {
-
-		margin-top: $container-padding * 2;
-
+	hr.menu-separator {
+		@include phone {
+			display: none;
+		}
+		border: none;
+		border-top: 1px solid;
+		width: 100%;
+		@include toggleDarkMode(border-color, systemGray1);
 	}
 
 	a.menu-item {
-		display: block;
-		position: relative;
+
+		display: grid;
+
+		@include phone {
+			grid-template: auto auto / auto;
+			justify-items: center;
+			grid-gap: $container-padding * 0.5;
+		}
+		@include tablet {
+			grid-template: auto / auto auto;
+			justify-content: flex-start;
+			grid-gap: $container-padding;
+			align-items: center;
+		}
 
 		padding: $container-padding / 2;
 		width: 100%;
+
+		&:link,
+		&:visited {
+			@include phone {
+				@include toggleDarkMode(color, systemGray1);
+			}
+			@include toggleDarkMode(color, systemBlue);
+			path {
+				@include phone {
+					@include toggleDarkMode(fill, systemGray1);
+				}
+				@include tablet {
+					@include toggleDarkMode(fill, systemBlue);
+				}
+			}
+		}
+		&:hover {
+			@include toggleDarkMode(color, systemSidebarForegroundHover);
+			@include toggleDarkMode(background, systemSidebarBackgroundHover);
+
+			path {
+				@include toggleDarkMode(fill, systemGray6);
+			}
+		}
+		&:focus {
+			@include toggleDarkMode(color, systemSidebarForegroundFocus);
+			@include toggleDarkMode(background, systemSidebarBackgroundFocus);
+		}
+		&:active,
+		&.active {
+			@include toggleDarkMode(color, systemSidebarForegroundActive);
+			@include toggleDarkMode(background, systemSidebarBackgroundActive);
+
+			path {
+				@include toggleDarkMode(fill, systemGray6);
+			}
+		}
 	}
 
-	a.active {
-		@include toggleDarkMode(color, systemForegroundActive);
-		&:link {
-			@include toggleDarkMode(background, systemBlue);
+	span.label {
+
+		@include phone {
+			display: block;
+			font-size: 50%;
+			font-weight: 600;
+			line-height: 1;
 		}
+
+		@include tablet {
+			display: inline-block;
+		}
+	}
+
+	svg {
+		max-height: 20pt;
+		max-width: 20pt;
 	}
 
 }
 
 section#app-panel {
 
-	position: relative;
-	display: flex;
+	grid-area: content;
+	max-height: 100vh;
 
-	@include toggleSizes(width, 100vw, 100vw, 70vw, 75vw, 80vw);
-
-	padding: $container-padding;
-	margin: 0;
-
-	@include md-up {
-		overflow: scroll;
-	}
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 
 	@include toggleDarkMode(background, systemBackground);
-	-webkit-overflow-scrolling: touch;
+
+}
+
+main.container {
+
+	display: grid;
+
+	@include toggleSizes(max-width, 100vw, 100vw, 600px, 700px, 1000px);
+
+	margin: 0 auto;
+	padding: $container-padding;
+	padding-bottom: 5 * $container-padding;
 
 }

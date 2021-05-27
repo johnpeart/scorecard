@@ -59,6 +59,20 @@
 			}
 }
 
+// Devices
+
+@mixin phone {
+	@include sm-down {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@include md-up {
+		@content;
+	}
+}
+
 // AND DOWN
 
 @mixin sm-down {

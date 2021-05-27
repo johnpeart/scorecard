@@ -3,19 +3,17 @@
 
   {% include head.html %}
 
-  <body id="body" class="{{ page.layout | slugify }}" data-connection="false">
+  <body id="body" class="{{ page.layout | slugify }}">
 
   	{% include skiplink.html %}
 
-    <section id="app">
+    <section id="app" data-connection="false" data-sidebar="true">
 
       {% include interface/sidebar.html %}
 
       <section id="app-panel">
 
-        <main id="content">
     	  {{ content }}
-        </main>
 
       </section>
 

@@ -18,11 +18,11 @@ $breakpoints: (
 );
 
 $containers: (
-    "xs":    300px;
-    "sm":    560px;
-    "md":    600px;
-    "lg":    800px;
-    "xl":    900px;
+    "xs":    300px,
+    "sm":    560px,
+    "md":    600px,
+    "lg":    800px,
+    "xl":    900px
 );
 
 $container-padding: 	 			15px;
@@ -56,12 +56,20 @@ $colors-light: (
     "systemForegroundFocus": rgb(25,25,25),
     "systemForegroundActive": rgb(250,250,250),
 
+    "systemSidebarForegroundHover": rgb(242,242,247),
+    "systemSidebarForegroundFocus": rgb(142,142,147),
+    "systemSidebarForegroundActive": rgb(242,242,247),
+    "systemSidebarBackgroundHover": rgb(90,200,250),
+    "systemSidebarBackgroundFocus": rgb(255,204,0),
+    "systemSidebarBackgroundActive": rgb(0,122,255),
+
     "systemGray1": rgb(142,142,147),
     "systemGray2": rgb(174,174,178),
     "systemGray3": rgb(199,199,204),
     "systemGray4": rgb(209,209,214),
     "systemGray5": rgb(229,229,234),
     "systemGray6": rgb(242,242,247),
+    "systemGray6transparent": rgba(242,242,247,0.7),
 
     "systemBlue": rgb(0,122,255),
     "systemGreen": rgb(52,199,89),
@@ -81,12 +89,20 @@ $colors-dark: (
     "systemForegroundActive": rgb(250,250,250),
     "systemBackground": rgb(25,25,25),
 
+    "systemSidebarForegroundHover": rgb(28,28,30),
+    "systemSidebarForegroundFocus": rgb(28,28,30),
+    "systemSidebarForegroundActive": rgb(28,28,30),
+    "systemSidebarBackgroundHover": rgb(90,200,250),
+    "systemSidebarBackgroundFocus": rgb(255,204,0),
+    "systemSidebarBackgroundActive": rgb(0,122,255),
+
     "systemGray1": rgb(142,142,147),
     "systemGray2": rgb(99,99,102),
     "systemGray3": rgb(72,72,74),
     "systemGray4": rgb(58,58,60),
     "systemGray5": rgb(44,44,46),
     "systemGray6": rgb(28,28,30),
+    "systemGray6transparent": rgba(28,28,30,0.7),
 
     "systemBlue": rgb(10,132,255),
     "systemGreen": rgb(48,209,88),
