@@ -34,10 +34,16 @@ dt,
 dd,
 li {
 
-@each $style, $sizes in $body {
-    @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    @each $style, $sizes in $body {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    }
+
 }
 
+p.lead {
+    @each $style, $sizes in $lead {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    }
 }
 
 li {
@@ -77,11 +83,11 @@ h1 {
     @each $style, $sizes in $title1 {
         @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
     }
+}
 
-    &.largeTitle {
-        @each $style, $sizes in $largeTitle {
-            @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
-        }
+h1.largeTitle {
+    @each $style, $sizes in $largeTitle {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
     }
 }
 

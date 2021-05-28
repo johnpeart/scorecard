@@ -42,7 +42,6 @@
   @include sr-only;
   @include sr-only-focusable;
 
-  z-index: 999999;
   display: block;
   width: 100%;
 
@@ -50,11 +49,19 @@
     @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
   }
 
+
+
+  padding: $container-padding !important;
+
+  border-radius: 0;
+
   text-align: 			left;
 
   &:focus,
   &:hover {
     @include toggleDarkMode(color, systemGray6);
     @include toggleDarkMode(background, systemBlue);
+    z-index: 999999 !important;
   }
+
 }

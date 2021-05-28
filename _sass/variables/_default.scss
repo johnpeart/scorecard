@@ -175,6 +175,58 @@ $body: (
     ),
 );
 
+$lead: (
+    "font-size": (
+        "xs": 18pt,
+        "sm": 19pt,
+        "md": 20pt,
+        "lg": 21pt,
+        "xl": 23pt
+    ),
+    "line-height": (
+        "xs": 23pt,
+        "sm": 24pt,
+        "md": 25pt,
+        "lg": 26pt,
+        "xl": 28pt
+    ),
+    "padding": (
+        "xs": 0 0 14pt 0,
+        "sm": 0 0 15pt 0,
+        "md": 0 0 16pt 0,
+        "lg": 0 0 17pt 0,
+        "xl": 0 0 19pt 0
+    ),
+    "font-weight":  (
+        "xs": normal,
+        "sm": normal,
+        "md": normal,
+        "lg": normal,
+        "xl": normal
+    ),
+    "font-style":  (
+        "xs": normal,
+        "sm": normal,
+        "md": normal,
+        "lg": normal,
+        "xl": normal
+    ),
+    "text-transform":  (
+        "xs": none,
+        "sm": none,
+        "md": none,
+        "lg": none,
+        "xl": none
+    ),
+    "text-align":  (
+        "xs": left,
+        "sm": left,
+        "md": left,
+        "lg": left,
+        "xl": left
+    ),
+);
+
 $label: (
     "font-size": (
         "xs": 7pt,
@@ -231,77 +283,25 @@ $label: (
 
 $largeTitle: (
     "font-size": (
-        "xs": 42pt,
+        "xs": 30pt,
         "sm": 43pt,
         "md": 44pt,
         "lg": 46pt,
         "xl": 48pt
     ),
     "line-height": (
-        "xs": 49pt,
+        "xs": 35pt,
         "sm": 50pt,
         "md": 51pt,
         "lg": 53pt,
         "xl": 53pt
     ),
     "padding": (
-        "xs": 75pt 0 42pt,
+        "xs": 60pt 0 30pt,
         "sm": 76pt 0 43pt,
         "md": 77pt 0 44pt,
         "lg": 78pt 0 46pt,
         "xl": 80pt 0 48pt
-    ),
-    "font-weight":  (
-        "xs": 800,
-        "sm": 800,
-        "md": 800,
-        "lg": 800,
-        "xl": 800
-    ),
-    "font-style":  (
-        "xs": normal,
-        "sm": normal,
-        "md": normal,
-        "lg": normal,
-        "xl": normal
-    ),
-    "text-transform":  (
-        "xs": none,
-        "sm": none,
-        "md": none,
-        "lg": none,
-        "xl": none
-    ),
-    "text-align":  (
-        "xs": left,
-        "sm": left,
-        "md": left,
-        "lg": left,
-        "xl": left
-    ),
-);
-
-$largeTitle: (
-    "font-size": (
-        "xs": 31pt,
-        "sm": 32pt,
-        "md": 33pt,
-        "lg": 34pt,
-        "xl": 36pt
-    ),
-    "line-height": (
-        "xs": 38pt,
-        "sm": 39pt,
-        "md": 40pt,
-        "lg": 41pt,
-        "xl": 43pt
-    ),
-    "padding": (
-        "xs": 31pt 0,
-        "sm": 32pt 0,
-        "md": 33pt 0,
-        "lg": 34pt 0,
-        "xl": 36pt 0
     ),
     "font-weight":  (
         "xs": 800,

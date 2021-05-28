@@ -20,7 +20,7 @@ section#app {
 section#app[data-sidebar='show']  {
 
 	@include tablet {
-		grid-template-columns: 1fr 3fr;
+		grid-template-columns: minmax(250px, 1fr) 4fr;
 		grid-template-rows: auto;
 		grid-template-areas: 'sidebar content';
 	}
@@ -37,6 +37,42 @@ section#app[data-sidebar='hide']  {
 		section#app-sidebar {
 			display: none;
 		}
+	}
+
+}
+
+section#app[data-happeningnow='false'] {
+
+	div#event-happeningnow {
+		display: none;
+	}
+
+	div#event-nothappeningnow {
+		display: block;
+	}
+
+}
+
+section#app[data-happeningnow='true'] {
+
+	div#event-happeningnow {
+		display: block;
+	}
+
+	div#event-nothappeningnow {
+		display: none;
+	}
+
+}
+
+section#app[data-happeningnow='unknown'] {
+
+	div#event-happeningnow {
+		display: none;
+	}
+
+	div#event-nothappeningnow {
+		display: none;
 	}
 
 }
@@ -68,9 +104,11 @@ button#toggle-menu {
 		display: none;
 	}
 
-	position: fixed;
+	position: absolute;
 	display: block;
 	cursor: pointer;
+
+	z-index: 9000;
 
 	top: $container-padding * 3;
 	left: $container-padding;
@@ -91,6 +129,8 @@ button#toggle-menu {
 	svg {
 		display: block;
 		height: 23pt;
+
+		z-index: 9000;
 	}
 
 	path {
@@ -347,4 +387,21 @@ section#app[data-page='page-more'] {
 		display: block;
 	}
 
+}
+
+div.event-infobox {
+
+	margin: ($container-padding * 2) 0;
+	padding: $container-padding;
+
+	@include toggleDarkMode(background, systemGray6);
+	border-radius: 10pt;
+
+	h2:first-child {
+		padding-top: 0;
+	}
+
+	p:last-child {
+		padding-bottom: 0;
+	}
 }
