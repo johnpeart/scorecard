@@ -335,6 +335,12 @@ section#app[data-page='page-home'] {
 	section#page-more {
 		display: none;
 	}
+	section#page-upcoming-shows {
+		display: none;
+	}
+	section#page-about {
+		display: none;
+	}
 
 }
 
@@ -350,6 +356,12 @@ section#app[data-page='page-scorecard'] {
 		display: none;
 	}
 	section#page-more {
+		display: none;
+	}
+	section#page-upcoming-shows {
+		display: none;
+	}
+	section#page-about {
 		display: none;
 	}
 
@@ -369,6 +381,12 @@ section#app[data-page='page-vote'] {
 	section#page-more {
 		display: none;
 	}
+	section#page-upcoming-shows {
+		display: none;
+	}
+	section#page-about {
+		display: none;
+	}
 
 }
 
@@ -386,7 +404,158 @@ section#app[data-page='page-more'] {
 	section#page-more {
 		display: block;
 	}
+	section#page-upcoming-shows {
+		display: none;
+	}
+	section#page-about {
+		display: none;
+	}
 
+}
+
+section#app[data-page='page-about'] {
+
+	section#page-home {
+		display: none;
+	}
+	section#page-scorecard {
+		display: none;
+	}
+	section#page-vote {
+		display: none;
+	}
+	section#page-more {
+		display: none;
+	}
+	section#page-upcoming-shows {
+		display: none;
+	}
+	section#page-about {
+		display: block;
+	}
+
+}
+
+section#app[data-page='page-upcoming-shows'] {
+
+	section#page-home {
+		display: none;
+	}
+	section#page-scorecard {
+		display: none;
+	}
+	section#page-vote {
+		display: none;
+	}
+	section#page-more {
+		display: none;
+	}
+	section#page-upcoming-shows {
+		display: block;
+	}
+	section#page-about {
+		display: none;
+	}
+
+}
+
+ul.list {
+
+	display: grid;
+
+	width: 100%;
+
+	padding: 0;
+	margin: 0;
+
+  li.list-item {
+	  text-align: left;
+    
+    &:first-of-type button {
+      border-top-left-radius: 5pt;
+      border-top-right-radius: 5pt;
+    }
+    
+    &:nth-of-type(n+2):nth-last-of-type(n+2) {
+      border-bottom: 0;
+    }
+    
+    &:last-of-type button {
+      border-top: 0;
+      border-bottom-left-radius: 5pt;
+      border-bottom-right-radius: 5pt;
+    }
+  }
+  
+  button.list-item--button {
+    
+    display: grid;
+    
+		grid-template: auto / 1fr auto;
+		justify-content: flex-start;
+		grid-gap: $container-padding * 1.5;
+		align-items: center;
+  
+    margin: 0;
+	  -webkit-appearance: none;
+	  @include toggleDarkMode(background, systemWhite);
+	  @include toggleDarkMode(color, systemForeground);
+	  border: 1px solid;
+	  @include toggleDarkMode(border-color, systemGray3);
+
+	  cursor: pointer;
+  
+	  padding: $container-padding;
+	  width: 100%;
+    path {
+		  @include toggleDarkMode(fill, systemGray1);
+	  }
+  
+	  &:hover {
+		  @include toggleDarkMode(color, systemSidebarForegroundHover);
+		  @include toggleDarkMode(background, systemSidebarBackgroundHover);
+      path {
+			  @include toggleDarkMode(fill, systemGray6);
+		  }
+	  }
+	  &:focus {
+		  @include toggleDarkMode(color, systemSidebarForegroundFocus);
+		  @include toggleDarkMode(background, systemSidebarBackgroundFocus);
+      path {
+			  @include toggleDarkMode(fill, systemSidebarForegroundFocus);
+		  }
+	  }
+	  &:active,
+	  &.active,
+	  &[data-status="active"] {
+		  @include toggleDarkMode(color, systemSidebarForegroundActive);
+		  @include toggleDarkMode(background, systemSidebarBackgroundActive);
+      path {
+			  @include toggleDarkMode(fill, systemSidebarForegroundActive);
+		  }
+	  }
+    
+  }
+  
+  span.label {
+  
+	  padding-bottom: 0 !important;
+	  font-weight: 600;
+	  line-height: 1;
+  
+	  display: block;
+	  @each $style, $sizes in $body {
+		  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+	  }
+    
+  }
+
+	svg {
+		max-height: 10pt;
+		max-width: 10pt;
+    justify-content: flex-end;
+	}
+  
 }
 
 div.event-infobox {

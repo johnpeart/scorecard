@@ -30,6 +30,18 @@ buttonMore.addEventListener("click", function() {
 	goToPage(pageMore)
 }, false);
 
+var pageUpcomingShows = "upcoming-shows";
+var buttonMore = document.getElementById("button-upcoming-shows");
+buttonMore.addEventListener("click", function() {
+	goToPage(pageUpcomingShows)
+}, false);
+
+var pageAbout = "about";
+var buttonMore = document.getElementById("button-about");
+buttonMore.addEventListener("click", function() {
+	goToPage(pageAbout)
+}, false);
+
 // var fullscreenToggle = document.getElementById("toggle-fullscreen");
 // fullscreenToggle.addEventListener("click", openFullScreen, appWindow);
 
