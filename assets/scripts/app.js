@@ -12,8 +12,8 @@ buttonHome.addEventListener("click", function() {
 	goToPage(pageHome)
 }, false);
 
-var pageScorecard = "scorecard";
-var buttonScorecard = document.getElementById("button-scorecard");
+var pageScorecard = "scores";
+var buttonScorecard = document.getElementById("button-scores");
 buttonScorecard.addEventListener("click", function() {
 	goToPage(pageScorecard)
 }, false);
@@ -47,10 +47,13 @@ buttonMore.addEventListener("click", function() {
 
 function toggleSidebar() {
 
-	if (document.getElementById("app").dataset.sidebar == "show") {
-		document.getElementById("app").dataset.sidebar = "hide";
+  let app = document.getElementById("app")
+	if (app.dataset.sidebar == "show") {
+		app.dataset.sidebar = "hide";
+    // openFullscreen(app);
 	} else {
-		document.getElementById("app").dataset.sidebar = "show";
+		app.dataset.sidebar = "show";
+    // closeFullscreen(app);
 	}
 
 }
@@ -69,22 +72,22 @@ function goToPage(page) {
 /* View in fullscreen */
 function openFullscreen(elem) {
   if (elem.requestFullscreen) {
-	elem.requestFullscreen();
+	 elem.requestFullscreen();
   } else if (elem.webkitRequestFullscreen) { /* Safari */
-	elem.webkitRequestFullscreen();
+	 elem.webkitRequestFullscreen();
   } else if (elem.msRequestFullscreen) { /* IE11 */
-	elem.msRequestFullscreen();
+	 elem.msRequestFullscreen();
   }
 }
 
 /* Close fullscreen */
 function closeFullscreen(elem) {
   if (document.exitFullscreen) {
-	document.exitFullscreen();
+	 document.exitFullscreen();
   } else if (document.webkitExitFullscreen) { /* Safari */
-	document.webkitExitFullscreen();
+	 document.webkitExitFullscreen();
   } else if (document.msExitFullscreen) { /* IE11 */
-	document.msExitFullscreen();
+	 document.msExitFullscreen();
   }
 }
 

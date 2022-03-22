@@ -326,7 +326,7 @@ section#app[data-page='page-home'] {
 	section#page-home {
 		display: block;
 	}
-	section#page-scorecard {
+	section#page-scores {
 		display: none;
 	}
 	section#page-vote {
@@ -344,12 +344,12 @@ section#app[data-page='page-home'] {
 
 }
 
-section#app[data-page='page-scorecard'] {
+section#app[data-page='page-scores'] {
 
 	section#page-home {
 		display: none;
 	}
-	section#page-scorecard {
+	section#page-scores {
 		display: block;
 	}
 	section#page-vote {
@@ -372,7 +372,7 @@ section#app[data-page='page-vote'] {
 	section#page-home {
 		display: none;
 	}
-	section#page-scorecard {
+	section#page-scores {
 		display: none;
 	}
 	section#page-vote {
@@ -395,7 +395,7 @@ section#app[data-page='page-more'] {
 	section#page-home {
 		display: none;
 	}
-	section#page-scorecard {
+	section#page-scores {
 		display: none;
 	}
 	section#page-vote {
@@ -418,7 +418,7 @@ section#app[data-page='page-about'] {
 	section#page-home {
 		display: none;
 	}
-	section#page-scorecard {
+	section#page-scores {
 		display: none;
 	}
 	section#page-vote {
@@ -441,7 +441,7 @@ section#app[data-page='page-upcoming-shows'] {
 	section#page-home {
 		display: none;
 	}
-	section#page-scorecard {
+	section#page-scores {
 		display: none;
 	}
 	section#page-vote {
@@ -563,7 +563,7 @@ div.event-infobox {
 	margin: ($container-padding * 2) 0;
 	padding: $container-padding;
 
-	@include toggleDarkMode(background, systemGray6);
+	@include toggleDarkMode(background, systemGray5);
 	border-radius: 10pt;
 
 	h2:first-child {
@@ -572,5 +572,102 @@ div.event-infobox {
 
 	p:last-child {
 		padding-bottom: 0;
+	}
+}
+
+.event-infobox + h1.largeTitle {
+  padding-top: $container-padding;
+}
+
+div.country-scorecard {
+
+	margin: 0 0 $container-padding 0;
+	padding: $container-padding;
+
+	@include toggleDarkMode(background, systemGray5);
+	border-radius: 10pt;
+
+	h2:first-child {
+		padding-top: 0;
+	}
+
+	p:last-child {
+		padding-bottom: 0;
+	}
+  
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: 'position score' 'country score';
+  grid-gap: $container-padding;
+  
+  span.position { 
+    grid-area: position; 
+    align-self: flex-start;
+  }
+  span.country { 
+    grid-area: country; 
+    align-self: flex-end;
+  }
+  span.score { 
+    grid-area: score;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+}
+
+div.sort--scorecard {
+  display: grid;
+  width: 100%;
+  margin-bottom: $container-padding;
+  justify-items: flex-end;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+button.sort--button {
+
+	display: inline-block;
+  width: 100%;
+	cursor: pointer;
+
+	-webkit-appearance: none;
+	background: none;
+	
+  border-radius: 10px;
+  
+  &:first-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+  
+  &:last-of-type {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+	border: 2px solid;
+	@include toggleDarkMode(border-color, systemSidebarForegroundActive);
+	@include toggleDarkMode(color, systemSidebarForegroundActive);
+
+  @each $style, $sizes in $body {
+	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    padding: $container-padding !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+  &[data-status='active'] {
+		@include toggleDarkMode(color, systemSidebarBackgroundActive);
+		@include toggleDarkMode(background, systemSidebarForegroundActive);
+
+		path {
+			@include toggleDarkMode(fill, systemSidebarForegroundActive);
+		}
 	}
 }

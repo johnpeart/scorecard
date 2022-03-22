@@ -7,14 +7,19 @@
 
   	{% include skiplink.html %}
 
-    <section id="app" data-connection="false" data-sidebar="show" data-page="page-home" data-happeningnow="unknown">
+    <section id="app" data-connection="false" data-sidebar="show" data-page="page-home" data-happeningnow="false">
 
       {% include interface/sidebar.html %}
 
       <section id="app-panel">
 
         {% for page in site.pages %}
-          {{ page.content }}
+        
+          <!-- {{ page.title }} -->
+          <section id="page-{{ page.title | slugify }}" class="{{ page.class }} container">
+            {{ page.content }}
+          </section>
+          
         {% endfor %}
 
       </section>

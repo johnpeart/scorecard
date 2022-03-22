@@ -38,12 +38,15 @@ li {
         @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
     }
 
+    max-width: 60ch;
 }
 
 p.lead {
     @each $style, $sizes in $lead {
         @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
     }
+    
+    max-width: 60ch;
 }
 
 li {
