@@ -487,13 +487,13 @@ div.sort--scorecard {
   width: 100%;
   margin-bottom: $container-padding;
   justify-items: flex-end;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr;
+  @include toggleSizes(grid-template-rows, auto auto, auto, auto, auto, auto);
+  @include toggleSizes(grid-template-columns, 1fr, 1fr 1fr, 1fr 1fr, 1fr 1fr, 1fr 1fr);
 }
 
 button.sort--button {
 
-	display: inline-block;
+  @include toggleSizes(display, block, inline-block, inline-block, inline-block, inline-block);
   width: 100%;
 	cursor: pointer;
 
@@ -503,14 +503,22 @@ button.sort--button {
   border-radius: 10px;
   
   &:first-of-type {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: 0;
+    @include toggleSizes(border-top-right-radius, 10px, 0, 0, 0, 0);
+    @include toggleSizes(border-top-left-radius, 10px, 10px, 10px, 10px, 10px);
+    @include toggleSizes(border-bottom-right-radius, 0, 0, 0, 0, 0);
+    @include toggleSizes(border-bottom-left-radius, 0, 10px, 10px, 10px, 10px);
+    
+    @include toggleSizes(border-right, 2px, 0, 0, 0, 0);
+    @include toggleSizes(border-bottom, 0, 2px, 2px, 2px, 2px);
   }
   
   &:last-of-type {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    @include toggleSizes(border-top-right-radius, 0, 10px, 10px, 10px, 10px);
+    @include toggleSizes(border-top-left-radius, 0, 0, 0, 0, 0);
+    @include toggleSizes(border-bottom-left-radius, 10px, 0, 0, 0, 0);
+    @include toggleSizes(border-bottom-right-radius, 10px, 10px, 10px, 10px, 10px);
   }
   
 	border: 2px solid;
