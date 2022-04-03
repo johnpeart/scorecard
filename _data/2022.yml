@@ -1,0 +1,360 @@
+entries:
+- country: "Albania"
+  emoji: "🇦🇱"
+  artist: "Ronela Hajati"
+  song: "Sekret"
+  semifinal: 1
+  semifinal-runningorder: 1
+  final: false
+  final-runningorder: 0
+
+- country: "Armenia"
+  emoji: "🇦🇲"
+  artist: "Rosa Linn"
+  song: "Snap"
+  semifinal: 1
+  semifinal-runningorder: 17
+  final: false
+  final-runningorder: 0
+
+- country: "Australia"
+  emoji: "🇦🇺"
+  artist: "Sheldon Riley"
+  song: "Not The Same"
+  semifinal: 2
+  semifinal-runningorder: 8
+  final: false
+  final-runningorder: 0
+
+- country: "Austria"
+  emoji: "🇦🇹"
+  artist: "LUM!X feat. Pia Maria"
+  song: "Halo"
+  semifinal: 1
+  semifinal-runningorder: 13
+  final: false
+  final-runningorder: 0
+
+- country: "Azerbaijan"
+  emoji: "🇦🇿"
+  artist: "Nadir Rustamli"
+  song: "Fade To Black"
+  semifinal: 2
+  semifinal-runningorder: 4
+  final: false
+  final-runningorder: 0
+
+- country: "Belgium"
+  emoji: "🇧🇪"
+  artist: "Jérémie Makiese"
+  song: "Miss You"
+  semifinal: 2
+  semifinal-runningorder: 16
+  final: false
+  final-runningorder: 0
+
+- country: "Bulgaria"
+  emoji: "🇧🇬"
+  artist: "Intelligent Music Project"
+  song: "Intention"
+  semifinal: 1
+  semifinal-runningorder: 7
+  final: false
+  final-runningorder: 0
+
+- country: "Croatia"
+  emoji: "🇭🇷"
+  artist: "Mia Dimšić"
+  song: "Guilty Pleasure"
+  semifinal: 1
+  semifinal-runningorder: 11
+  final: false
+  final-runningorder: 0
+
+- country: "Cyprus"
+  emoji: "🇨🇾"
+  artist: "Andromache"
+  song: "Ela"
+  semifinal: 2
+  semifinal-runningorder: 9
+  final: false
+  final-runningorder: 0
+
+- country: "Czech Republic"
+  emoji: "🇨🇿"
+  artist: "We Are Domi"
+  song: "Lights Off"
+  semifinal: 2
+  semifinal-runningorder: 18
+  final: false
+  final-runningorder: 0
+
+- country: "Denmark"
+  emoji: "🇩🇰"
+  artist: "Reddi"
+  song: "The Show"
+  semifinal: 1
+  semifinal-runningorder: 12
+  final: false
+  final-runningorder: 0
+
+- country: "Estonia"
+  emoji: "🇪🇪"
+  artist: "Stefan"
+  song: "Hope"
+  semifinal: 2
+  semifinal-runningorder: 12
+  final: false
+  final-runningorder: 0
+
+- country: "Finland"
+  emoji: "🇫🇮"
+  artist: "The Rasmus"
+  song: "Jezebel"
+  semifinal: 2
+  semifinal-runningorder: 1
+  final: false
+  final-runningorder: 0
+
+- country: "France"
+  emoji: "🇫🇷"
+  artist: "Alvan & Ahez"
+  song: "Fulenn"
+  semifinal: 0
+  semifinal-runningorder: 0
+  final: true
+  final-runningorder: 0
+
+- country: "Georgia"
+  emoji: "🇬🇪"
+  artist: "Circus Mircus"
+  song: "Lock Me In"
+  semifinal: 2
+  semifinal-runningorder: 5
+  final: false
+  final-runningorder: 0
+
+- country: "Germany"
+  emoji: "🇩🇪"
+  artist: "Malik Harris"
+  song: "Rockstars"
+  semifinal: 0
+  semifinal-runningorder: 0
+  final: true
+  final-runningorder: 0
+
+- country: "Greece"
+  emoji: "🇬🇷"
+  artist: "Amanda Georgiadi"
+  song: "Tenfjord"
+  semifinal: 1
+  semifinal-runningorder: 15
+  final: false
+  final-runningorder: 0
+
+- country: "Iceland"
+  emoji: "🇮🇸"
+  artist: "Systur"
+  song: "Með Hækkandi Sól"
+  semifinal: 1
+  semifinal-runningorder: 14
+  final: false
+  final-runningorder: 0
+
+- country: "Ireland"
+  emoji: "🇮🇪"
+  artist: "Brooke"
+  song: "That's Rich"
+  semifinal: 2
+  semifinal-runningorder: 10
+  final: false
+  final-runningorder: 0
+
+- country: "Israel"
+  emoji: "🇮🇱"
+  artist: "Michael Ben David"
+  song: "I.M"
+  semifinal: 2
+  semifinal-runningorder: 2
+  final: false
+  final-runningorder: 0
+
+- country: "Italy"
+  emoji: "🇮🇹"
+  artist: "Mahmood & Blanco"
+  song: "Brividi"
+  semifinal: 0
+  semifinal-runningorder: 0
+  final: true
+  final-runningorder: 0
+
+- country: "Latvia"
+  emoji: "🇱🇻"
+  artist: "Citi Zēni"
+  song: "Eat Your Salad"
+  semifinal: 1
+  semifinal-runningorder: 2
+  final: false
+  final-runningorder: 0
+
+- country: "Lithuania"
+  emoji: "🇱🇹"
+  artist: "Monika Liu"
+  song: "Senitmentai"
+  semifinal: 1
+  semifinal-runningorder: 3
+  final: false
+  final-runningorder: 0
+
+- country: "Malta"
+  emoji: "🇲🇹"
+  artist: "Emma Muscat"
+  song: "I Am What I Am"
+  semifinal: 2
+  semifinal-runningorder: 6
+  final: false
+  final-runningorder: 0
+
+- country: "Moldova"
+  emoji: "🇲🇩"
+  artist: "Zdob şi Zdub & Fraţii Advahov"
+  song: "Trenulețul"
+  semifinal: 1
+  semifinal-runningorder: 9
+  final: false
+  final-runningorder: 0
+
+- country: "Montenegro"
+  emoji: "🇲🇪"
+  artist: "Vladana"
+  song: "Breathe"
+  semifinal: 2
+  semifinal-runningorder: 15
+  final: false
+  final-runningorder: 0
+
+- country: "Netherlands"
+  emoji: "🇳🇱"
+  artist: "S10"
+  song: "De Diepte"
+  semifinal: 1
+  semifinal-runningorder: 8
+  final: false
+  final-runningorder: 0
+
+- country: "North Macedonia"
+  emoji: "🇲🇰"
+  artist: "Andrea"
+  song: "Circles"
+  semifinal: 2
+  semifinal-runningorder: 11
+  final: false
+  final-runningorder: 0
+
+- country: "Norway"
+  emoji: "🇳🇴"
+  artist: "Subwoolfer"
+  song: "Give That Wolf A Banana"
+  semifinal: 1
+  semifinal-runningorder: 16
+  final: false
+  final-runningorder: 0
+
+- country: "Poland"
+  emoji: "🇵🇱"
+  artist: "Ochman"
+  song: "River"
+  semifinal: 2
+  semifinal-runningorder: 14
+  final: false
+  final-runningorder: 0
+
+- country: "Portugal"
+  emoji: "🇵🇹"
+  artist: "MARO"
+  song: "Saudade, Saudade"
+  semifinal: 1
+  semifinal-runningorder: 10
+  final: false
+  final-runningorder: 0
+
+- country: "Romania"
+  emoji: "🇷🇴"
+  artist: "WRS"
+  song: "Llámame"
+  semifinal: 2
+  semifinal-runningorder: 13
+  final: false
+  final-runningorder: 0
+
+- country: "San Marino"
+  emoji: "🇸🇲"
+  artist: "Achille Lauro"
+  song: "Stripper"
+  semifinal: 2
+  semifinal-runningorder: 7
+  final: false
+  final-runningorder: 0
+
+- country: "Serbia"
+  emoji: "🇷🇸"
+  artist: "Konstrakta"
+  song: "In Corpore Sano"
+  semifinal: 2
+  semifinal-runningorder: 3
+  final: false
+  final-runningorder: 0
+
+- country: "Slovenia"
+  emoji: "🇸🇮"
+  artist: "LPS"
+  song: "Disko"
+  semifinal: 1
+  semifinal-runningorder: 5
+  final: false
+  final-runningorder: 0
+
+- country: "Spain"
+  emoji: "🇪🇸"
+  artist: "Chanel"
+  song: "SloMo"
+  semifinal: 0
+  semifinal-runningorder: 0
+  final: true
+  final-runningorder: 0
+
+- country: "Sweden"
+  emoji: "🇸🇪"
+  artist: "Cornelia Jakobs"
+  song: "Hold Me Closer"
+  semifinal: 2
+  semifinal-runningorder: 17
+  final: false
+  final-runningorder: 0
+
+- country: "Switzerland"
+  emoji: "🇨🇭"
+  artist: "Marius Bear"
+  song: "Boys Do Cry"
+  semifinal: 1
+  semifinal-runningorder: 4
+  final: false
+  final-runningorder: 0
+
+- country: "Ukraine"
+  emoji: "🇺🇦"
+  artist: "Kalush Orchestra"
+  song: "Stefania"
+  semifinal: 1
+  semifinal-runningorder: 6
+  final: false
+  final-runningorder: 0
+
+- country: "United Kingdom"
+  emoji: "🇬🇧"
+  artist: "Sam Ryder"
+  song: "SPACE MAN"
+  semifinal: 0
+  semifinal-runningorder: 0
+  final: true
+  final-runningorder: 0

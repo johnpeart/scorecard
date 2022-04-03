@@ -4,7 +4,6 @@ title: "Scorecard"
 
 description: "A digital scorecard that you can use at home as you watch the Eurovision Song Contest."
 
-baseurl: "/scorecard" # the subpath of your site, e.g. /blog
 url: "http://localhost:4000"
 author: "John Peart"
 

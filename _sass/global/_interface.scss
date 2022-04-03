@@ -198,7 +198,7 @@ section#app-sidebar nav#sidebar-navigation {
 		@include toggleDarkMode(border-color, systemGray4);
 	}
 
-	button.menu-item--button {
+  a.menu-item--button {
 
 		display: grid;
 
@@ -321,144 +321,6 @@ section.scorecard {
 	min-height: 100vh;
 }
 
-section#app[data-page='page-home'] {
-
-	section#page-home {
-		display: block;
-	}
-	section#page-scores {
-		display: none;
-	}
-	section#page-vote {
-		display: none;
-	}
-	section#page-more {
-		display: none;
-	}
-	section#page-upcoming-shows {
-		display: none;
-	}
-	section#page-about {
-		display: none;
-	}
-
-}
-
-section#app[data-page='page-scores'] {
-
-	section#page-home {
-		display: none;
-	}
-	section#page-scores {
-		display: block;
-	}
-	section#page-vote {
-		display: none;
-	}
-	section#page-more {
-		display: none;
-	}
-	section#page-upcoming-shows {
-		display: none;
-	}
-	section#page-about {
-		display: none;
-	}
-
-}
-
-section#app[data-page='page-vote'] {
-
-	section#page-home {
-		display: none;
-	}
-	section#page-scores {
-		display: none;
-	}
-	section#page-vote {
-		display: block;
-	}
-	section#page-more {
-		display: none;
-	}
-	section#page-upcoming-shows {
-		display: none;
-	}
-	section#page-about {
-		display: none;
-	}
-
-}
-
-section#app[data-page='page-more'] {
-
-	section#page-home {
-		display: none;
-	}
-	section#page-scores {
-		display: none;
-	}
-	section#page-vote {
-		display: none;
-	}
-	section#page-more {
-		display: block;
-	}
-	section#page-upcoming-shows {
-		display: none;
-	}
-	section#page-about {
-		display: none;
-	}
-
-}
-
-section#app[data-page='page-about'] {
-
-	section#page-home {
-		display: none;
-	}
-	section#page-scores {
-		display: none;
-	}
-	section#page-vote {
-		display: none;
-	}
-	section#page-more {
-		display: none;
-	}
-	section#page-upcoming-shows {
-		display: none;
-	}
-	section#page-about {
-		display: block;
-	}
-
-}
-
-section#app[data-page='page-upcoming-shows'] {
-
-	section#page-home {
-		display: none;
-	}
-	section#page-scores {
-		display: none;
-	}
-	section#page-vote {
-		display: none;
-	}
-	section#page-more {
-		display: none;
-	}
-	section#page-upcoming-shows {
-		display: block;
-	}
-	section#page-about {
-		display: none;
-	}
-
-}
-
 ul.list {
 
 	display: grid;
@@ -471,23 +333,27 @@ ul.list {
   li.list-item {
 	  text-align: left;
     
-    &:first-of-type button {
+    &:first-of-type,
+    &:first-of-type a {
+      border-radius: 0;
       border-top-left-radius: 5pt;
       border-top-right-radius: 5pt;
     }
     
-    &:nth-of-type(n+2):nth-last-of-type(n+2) {
+    &:nth-of-type(n+2) {
       border-bottom: 0;
     }
     
-    &:last-of-type button {
+    &:last-of-type,
+    &:last-of-type a {
       border-top: 0;
+      border-radius: 0;
       border-bottom-left-radius: 5pt;
       border-bottom-right-radius: 5pt;
     }
   }
   
-  button.list-item--button {
+  a.list-item--button {
     
     display: grid;
     
