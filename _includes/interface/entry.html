@@ -1,0 +1,16 @@
+<div class="country-scorecard" data-runningorder="{{ entry.semifinal-runningorder | times: 1 }}" data-rank="">
+      
+  <span class="position">#{{ entry.semifinal-runningorder | times: 1 }}</span>
+  <span class="score">00</span>
+  
+  <div class="country-meta">
+    <span class="country">{{ entry.country }}</span>
+    <span class="artist-song">{{ entry.song }} by {{ entry.artist }}</span>
+  </div>
+  
+  <div class="voting">
+    <a class="button voting-open not-voted">Vote now</a>
+    <a class="button voting-open voted">You awarded XX points</a>
+  </div>
+  
+</div>

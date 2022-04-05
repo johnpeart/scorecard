@@ -86,7 +86,7 @@ section#app-sidebar {
 		padding: 0;
 	}
 	@include tablet {
-		padding: ($container-padding * 6) $container-padding;
+		padding: ($container-padding * 5) $container-padding;
 		grid-gap: $container-padding;
 	}
 
@@ -110,7 +110,7 @@ button#toggle-menu {
 
 	z-index: 9000;
 
-	top: $container-padding * 3;
+	top: $container-padding * 1.5;
 	left: $container-padding;
 	bottom: auto;
 	right: auto;
@@ -238,6 +238,7 @@ section#app-sidebar nav#sidebar-navigation {
 		&:hover {
 			@include toggleDarkMode(color, systemSidebarForegroundHover);
 			@include toggleDarkMode(background, systemSidebarBackgroundHover);
+      text-decoration: none;
 
 			path {
 				@include toggleDarkMode(fill, systemGray6);
@@ -246,6 +247,7 @@ section#app-sidebar nav#sidebar-navigation {
 		&:focus {
 			@include toggleDarkMode(color, systemSidebarForegroundFocus);
 			@include toggleDarkMode(background, systemSidebarBackgroundFocus);
+      text-decoration: none;
 
 			path {
 				@include toggleDarkMode(fill, systemSidebarForegroundFocus);
@@ -257,7 +259,8 @@ section#app-sidebar nav#sidebar-navigation {
 		&[data-status="active"] {
 			@include toggleDarkMode(color, systemSidebarForegroundActive);
 			@include toggleDarkMode(background, systemSidebarBackgroundActive);
-
+      text-decoration: none;
+      
 			path {
 				@include toggleDarkMode(fill, systemSidebarForegroundActive);
 			}
@@ -305,7 +308,8 @@ section#app-panel {
 }
 
 main.container,
-section.container {
+section.container,
+div.container {
 
 	display: grid;
 
@@ -445,7 +449,13 @@ div.event-infobox {
   padding-top: $container-padding;
 }
 
-div.country-scorecard {
+.country-scorecard {
+  
+  display: grid;
+  grid-template-columns: 10% 1fr auto;
+  grid-template-rows: 1fr 2fr auto;
+  grid-template-areas: 'position nowplaying score' 'meta meta score' 'voting voting voting';
+  grid-gap: $container-padding;
 
 	margin: 0 0 $container-padding 0;
 	padding: $container-padding;
@@ -461,34 +471,55 @@ div.country-scorecard {
 		padding-bottom: 0;
 	}
   
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
-  grid-template-areas: 'position score' 'country score';
-  grid-gap: $container-padding;
-  
   span.position { 
     grid-area: position; 
     align-self: flex-start;
-  }
-  span.country { 
-    grid-area: country; 
-    align-self: flex-end;
+    justify-self: flex-start;
   }
   span.score { 
     grid-area: score;
     align-self: flex-end;
     justify-self: flex-end;
   }
+  div.country-meta {
+    display: grid;
+    grid-area: meta; 
+    align-content: flex-end;
+    justify-items: flex-end;
+  }
+  span.country,
+  span.artist-song {
+    display: block;
+    width: 100%;
+  }
+  div.voting {
+    grid-area: voting;
+    text-align: center;
+  }
+  div.voting span {
+    display: block;
+    width: 100%;
+  }
 }
 
 div.sort--scorecard {
   display: grid;
-  width: 100%;
-  margin-bottom: $container-padding;
-  justify-items: flex-end;
-  @include toggleSizes(grid-template-rows, auto auto, auto, auto, auto, auto);
-  @include toggleSizes(grid-template-columns, 1fr, 1fr 1fr, 1fr 1fr, 1fr 1fr, 1fr 1fr);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  
+  grid-template-columns: 50% 50%;
+  padding-top: $container-padding;
+  padding-bottom: $container-padding;
+	@include toggleDarkMode(background, systemBackground);
+  @supports (backdrop-filter: blur(1px)){ 
+	  @include toggleDarkMode(background, systemBackgroundTransparent);
+    backdrop-filter: blur(10px);
+  }
+  @supports (-webkit-backdrop-filter: blur(10px)){ 
+	  @include toggleDarkMode(background, systemBackgroundTransparent);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 button.sort--button {
@@ -503,29 +534,28 @@ button.sort--button {
   border-radius: 10px;
   
   &:first-of-type {
-    @include toggleSizes(border-top-right-radius, 10px, 0, 0, 0, 0);
-    @include toggleSizes(border-top-left-radius, 10px, 10px, 10px, 10px, 10px);
-    @include toggleSizes(border-bottom-right-radius, 0, 0, 0, 0, 0);
-    @include toggleSizes(border-bottom-left-radius, 0, 10px, 10px, 10px, 10px);
-    
-    @include toggleSizes(border-right, 2px, 0, 0, 0, 0);
-    @include toggleSizes(border-bottom, 0, 2px, 2px, 2px, 2px);
+    border-top-right-radius: 0;
+    border-top-left-radius: 10px; 
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 10px;
   }
   
   &:last-of-type {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    @include toggleSizes(border-top-right-radius, 0, 10px, 10px, 10px, 10px);
-    @include toggleSizes(border-top-left-radius, 0, 0, 0, 0, 0);
-    @include toggleSizes(border-bottom-left-radius, 10px, 0, 0, 0, 0);
-    @include toggleSizes(border-bottom-right-radius, 10px, 10px, 10px, 10px, 10px);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 10px;
+    
+    border-left: 0;
   }
   
 	border: 2px solid;
 	@include toggleDarkMode(border-color, systemSidebarForegroundActive);
 	@include toggleDarkMode(color, systemSidebarForegroundActive);
 
-  @each $style, $sizes in $body {
+  @each $style, $sizes in $toggle {
 	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
     padding: $container-padding !important;
     margin: 0 !important;
@@ -540,6 +570,42 @@ button.sort--button {
 		@include toggleDarkMode(color, systemSidebarBackgroundActive);
 		@include toggleDarkMode(background, systemSidebarForegroundActive);
 
+		path {
+			@include toggleDarkMode(fill, systemSidebarForegroundActive);
+		}
+	}
+}
+
+.button {
+  @include toggleSizes(display, block, inline-block, inline-block, inline-block, inline-block);
+  width: 100%;
+  max-width: 500px;
+  
+	cursor: pointer;
+  
+	-webkit-appearance: none;
+	background: none;
+	
+  border-radius: 10px;
+	border: 2px solid;
+	@include toggleDarkMode(border-color, systemSidebarForegroundActive);
+	@include toggleDarkMode(color, systemSidebarForegroundActive);
+
+  @each $style, $sizes in $toggle {
+	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    padding: $container-padding !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+  &[data-status='active'] {
+		@include toggleDarkMode(color, systemSidebarBackgroundActive);
+		@include toggleDarkMode(background, systemSidebarForegroundActive);
+    text-decoration: none;
 		path {
 			@include toggleDarkMode(fill, systemSidebarForegroundActive);
 		}

@@ -105,3 +105,23 @@ h3 {
         @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
     }
 }
+
+span.country {
+  @extend h2;
+  padding: $container-padding/2 0;
+  line-height: 1;
+}
+
+span.position {
+  @extend h3;
+  padding: $container-padding/2 0 0;
+  line-height: 1;
+}
+
+span.score {
+    @each $style, $sizes in $largeTitle {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    }
+    padding: 0 !important;
+    line-height: 1 !important;
+}

@@ -52,6 +52,7 @@ $sup-font-feature-settings:			"ss02", "tnum", "liga", "zero", "kern", "frac";
 $colors-light: (
     "systemForeground": rgb(25,25,25),
     "systemBackground": rgb(250,250,250),
+    "systemBackgroundTransparent": rgba(250,250,250,0.7),
     "systemForegroundHover": rgb(250,250,250),
     "systemForegroundFocus": rgb(25,25,25),
     "systemForegroundActive": rgb(250,250,250),
@@ -89,6 +90,7 @@ $colors-dark: (
     "systemForegroundFocus": rgb(250,250,250),
     "systemForegroundActive": rgb(250,250,250),
     "systemBackground": rgb(25,25,25),
+    "systemBackgroundTransparent": rgba(25,25,25, 0.7),
 
     "systemSidebarForegroundHover": rgb(28,28,30),
     "systemSidebarForegroundFocus": rgb(28,28,30),
@@ -198,6 +200,58 @@ $lead: (
         "md": 0 0 16pt 0,
         "lg": 0 0 17pt 0,
         "xl": 0 0 19pt 0
+    ),
+    "font-weight":  (
+        "xs": normal,
+        "sm": normal,
+        "md": normal,
+        "lg": normal,
+        "xl": normal
+    ),
+    "font-style":  (
+        "xs": normal,
+        "sm": normal,
+        "md": normal,
+        "lg": normal,
+        "xl": normal
+    ),
+    "text-transform":  (
+        "xs": none,
+        "sm": none,
+        "md": none,
+        "lg": none,
+        "xl": none
+    ),
+    "text-align":  (
+        "xs": left,
+        "sm": left,
+        "md": left,
+        "lg": left,
+        "xl": left
+    ),
+);
+
+$toggle: (
+    "font-size": (
+        "xs": 9pt,
+        "sm": 9pt,
+        "md": 10pt,
+        "lg": 11pt,
+        "xl": 13pt
+    ),
+    "line-height": (
+        "xs": 7pt,
+        "sm": 8pt,
+        "md": 9pt,
+        "lg": 10pt,
+        "xl": 12pt
+    ),
+    "padding": (
+        "xs": 0 0 7pt 0,
+        "sm": 0 0 8pt 0,
+        "md": 0 0 9pt 0,
+        "lg": 0 0 10pt 0,
+        "xl": 0 0 12pt 0
     ),
     "font-weight":  (
         "xs": normal,

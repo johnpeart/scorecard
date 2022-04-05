@@ -1,0 +1,25 @@
+---
+---
+    
+
+<section id="page-scores" class="container">
+  
+  <h1 class="largeTitle">Semi-final 2</h1>
+
+  <p>The first semi-final of the 2022 Eurovision Song Contest is taking place on <strong>12 May 2022</strong>.</p>
+  
+  <p>During the live show, use the <strong>Vote now</strong> button to award up to 12 points to each entry after they've performed.</p>
+  
+  <section id="event--semi-final-two">
+    
+    {% include interface/sort-buttons.html %}
+    {% assign entries = site.data.2022 | sort: "semifinal-runningorder" %}
+    {% for entry in entries %}
+    {% if entry.semifinaltwo == true %}
+      {% include interface/entry.html %}
+    {% endif %}
+    {% endfor %}
+    
+  </section>
+  
+</section>

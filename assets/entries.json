@@ -1,0 +1,22 @@
+---
+---
+
+{
+  "2022" : {
+    {% for entry in site.data.2022 %}
+    "{{ entry.shortcode }}" : {
+      "country" : "{{ entry.country }}",
+      "shortcode" : "{{ entry.shortcode }}",
+      "emoji" : "{{ entry.emoji }}",
+      "artist" : "{{ entry.artist }}",
+      "song" : "{{ entry.song }}",
+      "semifinal" : {{ entry.semifinal }},
+      "semifinal-runningorder" : {{ entry.semifinal-runningorder }},
+      "semifinal-votes" : 0,
+      "final" : {{ entry.final }},
+      "final-runningorder" : {{ entry.final-runningorder }},
+      "final-votes" : 0
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  }
+}

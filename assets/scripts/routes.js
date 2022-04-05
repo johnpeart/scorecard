@@ -10,23 +10,29 @@ const routes = {
         description: "This is the home page",
         button: "button-home",
     },
-    scores: {
-        template: "/templates/scores.html",
-        title: "Scores",
+    home: {
+        template: "/templates/home.html",
+        title: "Home",
+        description: "This is the home page",
+        button: "button-home",
+    },
+    "semi-final-one": {
+        template: "/templates/semi-final-one.html",
+        title: "Semi-final 1",
         description: "This is the scores page",
-        button: "button-scores",
+        button: "button-semi-final-one",
     },
-    vote: {
-        template: "/templates/vote.html",
-        title: "Vote",
-        description: "This is the voting page",
-        button: "button-vote",
+    "semi-final-two": {
+        template: "/templates/semi-final-two.html",
+        title: "Semi-final 2",
+        description: "This is the scores page",
+        button: "button-semi-final-two",
     },
-    more: {
-        template: "/templates/more.html",
-        title: "More",
-        description: "This is the more menu page",
-        button: "button-more",
+    "grand-final": {
+        template: "/templates/grand-final.html",
+        title: "Grand final",
+        description: "This is the scores page",
+        button: "button-grand-final",
     },
     about: {
         template: "/templates/about.html",
@@ -75,50 +81,3 @@ const locationHandler = async () => {
 window.addEventListener("hashchange", locationHandler);
 // call the urlLocationHandler to load the page
 locationHandler();
-
-//////////////////////////////
-// Other UI related scripts //
-//////////////////////////////
-
-var appWindow = document.documentElement;
-
-var buttonSidebarToggle = document.getElementById("toggle-menu");
-buttonSidebarToggle.addEventListener("click", toggleSidebar);
-
-var fullscreenToggle = document.getElementById("toggle-fullscreen");
-fullscreenToggle.addEventListener("click", openFullScreen, appWindow);
-
-function toggleSidebar() {
-
-  let app = document.getElementById("app")
-	if (app.dataset.sidebar == "show") {
-		app.dataset.sidebar = "hide";
-    // openFullscreen(app);
-	} else {
-		app.dataset.sidebar = "show";
-    // closeFullscreen(app);
-	}
-
-}
-
-/* View in fullscreen */
-function openFullscreen(elem) {
-  if (elem.requestFullscreen) {
-	 elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-	 elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-	 elem.msRequestFullscreen();
-  }
-}
-
-/* Close fullscreen */
-function closeFullscreen(elem) {
-  if (document.exitFullscreen) {
-	 document.exitFullscreen();
-  } else if (document.webkitExitFullscreen) { /* Safari */
-	 document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) { /* IE11 */
-	 document.msExitFullscreen();
-  }
-}
