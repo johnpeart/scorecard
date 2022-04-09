@@ -5,9 +5,13 @@
   song: "Sekret"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 1
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 1
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Armenia"
   shortcode: "ARM"
@@ -16,9 +20,13 @@
   song: "Snap"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 17
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 17
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Australia"
   shortcode: "AUS"
@@ -27,9 +35,13 @@
   song: "Not The Same"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 8
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 8
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Austria"
   shortcode: "AUT"
@@ -38,9 +50,13 @@
   song: "Halo"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 13
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 13
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Azerbaijan"
   shortcode: "AZE"
@@ -49,9 +65,13 @@
   song: "Fade To Black"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 4
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 4
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Belgium"
   shortcode: "BEL"
@@ -60,9 +80,13 @@
   song: "Miss You"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 16
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 16
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Bulgaria"
   shortcode: "BUL"
@@ -71,9 +95,13 @@
   song: "Intention"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 7
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 7
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Croatia"
   shortcode: "CRO"
@@ -82,9 +110,13 @@
   song: "Guilty Pleasure"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 11
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 11
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Cyprus"
   shortcode: "CYP"
@@ -93,9 +125,13 @@
   song: "Ela"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 9
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 9
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Czech Republic"
   shortcode: "CZE"
@@ -104,9 +140,13 @@
   song: "Lights Off"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 18
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 18
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Denmark"
   shortcode: "DEN"
@@ -115,9 +155,13 @@
   song: "The Show"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 12
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 12
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Estonia"
   shortcode: "EST"
@@ -126,9 +170,13 @@
   song: "Hope"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 12
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 12
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Finland"
   shortcode: "FIN"
@@ -137,9 +185,13 @@
   song: "Jezebel"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 1
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 1
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "France"
   shortcode: "FRA"
@@ -148,9 +200,13 @@
   song: "Fulenn"
   semifinalone: false
   semifinaltwo: false
-  semifinal-runningorder: 0
   final: true
-  final-runningorder: 0
+  semifinalrunningorder: 0
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Georgia"
   shortcode: "GEO"
@@ -159,9 +215,13 @@
   song: "Lock Me In"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 5
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 5
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Germany"
   shortcode: "GER"
@@ -170,9 +230,13 @@
   song: "Rockstars"
   semifinalone: false
   semifinaltwo: false
-  semifinal-runningorder: 0
   final: true
-  final-runningorder: 0
+  semifinalrunningorder: 0
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Greece"
   shortcode: "GRE"
@@ -181,9 +245,13 @@
   song: "Tenfjord"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 15
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 15
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Iceland"
   shortcode: "ISL"
@@ -192,9 +260,13 @@
   song: "Með Hækkandi Sól"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 14
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 14
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Ireland"
   shortcode: "EIR"
@@ -203,9 +275,13 @@
   song: "That's Rich"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 10
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 10
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Israel"
   shortcode: "ISR"
@@ -214,9 +290,13 @@
   song: "I.M"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 2
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 2
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Italy"
   shortcode: "ITA"
@@ -225,9 +305,13 @@
   song: "Brividi"
   semifinalone: false
   semifinaltwo: false
-  semifinal-runningorder: 0
   final: true
-  final-runningorder: 0
+  semifinalrunningorder: 0
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Latvia"
   shortcode: "LAT"
@@ -236,9 +320,13 @@
   song: "Eat Your Salad"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 2
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 2
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Lithuania"
   shortcode: "LTU"
@@ -247,9 +335,13 @@
   song: "Senitmentai"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 3
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 3
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Malta"
   shortcode: "MLT"
@@ -258,9 +350,13 @@
   song: "I Am What I Am"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 6
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 6
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Moldova"
   shortcode: "MDA"
@@ -269,9 +365,13 @@
   song: "Trenulețul"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 9
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 9
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Montenegro"
   shortcode: "MNE"
@@ -280,9 +380,13 @@
   song: "Breathe"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 15
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 15
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Netherlands"
   shortcode: "NED"
@@ -291,9 +395,13 @@
   song: "De Diepte"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 8
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 8
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "North Macedonia"
   shortcode: "MKD"
@@ -302,9 +410,13 @@
   song: "Circles"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 11
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 11
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Norway"
   shortcode: "NOR"
@@ -313,9 +425,13 @@
   song: "Give That Wolf A Banana"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 16
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 16
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Poland"
   shortcode: "POL"
@@ -324,9 +440,13 @@
   song: "River"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 14
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 14
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Portugal"
   shortcode: "POR"
@@ -335,9 +455,13 @@
   song: "Saudade, Saudade"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 10
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 10
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Romania"
   shortcode: "ROM"
@@ -346,9 +470,13 @@
   song: "Llámame"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 13
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 13
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "San Marino"
   shortcode: "SMR"
@@ -357,9 +485,13 @@
   song: "Stripper"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 7
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 7
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Serbia"
   shortcode: "SRB"
@@ -368,9 +500,13 @@
   song: "In Corpore Sano"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 3
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 3
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Slovenia"
   shortcode: "SLO"
@@ -379,9 +515,13 @@
   song: "Disko"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 5
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 5
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Spain"
   shortcode: "ESP"
@@ -390,9 +530,13 @@
   song: "SloMo"
   semifinalone: false
   semifinaltwo: false
-  semifinal-runningorder: 0
   final: true
-  final-runningorder: 0
+  semifinalrunningorder: 0
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Sweden"
   shortcode: "SWE"
@@ -401,9 +545,13 @@
   song: "Hold Me Closer"
   semifinalone: false
   semifinaltwo: true
-  semifinal-runningorder: 17
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 17
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Switzerland"
   shortcode: "SUI"
@@ -412,9 +560,13 @@
   song: "Boys Do Cry"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 4
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 4
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "Ukraine"
   shortcode: "UKR"
@@ -423,9 +575,13 @@
   song: "Stefania"
   semifinalone: true
   semifinaltwo: false
-  semifinal-runningorder: 6
   final: false
-  final-runningorder: 0
+  semifinalrunningorder: 6
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"
 
 - country: "United Kingdom"
   shortcode: "GBR"
@@ -434,6 +590,10 @@
   song: "SPACE MAN"
   semifinalone: false
   semifinaltwo: false
-  semifinal-runningorder: 0
   final: true
-  final-runningorder: 0
+  semifinalrunningorder: 0
+  finalrunningorder: 0
+  semifinalvotes: 0
+  finalvotes: 0
+  semifinalvoting: "closed"
+  finalvoting: "closed"

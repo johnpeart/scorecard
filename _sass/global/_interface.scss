@@ -1,3 +1,15 @@
+.hidden-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hidden-phone {
+  @include phone {
+    display: none !important;
+  }
+}
+
 section#app {
 	position: 	relative;
 	display: 	grid;
@@ -37,42 +49,6 @@ section#app[data-sidebar='hide']  {
 		section#app-sidebar {
 			display: none;
 		}
-	}
-
-}
-
-section#app[data-happeningnow='false'] {
-
-	div#event-happeningnow {
-		display: none;
-	}
-
-	div#event-nothappeningnow {
-		display: block;
-	}
-
-}
-
-section#app[data-happeningnow='true'] {
-
-	div#event-happeningnow {
-		display: block;
-	}
-
-	div#event-nothappeningnow {
-		display: none;
-	}
-
-}
-
-section#app[data-happeningnow='unknown'] {
-
-	div#event-happeningnow {
-		display: none;
-	}
-
-	div#event-nothappeningnow {
-		display: none;
 	}
 
 }
@@ -452,10 +428,16 @@ div.event-infobox {
 .country-scorecard {
   
   display: grid;
-  grid-template-columns: 10% 1fr auto;
+  grid-template-columns: 1fr auto;
   grid-template-rows: 1fr 2fr auto;
-  grid-template-areas: 'position nowplaying score' 'meta meta score' 'voting voting voting';
+  grid-template-areas: 'position position' 'meta score' 'voting voting';
   grid-gap: $container-padding;
+  
+  &[data-runningorder="0"] {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 2fr auto;
+    grid-template-areas: 'meta score' 'voting voting';
+  }
 
 	margin: 0 0 $container-padding 0;
 	padding: $container-padding;
@@ -494,11 +476,40 @@ div.event-infobox {
   }
   div.voting {
     grid-area: voting;
-    text-align: center;
+    
+    padding-top: $container-padding;
+    margin-top: $container-padding;
+    
+    border-top: 2px solid;
+    @include toggleDarkMode(border-color, systemGray3);
   }
-  div.voting span {
-    display: block;
-    width: 100%;
+  
+  div.voting-buttons {
+    display: grid;
+    margin-top: $container-padding;
+    
+    @include phone {
+      grid-template-columns: auto auto auto auto auto;
+      grid-template-rows: auto auto;
+      grid-gap: $container-padding;
+    }
+    @include tablet {
+      grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+      grid-template-rows: auto;
+      grid-column-gap: $container-padding;
+    }
+  }
+  
+  &[data-voting="open"] {
+    div.voting-message {
+      display: none;
+    }
+  }
+  &[data-voting="closed"] {
+    div.voting-buttons,
+    span.score {
+      display: none; 
+    }
   }
 }
 
@@ -577,9 +588,7 @@ button.sort--button {
 }
 
 .button {
-  @include toggleSizes(display, block, inline-block, inline-block, inline-block, inline-block);
-  width: 100%;
-  max-width: 500px;
+  display: block;
   
 	cursor: pointer;
   

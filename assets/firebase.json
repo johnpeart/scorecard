@@ -1,0 +1,28 @@
+---
+---
+
+{
+  "2022" : {
+    {% for entry in site.data.entries %}
+    "{{ entry.shortcode }}" : {
+      "country" : "{{ entry.country }}",
+      "shortcode" : "{{ entry.shortcode }}",
+      "emoji" : "{{ entry.emoji }}",
+      "artist" : "{{ entry.artist }}",
+      "song" : "{{ entry.song }}",
+      "semifinalone" : {{ entry.semifinalone }},
+      "semifinaltwo" : {{ entry.semifinaltwo }},
+      "final" : {{ entry.final }},
+      "semifinalrunningorder" : {{ entry.semifinalrunningorder }},
+      "finalrunningorder" : {{ entry.finalrunningorder }},
+      "semifinalvotes" : {{ entry.semifinalvotes }},
+      "finalvotes" : {{ entry.finalvotes }},
+      "semifinalvoting" : "{{ entry.semifinalvoting }}",
+      "finalvoting" : "{{ entry.finalvoting }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  },
+  "Settings" : {
+    "currentevent" : false
+  }
+}

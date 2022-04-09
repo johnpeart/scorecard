@@ -38,13 +38,13 @@ const routes = {
         template: "/templates/about.html",
         title: "About this app",
         description: "This is the about page",
-        button: "button-more",
+        button: "button-about",
     },
     "upcoming-shows": {
         template: "/templates/upcoming-shows.html",
         title: "Upcoming shows",
         description: "This is the upcoming shows page",
-        button: "button-more",
+        button: "button-upcoming-shows",
     },
 };
 
@@ -79,5 +79,6 @@ const locationHandler = async () => {
 
 // create a function that watches the hash and calls the urlLocationHandler
 window.addEventListener("hashchange", locationHandler);
+
 // call the urlLocationHandler to load the page
 locationHandler();

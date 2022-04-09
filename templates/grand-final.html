@@ -11,8 +11,8 @@
   
   {% include interface/sort-buttons.html %}
   
-  <section id="event--grand-final">    
-    {% assign entries = site.data.2022 | sort: "final-runningorder" %}
+  <section id="event--grand-final">
+    {% assign entries = site.data.entries | sort: "finalrunningorder" %}
     {% for entry in entries %}
     {% if entry.final == true %}
       {% include interface/entry.html %}
