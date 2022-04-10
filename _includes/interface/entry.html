@@ -1,11 +1,7 @@
-<div class="country-scorecard" data-runningorder="{{ entry.semifinalrunningorder | times: 1 }}" data-rank="" data-voting="closed">
+<div class="country-scorecard" id="scorecard-{{ entry.shortcode }}" data-runningorder="" data-rank="" data-voting="unknown" data-votes="?">
       
-  {% if page.url contains "semi-final" %}
-  <span class="position">#{{ entry.semifinalrunningorder | times: 1 }}</span>
-  {% elsif page.url contains "grand-final" and entry.finalrunningorder != 0 %}
-  <span class="position">#{{ entry.finalrunningorder | times: 1 }}</span>
-  {% endif %}
-  <span class="score">??</span>
+  <span id="scorecard-{{ entry.shortcode }}-position" class="position">⋯</span>
+  <span id="scorecard-{{ entry.shortcode }}-score" class="score">⋯</span>
   
   <div class="country-meta">
     <span class="country">{{ entry.country }} {{ entry.emoji }} </span>
@@ -17,16 +13,16 @@
       <p>This act hasn't performed yet. Voting opens during each act's performance.</p>
     </div>
     <div class="voting-buttons">
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 1)">1</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 2)">2</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 3)">3</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 4)">4</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 5)">5</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 6)">6</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 7)">7</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 8)">8</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 10)">10</button>
-      <button id="vote-{{ entry.shortcode }}" class="button voting-button" onclick="vote('{{ entry.shortcode }}', 12)">12</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-1pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 1)">1</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-2pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 2)">2</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-3pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 3)">3</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-4pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 4)">4</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-5pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 5)">5</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-6pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 6)">6</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-7pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 7)">7</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-8pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 8)">8</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-10pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 10)">10</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-12pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 12)">12</button>
     </div>
   </div>
   

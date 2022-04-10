@@ -9,7 +9,7 @@
 
   	{% include skiplink.html %}
 
-    <section id="app" data-connection="false" data-sidebar="show" data-currentevent="false" data-layout="running-order">
+    <section id="app" data-connection="false" data-sidebar="show" data-currentevent="false" data-layout="running-order" data-message="hide">
 
       {% include interface/sidebar.html %}
 
@@ -18,15 +18,28 @@
        
 
       </section>
+      
+      <section id="app-message">
+        
+        <h1 id="app-message--title" class="message-title">This is a message title</h1>
+        
+        <p id="app-message--body">
+        This is some information to display as part of a message.
+        </p>
+        
+        <div id="app-message--buttons" class="alert-buttons">
+          <button class="button alert-cancel" onclick="closeMessage()">Close</button>
+        </div>
+        
+      </section>
 
     </section>
     
-    <script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/routes.js' }}" preload></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js" preload></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js" preload></script>
     <script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/app.js' }}" preload></script>
-    
-    <script type="module">
-      {% include firebase.js %}
-    </script>
 
   </body>
 

@@ -94,6 +94,16 @@ h1.largeTitle {
     }
 }
 
+h1.message-title {
+  
+    @each $style, $sizes in $title3 {
+        @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    }
+    
+    font-weight: bold !important;
+    padding: 0 0 $container-padding / 2 !important;
+}
+
 h2 {
     @each $style, $sizes in $title2 {
         @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));

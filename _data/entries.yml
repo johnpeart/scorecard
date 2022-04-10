@@ -10,8 +10,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Armenia"
   shortcode: "ARM"
@@ -25,8 +25,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Australia"
   shortcode: "AUS"
@@ -40,8 +40,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Austria"
   shortcode: "AUT"
@@ -55,8 +55,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Azerbaijan"
   shortcode: "AZE"
@@ -70,8 +70,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Belgium"
   shortcode: "BEL"
@@ -85,8 +85,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Bulgaria"
   shortcode: "BUL"
@@ -100,8 +100,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Croatia"
   shortcode: "CRO"
@@ -115,8 +115,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Cyprus"
   shortcode: "CYP"
@@ -130,8 +130,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Czech Republic"
   shortcode: "CZE"
@@ -145,8 +145,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Denmark"
   shortcode: "DEN"
@@ -160,8 +160,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Estonia"
   shortcode: "EST"
@@ -175,8 +175,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Finland"
   shortcode: "FIN"
@@ -190,8 +190,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "France"
   shortcode: "FRA"
@@ -205,8 +205,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Georgia"
   shortcode: "GEO"
@@ -220,8 +220,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Germany"
   shortcode: "GER"
@@ -235,8 +235,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Greece"
   shortcode: "GRE"
@@ -250,8 +250,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Iceland"
   shortcode: "ISL"
@@ -265,8 +265,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Ireland"
   shortcode: "EIR"
@@ -280,8 +280,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Israel"
   shortcode: "ISR"
@@ -295,8 +295,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Italy"
   shortcode: "ITA"
@@ -310,8 +310,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Latvia"
   shortcode: "LAT"
@@ -325,8 +325,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Lithuania"
   shortcode: "LTU"
@@ -340,8 +340,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Malta"
   shortcode: "MLT"
@@ -355,8 +355,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Moldova"
   shortcode: "MDA"
@@ -370,8 +370,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Montenegro"
   shortcode: "MNE"
@@ -385,8 +385,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Netherlands"
   shortcode: "NED"
@@ -400,8 +400,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "North Macedonia"
   shortcode: "MKD"
@@ -415,8 +415,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Norway"
   shortcode: "NOR"
@@ -430,8 +430,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Poland"
   shortcode: "POL"
@@ -445,8 +445,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Portugal"
   shortcode: "POR"
@@ -460,8 +460,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Romania"
   shortcode: "ROM"
@@ -475,8 +475,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "San Marino"
   shortcode: "SMR"
@@ -490,8 +490,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Serbia"
   shortcode: "SRB"
@@ -505,8 +505,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Slovenia"
   shortcode: "SLO"
@@ -520,8 +520,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Spain"
   shortcode: "ESP"
@@ -535,8 +535,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Sweden"
   shortcode: "SWE"
@@ -550,8 +550,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Switzerland"
   shortcode: "SUI"
@@ -565,8 +565,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "Ukraine"
   shortcode: "UKR"
@@ -580,8 +580,8 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false
 
 - country: "United Kingdom"
   shortcode: "GBR"
@@ -595,5 +595,5 @@
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
-  semifinalvoting: "closed"
-  finalvoting: "closed"
+  semifinalvoting: false
+  finalvoting: false

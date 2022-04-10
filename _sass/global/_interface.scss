@@ -283,6 +283,58 @@ section#app-panel {
 
 }
 
+section#app-message {
+  position: fixed;
+  z-index: 999999;
+  
+  @include sm-up {
+    max-width: 500px;
+  }
+  @include lg-up{
+    max-width: 700px;
+  }
+  
+  top: $container-padding;
+  left: $container-padding;
+  right: $container-padding;
+  padding: $container-padding;
+  margin: 0 auto;
+  
+  border-radius: 10px;
+  @include phone {
+    box-shadow: 0px 0px 10px rgba(25,25,25, 0.3);
+  }
+  @include tablet {
+    box-shadow: 0px 0px 30px rgba(25,25,25, 0.3);
+  }
+	@include toggleDarkMode(background, systemBackground);
+  @supports (backdrop-filter: blur(1px)){ 
+	  @include toggleDarkMode(background, systemBackgroundTransparent);
+    backdrop-filter: blur(20px);
+  }
+  @supports (-webkit-backdrop-filter: blur(10px)){ 
+	  @include toggleDarkMode(background, systemBackgroundTransparent);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+}
+
+section#app[data-message='hide'] section#app-message {
+  display: none;
+}
+
+section#app[data-message='show'] section#app-message {
+  display: block;
+}
+
+.alert-buttons {
+  display: grid;
+  
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
+  grid-gap: $container-padding;
+}
+
 main.container,
 section.container,
 div.container {
@@ -430,7 +482,7 @@ div.event-infobox {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr 2fr auto;
-  grid-template-areas: 'position position' 'meta score' 'voting voting';
+  grid-template-areas: 'position score' 'meta score' 'voting voting';
   grid-gap: $container-padding;
   
   &[data-runningorder="0"] {
@@ -488,25 +540,46 @@ div.event-infobox {
     display: grid;
     margin-top: $container-padding;
     
-    @include phone {
+    @include md-down {
       grid-template-columns: auto auto auto auto auto;
       grid-template-rows: auto auto;
-      grid-gap: $container-padding;
+      grid-gap: $container-padding / 2;
     }
-    @include tablet {
+    @include lg-up {
       grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
       grid-template-rows: auto;
-      grid-column-gap: $container-padding;
+      grid-gap: $container-padding;
     }
   }
   
-  &[data-voting="open"] {
+  &[data-voting="true"] {
     div.voting-message {
       display: none;
     }
   }
-  &[data-voting="closed"] {
-    div.voting-buttons,
+  &[data-voting="false"] {
+    div.voting-buttons {
+      display: none; 
+    }
+  }
+  &[data-voting="unknown"] {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: 'position position' 'meta score';
+    div.voting {
+      display: none; 
+    }
+  }
+  &[data-runningorder="0"] {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'meta score';
+    div.voting,
+    span.position {
+      display: none; 
+    }
+  }
+  &[data-votes="0"] {
     span.score {
       display: none; 
     }
@@ -619,4 +692,9 @@ button.sort--button {
 			@include toggleDarkMode(fill, systemSidebarForegroundActive);
 		}
 	}
+}
+
+.button.alert-action,
+.button.alert-cancel {
+  width: 100%;
 }
