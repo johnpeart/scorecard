@@ -31,7 +31,7 @@
     
       {% include interface/sort-buttons.html %}
       
-      {% assign entries = site.data.entries | sort: "country" %}
+      {% assign entries = site.data.entries | sort: "semifinalrunningorder" %}
       {% for entry in entries %}
         {% include interface/entry.html %}
       {% endfor %}

@@ -35,12 +35,14 @@ function openMessage(title, body) {
   let messageTitle = document.getElementById("app-message--title");
   let messageBody = document.getElementById("app-message--body");
   
-  messageTitle.innerText = title;
-  messageBody.innerText = body;
-  
-  if (app.dataset.message != 'false') {
+  if (title == "") {
+      setDataAttribute(app, "message", "false")
+  } else {
     
-  setDataAttribute(app, "message", "true")
+    messageTitle.innerText = title;
+    messageBody.innerText = body;
+    setDataAttribute(app, "message", "true")
+     
   }
 }
 
@@ -134,8 +136,7 @@ function checkNotificationData() {
   notificationData.on('value', (snapshot) => {
 
       let app = document.getElementById("app")
-      app.dataset.message = "true";
-
+      
       // Check to see notification contents
       var messageTitle = snapshot.val().title;
       var messageBody = snapshot.val().body;

@@ -621,7 +621,7 @@ div#voting-buttons {
   
 }
 
-.country-scorecard {
+article.country-scorecard {
   
   display: grid;
   grid-template-columns: 1fr auto;
@@ -685,6 +685,18 @@ div#voting-buttons {
       display: none; 
     }
   }
+}
+
+section#app[data-currentevent="sf1"] article.country-scorecard[data-semifinalone="false"] {
+  display: none !important;
+}
+
+section#app[data-currentevent="sf2"] article.country-scorecard[data-semifinaltwo="false"] {
+  display: none !important;
+}
+
+section#app[data-currentevent="final"] article.country-scorecard[data-final="false"] {
+  display: none !important;
 }
 
 div.sort--scorecard {
