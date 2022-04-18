@@ -24,13 +24,11 @@
   </section>
   
   <section id="voting-open">
+  
+    <h1 class="largeTitle">Scores</h1>
     
     <section id="live-scores">
-  
-      <h1 class="largeTitle">Scores</h1>
-    
-      {% include interface/sort-buttons.html %}
-      
+          
       {% assign entries = site.data.entries | sort: "semifinalrunningorder" %}
       {% for entry in entries %}
         {% include interface/entry.html %}

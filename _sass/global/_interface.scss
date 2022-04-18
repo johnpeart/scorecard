@@ -386,13 +386,46 @@ div.container {
 
 }
 
-section#app[data-fullscreen='true'] section.container#page-scores {
-    @include toggleSizes(max-width, 100vw, 100vw, 600px, 100%, 100%);
-    margin: $container-padding !important;
+section#app section.container#page-scores section#live-scores {
+  display: grid;
+  grid-gap: 0 $container-padding;
 }
 
-section.scorecard {
-	min-height: 100vh;
+section#app[data-fullscreen='true'] section.container#page-scores {    min-height: 100vh;
+  @include tablet() {
+    max-width:  100% !important;
+    padding: $container-padding * 4 !important;
+    margin: 0;
+    display: grid;
+    align-content: center;
+  }
+  
+  h1.largeTitle {
+    @include tablet() {
+      display: none;
+    }
+  }
+  section#live-scores {
+    @include tablet() {    
+      @include toggleSizes(grid-template-columns, 100%, 100%, 100%, 1fr 1fr, 1fr 1fr 1fr 1fr);
+    }
+  }
+  
+}
+section#app[data-fullscreen='false'] section.container#page-scores {
+  @include tablet() {
+    max-width:  100% !important;
+    padding: $container-padding * 4 !important;
+  
+    h1.largeTitle {
+        display: none;
+    }
+  }
+} 
+section#app[data-fullscreen='false'] section.container#page-scores section#live-scores {
+  @include tablet() {    
+    @include toggleSizes(grid-template-columns, 100%, 100%, 100%, 1fr 1fr, 1fr 1fr);
+  }  
 }
 
 ul.list {
@@ -585,10 +618,57 @@ div#voting-buttons {
   }
   
   padding: $container-padding;
+  margin-bottom: $container-padding;
   border-radius: 10pt;
   
   @include toggleDarkMode(background, systemGray5);
   
+}
+
+div#voting-voted {
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 'header' 'score';
+
+	margin: 0 0 $container-padding 0;
+  
+  header.score--header,
+  section.score--content {
+    padding: $container-padding;
+    text-align: center;
+  }
+  header.score--header {
+    @include toggleDarkMode(background, systemGreen);
+    @include toggleDarkMode(color, systemWhite);  
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
+  } 
+  section.score--content {
+    @include toggleDarkMode(background, systemGray5);  
+    border-bottom-right-radius: 10pt;
+    border-bottom-left-radius: 10pt;
+    span {font-weight: 900;}
+  } 
+  
+}
+  
+  
+section#app[data-voted="false"] div#voting-voted {
+  display: none !important;
+} 
+
+section#app[data-voted="true"] div#voting-voted {
+  display: grid;
+}
+
+section#app[data-voted="false"] div#voting-buttons {
+  display: grid;
+}
+
+section#app[data-voted="true"] div#voting-buttons {
+  display: none !important;
 }
 
 .country-info {
@@ -624,67 +704,35 @@ div#voting-buttons {
 article.country-scorecard {
   
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 1fr 2fr auto;
-  grid-template-areas: 'position score' 'meta score' 'voting voting';
-  grid-gap: $container-padding;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 'header' 'score';
   
   &[data-runningorder="0"] {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 2fr auto;
-    grid-template-areas: 'meta score' 'voting voting';
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'header';
   }
 
 	margin: 0 0 $container-padding 0;
-	padding: $container-padding;
-
-	@include toggleDarkMode(background, systemGray5);
-	border-radius: 10pt;
-
-	h2:first-child {
-		padding-top: 0;
-	}
-
-	p:last-child {
-		padding-bottom: 0;
-	}
   
-  span.position { 
-    grid-area: position; 
-    align-self: flex-start;
-    justify-self: flex-start;
+  header.score--header,
+  section.score--content {
+    padding: $container-padding;
+    text-align: center;
   }
-  span.score { 
-    grid-area: score;
-    align-self: flex-end;
-    justify-self: flex-end;
-  }
-  div.country-meta {
-    display: grid;
-    grid-area: meta; 
-    align-content: flex-end;
-    justify-items: flex-end;
-  }
-  span.country,
-  span.artist-song {
-    display: block;
-    width: 100%;
-  }
-
-  &[data-runningorder="0"] {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto;
-    grid-template-areas: 'meta score';
-    div.voting,
-    span.position {
-      display: none; 
-    }
-  }
-  &[data-votes="0"] {
-    span.score {
-      display: none; 
-    }
-  }
+  header.score--header {
+    @include toggleDarkMode(background, systemGray4);
+    // @include toggleDarkMode(color, systemWhite);  
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
+  } 
+  section.score--content {
+    @include toggleDarkMode(background, systemGray5);  
+    border-bottom-right-radius: 10pt;
+    border-bottom-left-radius: 10pt;
+    span {font-weight: 900;}
+  } 
 }
 
 section#app[data-currentevent="sf1"] article.country-scorecard[data-semifinalone="false"] {

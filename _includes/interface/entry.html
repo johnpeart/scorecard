@@ -6,13 +6,12 @@
   data-rank="" 
   data-votes="?" 
   data-voters="?">
-      
-  <span id="scorecard-{{ entry.shortcode }}-position" class="position">⋯</span>
-  <span id="scorecard-{{ entry.shortcode }}-score" class="score">⋯</span>
-  
-  <div class="country-meta">
-    <span class="country">{{ entry.country }} {{ entry.emoji }} </span>
-    <span class="artist-song">{{ entry.song }} by {{ entry.artist }}</span>
-  </div>
+
+  <header class="score--header">
+    <span class="country">{{ entry.country }}</span>
+  </header>
+  <section class="score--content">
+    <span id="scorecard-{{ entry.shortcode }}-score" class="score">⋯</span>
+  </section>
   
 </article>

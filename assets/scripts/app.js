@@ -16,11 +16,11 @@ function toggleSidebar() {
 	if (app.dataset.sidebar == "show") {
 		app.dataset.sidebar = "hide";
     app.dataset.fullscreen = "true";
-    openFullscreen(app);
+    // openFullscreen(app);
 	} else {
 		app.dataset.sidebar = "show";
     app.dataset.fullscreen = "false";
-    closeFullscreen(app);
+    // closeFullscreen(app);
 	}
 
 }
@@ -166,9 +166,19 @@ function checkNowPerforming() {
       let nowPlayingCountry = document.getElementById("now-performing--country");
       let nowPlayingArtistSong = document.getElementById("now-performing--artist-song");
       
+      let votedCountry = app.dataset.votedcountry;
+      let currentCountry = app.dataset.nowperforming;
+      if (votedCountry == currentCountry) {
+        setDataAttribute(app, "voted", true);
+      } else {
+        setDataAttribute(app, "voted", false);
+      }
+      
+      // Check current event in firebase
+      var currentevent = app.dataset.currentevet;
       // Check current song in firebase
       var currentsong = snapshot.val().currentsong;
-      app.dataset.currentsong = currentsong;
+      app.dataset.nowperforming = currentsong;
       
       let currentSong = database.ref('/2022/' + currentsong);
       
@@ -181,13 +191,13 @@ function checkNowPerforming() {
           var song = snapshot.val().song;
           var emoji = snapshot.val().emoji;
           
-          // Get the artist and song
+          // Set the artist and song
           setDataAttribute(app, "nowperforming", shortcode);
           setDataAttribute(app, "artist", artist);
           setDataAttribute(app, "song", song);
           displayElementData(song + " by " + artist, nowPlayingArtistSong);
           
-          // Get the country and emoji
+          // Set the country and emoji
           setDataAttribute(app, "country", country);
           setDataAttribute(app, "emoji", emoji);displayElementData(country + " " + emoji, nowPlayingCountry);
           
@@ -217,6 +227,7 @@ function countryDataListener(entries, toggle) {
         
         var countryName = snapshot.val().country;
         var countryShortcode = snapshot.val().shortcode;
+        var countryEmoji = snapshot.val().emoji;
   
         // Check to see which events the country is part of
         var isSemiFinalOne = snapshot.val().semifinalone;
@@ -250,9 +261,12 @@ function countryDataListener(entries, toggle) {
           
           var points = averagePoints(finalVotes, finalVoters);
         }
-          
-		    displayElementData(points, entryVotes);
-		    displayElementData("#" + entryScorecard.dataset.runningorder, entryPosition);
+        if (points > 0) {
+		      displayElementData(points, entryVotes);
+        } else {
+          displayElementData(countryEmoji, entryVotes);
+        }
+		    // displayElementData("#" + entryScorecard.dataset.runningorder, entryPosition);
         
 		  })
     } else {
@@ -281,7 +295,12 @@ function averagePoints(votes, voters) {
 function vote(vote) {
   
   let app = document.getElementById("app");
+  let votingButtons = document.getElementById("voting-buttons");
+  let votingVoted = document.getElementById("voting-voted");
+  let votedHeader = document.getElementById("voted--points-to-country");
+  let votedContent = document.getElementById("voted--points");
   let currentevent = app.dataset.currentevent;
+  let currentcountry = app.dataset.nowperforming;
   let shortcode = app.dataset.nowperforming;
   
 	// Get the current score for the country
@@ -303,6 +322,11 @@ function vote(vote) {
 				  data['finalvotes'] = currentVotes + points;
 				  data['finalvoters'] = currentVoters + 1;
         }
+        displayElementData(app.dataset.country, votedHeader);
+        displayElementData(points, votedContent);
+        setDataAttribute(app, "votedpoints", points);
+        setDataAttribute(app, "votedcountry", currentcountry);
+        setDataAttribute(app, "voted", true);
 			}
 			return data;
 		},
@@ -429,6 +453,17 @@ const locationHandler = async () => {
         .setAttribute("content", route.description);
     
     if (location == "vote") {
+      let app = document.getElementById("app");
+      let votedHeader = document.getElementById("voted--points-to-country");
+      let votedContent = document.getElementById("voted--points");
+      let votedCountry = app.dataset.votedcountry;
+      let votedPoints = app.dataset.votedpoints;
+      let currentCountry = app.dataset.nowperforming;
+      if (votedCountry == currentCountry) {
+        setDataAttribute(app, "voted", true);
+        displayElementData(app.dataset.country, votedHeader);
+        displayElementData(votedPoints, votedContent);
+      }
       checkCurrentEvent();
       // Attach listener for current page
       checkNowPerforming();
