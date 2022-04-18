@@ -15,20 +15,22 @@ function toggleSidebar() {
   let app = document.getElementById("app")
 	if (app.dataset.sidebar == "show") {
 		app.dataset.sidebar = "hide";
-    // openFullscreen(app);
+    app.dataset.fullscreen = "true";
+    openFullscreen(app);
 	} else {
 		app.dataset.sidebar = "show";
-    // closeFullscreen(app);
+    app.dataset.fullscreen = "false";
+    closeFullscreen(app);
 	}
 
 }
 
 function closeMessage() {
   let app = document.getElementById("app")
-  app.dataset.message = "hide";
+  app.dataset.message = "false";
 }
 
-function openMessage(title, body, show) {
+function openMessage(title, body) {
   let app = document.getElementById("app")
   let messageTitle = document.getElementById("app-message--title");
   let messageBody = document.getElementById("app-message--body");
@@ -36,8 +38,9 @@ function openMessage(title, body, show) {
   messageTitle.innerText = title;
   messageBody.innerText = body;
   
-  if (show != false) {
-    app.dataset.message = "show";
+  if (app.dataset.message != 'false') {
+    
+  setDataAttribute(app, "message", "true")
   }
 }
 
@@ -61,6 +64,17 @@ function closeFullscreen(elem) {
   } else if (document.msExitFullscreen) { /* IE11 */
 	 document.msExitFullscreen();
   }
+}
+
+
+
+
+function displayElementData(from, to) {
+	to.innerText = from;
+}
+
+function setDataAttribute(el, attr, value) {
+	el.setAttribute('data-' + attr, value);
 }
 
 
@@ -93,26 +107,100 @@ const settingsData = database.ref("/Settings")
 const notificationData = database.ref("/Notification")
 
 const allEntries = [{% for entry in site.data.entries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
-const semiFinalOneEntries = [{% for entry in site.data.entries %}{% if entry.semifinalone == true %}"{{ entry.shortcode }}",{% endif %}{% endfor %}]
-const semiFinalTwoEntries = [{% for entry in site.data.entries %}{% if entry.semifinaltwo == true %}"{{ entry.shortcode }}",{% endif %}{% endfor %}]
-const grandFinalEntries = [{% for entry in site.data.entries %}{% if entry.final == true %}"{{ entry.shortcode }}",{% endif %}{% endfor %}]
+
+function setCurrentEvent(event) {
+  settingsData.update({
+    currentevent: event
+  });
+}
+
+function setNowPlaying(shortcode) {
+  settingsData.update({
+    currentsong: shortcode
+  });
+}
+
+function setNotificationContent() {
+  let title = document.getElementById("input--message-title").value;
+  let body = document.getElementById("input--message-body").value;
+  
+  notificationData.update({
+    title: title,
+    body: body
+  });
+}
 
 function checkNotificationData() {
   notificationData.on('value', (snapshot) => {
 
+      let app = document.getElementById("app")
+      app.dataset.message = "true";
+
       // Check to see notification contents
-      var messageShow = snapshot.val().show;
       var messageTitle = snapshot.val().title;
       var messageBody = snapshot.val().body;
       
-      openMessage(messageTitle, messageBody, messageShow);
+      openMessage(messageTitle, messageBody);
       
   });
 }
 
+function checkCurrentEvent() {
+  settingsData.get().then((snapshot) => {
+    if (snapshot.exists()) {
+      // Check current event in firebase
+      var currentevent = snapshot.val().currentevent;
+      app.dataset.currentevent = currentevent;
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+}
 
+function checkNowPerforming() {
+  settingsData.on('value', (snapshot) => {
+      let app = document.getElementById("app");      
+      let nowPlayingCountry = document.getElementById("now-performing--country");
+      let nowPlayingArtistSong = document.getElementById("now-performing--artist-song");
+      
+      // Check current song in firebase
+      var currentsong = snapshot.val().currentsong;
+      app.dataset.currentsong = currentsong;
+      
+      let currentSong = database.ref('/2022/' + currentsong);
+      
+      currentSong.get().then((snapshot) => {
+        if (snapshot.exists()) {
+          
+          var country = snapshot.val().country;
+          var shortcode = snapshot.val().shortcode;
+          var artist = snapshot.val().artist;
+          var song = snapshot.val().song;
+          var emoji = snapshot.val().emoji;
+          
+          // Get the artist and song
+          setDataAttribute(app, "nowperforming", shortcode);
+          setDataAttribute(app, "artist", artist);
+          setDataAttribute(app, "song", song);
+          displayElementData(song + " by " + artist, nowPlayingArtistSong);
+          
+          // Get the country and emoji
+          setDataAttribute(app, "country", country);
+          setDataAttribute(app, "emoji", emoji);displayElementData(country + " " + emoji, nowPlayingCountry);
+          
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+      
+  });
+}
 
-function countryDataListener(event, entries, toggle) {
+function countryDataListener(entries, toggle) {
   
 	for (i = 0; i < entries.length; i++) {
     
@@ -135,7 +223,9 @@ function countryDataListener(event, entries, toggle) {
         var isFinal = snapshot.val().final;
         
 			  var semiFinalVotes = snapshot.val().semifinalvotes;
+			  var semiFinalVoters = snapshot.val().semifinalvoters;
 			  var finalVotes = snapshot.val().finalvotes;
+			  var finalVoters = snapshot.val().finalvoters;
         
 			  var semiFinalRunningOrder = snapshot.val().semifinalrunningorder;
 			  var finalRunningOrder = snapshot.val().finalrunningorder;
@@ -145,21 +235,23 @@ function countryDataListener(event, entries, toggle) {
         
         var entryScorecard = document.getElementById('scorecard-' + countryShortcode);
         
-        if (event == "semifinal") {
+        if (isSemiFinalOne == true || isSemiFinalTwo == true) {
           entryScorecard.dataset.runningorder = semiFinalRunningOrder;
-          entryScorecard.dataset.voting = semiFinalVoting;
           entryScorecard.dataset.votes = semiFinalVotes;
+          entryScorecard.dataset.voters = semiFinalVoters;
+          
+          var points = averagePoints(semiFinalVotes, semiFinalVoters);
+          
         } else {
           entryScorecard.dataset.runningorder = finalRunningOrder;
-          entryScorecard.dataset.voting = finalVoting;
           entryScorecard.dataset.votes = finalVotes;
+          entryScorecard.dataset.voters = finalVoters;
+          
+          var points = averagePoints(finalVotes, finalVoters);
         }
           
-		    displayElementData(entryScorecard.dataset.votes, entryVotes);
+		    displayElementData(points, entryVotes);
 		    displayElementData("#" + entryScorecard.dataset.runningorder, entryPosition);
-        
-        
-        // console.log(countryName, countryShortcode, isSemiFinalOne, isSemiFinalTwo, isFinal, semiFinalVotes, finalVotes, semiFinalVoting, finalVoting);
         
 		  })
     } else {
@@ -170,8 +262,61 @@ function countryDataListener(event, entries, toggle) {
 
 }
 
-function displayElementData(from, to) {
-	to.innerText = from;
+function averagePoints(votes, voters) {
+  var avg = votes / voters;
+  var avg = Math.round(avg);
+  
+  if (avg == 11) {
+    avg = 12;
+  } else if (avg == 9) {
+    avg = 10;
+  }
+  
+  return avg;
+}
+
+// When this call is triggered, it will update the score for the country,
+// in a given event or create it if it doesn't exist
+function vote(vote) {
+  
+  let app = document.getElementById("app");
+  let currentevent = app.dataset.currentevent;
+  let shortcode = app.dataset.nowperforming;
+  
+	// Get the current score for the country
+	let entryData = database.ref('/2022/' + shortcode);
+	let points = parseInt(vote);
+
+	entryData.transaction(
+		function(data) {
+			if (data) {
+        if (currentevent == "sf1" || currentevent == "sf2") {
+				  var currentVotes = data.semifinalvotes;
+				  var currentVoters = data.semifinalvoters;
+				  data['semifinalvotes'] = currentVotes + points;
+				  data['semifinalvoters'] = currentVoters + 1;
+        }
+        if (currentevent == "final") {
+				  var currentVotes = data.finalvotes;
+				  var currentVoters = data.finalvoters;
+				  data['finalvotes'] = currentVotes + points;
+				  data['finalvoters'] = currentVoters + 1;
+        }
+			}
+			return data;
+		},
+		function(error, committed, snapshot) {
+			if (error) {
+				console.log('Transaction failed abnormally!', error);
+				alert("You can't vote whilst the event isn't taking place.")
+			} else if (!committed) {
+				console.log('Your vote wasn’t counted. Sorry.');
+			} else {
+				console.log('You gave ' + points + ' points to ' + shortcode);
+			}
+		}
+	);
+  
 }
 
 
@@ -206,23 +351,23 @@ const routes = {
         description: "This is the home page",
         button: "button-home",
     },
-    "semi-final-one": {
-        template: "/templates/semi-final-one.html",
-        title: "Semi-final 1",
-        description: "This is the scores page",
-        button: "button-semi-final-one",
+    vote: {
+        template: "/templates/vote.html",
+        title: "Home",
+        description: "Vote during the live show",
+        button: "button-vote",
     },
-    "semi-final-two": {
-        template: "/templates/semi-final-two.html",
-        title: "Semi-final 2",
-        description: "This is the scores page",
-        button: "button-semi-final-two",
+    scores: {
+        template: "/templates/scores.html",
+        title: "Home",
+        description: "See the scoreboard",
+        button: "button-scores",
     },
-    "grand-final": {
-        template: "/templates/grand-final.html",
-        title: "Grand final",
-        description: "This is the scores page",
-        button: "button-grand-final",
+    more: {
+        template: "/templates/more.html",
+        title: "Home",
+        description: "More information about this web app",
+        button: "button-more",
     },
     about: {
         template: "/templates/about.html",
@@ -235,6 +380,18 @@ const routes = {
         title: "Upcoming shows",
         description: "This is the upcoming shows page",
         button: "button-upcoming-shows",
+    },
+    "all-entries": {
+        template: "/templates/all-entries.html",
+        title: "All entries",
+        description: "This page shows all the entries to this year's contest",
+        button: "button-all-entries",
+    },
+    "admin": {
+        template: "/templates/admin.html",
+        title: "All entries",
+        description: "This page shows an administration interface",
+        button: "button-admin",
     },
 };
 
@@ -270,17 +427,21 @@ const locationHandler = async () => {
         .querySelector('meta[name="description"]')
         .setAttribute("content", route.description);
     
-    // Reset the country listener
-    countryDataListener(allEntries, "stop");
-    
-    // Attach listener for current page
-    if (location == "semi-final-one") {
-      countryDataListener("semifinal", semiFinalOneEntries, "start");
-    } else if (location == "semi-final-two") {
-      countryDataListener("semifinal", semiFinalTwoEntries, "start");
-    } else if (location == "grand-final") {
-      countryDataListener("final", grandFinalEntries, "start");
+    if (location == "vote") {
+      checkCurrentEvent();
+      // Attach listener for current page
+      checkNowPerforming();
     }
+    
+    if (location == "scores") {
+      checkCurrentEvent();
+      // Attach listener for current page
+      countryDataListener(allEntries, "start");
+    } else {
+      // Reset the country listener
+      countryDataListener(allEntries, "stop");
+    }
+    
 };
 
 // create a function that watches the hash and calls the urlLocationHandler

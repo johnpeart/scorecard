@@ -1,0 +1,38 @@
+---
+---
+<!-- {{ page.title }} -->
+<section id="page-{{ page.title | slugify }}" class="{{ page.class }} container">
+  <h1 class="largeTitle">Admin</h1>
+  
+  <h2>Current event</h2>
+  <div class="admin--current-event two-column">
+    <button class="button" onclick="setCurrentEvent('false')">None</button>
+    <button class="button" onclick="setCurrentEvent('sf1')">Semi-final 1</button>
+    <button class="button" onclick="setCurrentEvent('sf2')">Semi-final 2</button>
+    <button class="button" onclick="setCurrentEvent('final')">Grand final</button>
+  </div>
+  
+  <h2>Now playing</h2>
+  <div class="admin--now-playing two-column">
+  {% assign entries = site.data.entries %}
+  {% for entry in entries %}
+  <button class="button" onclick="setNowPlaying('{{ entry.shortcode }}')">{{ entry.emoji }} {{ entry.country }}</button>
+  {% endfor %}
+  </div>
+  
+  <h2>Messages</h2>
+  <div class="admin--messages one-column">
+    <input id="input--message-title" type="text" placeholder="Notification title">
+    <textarea id="input--message-body" placeholder="Notification message" rows="5"></textarea>
+    <button onclick="setNotificationContent()" class="button">Send</button>
+  </div>
+  <div class="admin--messages one-column">
+    <button class="button">Clear message</button>
+  </div>
+  
+  <h2>Reset everything</h2>
+  <div class="admin--reset one-column">
+    <button class="button">Reset all data</button>
+  </div>
+  
+</section>

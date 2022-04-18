@@ -16,7 +16,9 @@
       "semifinalrunningorder" : {{ entry.semifinalrunningorder }},
       "finalrunningorder" : {{ entry.finalrunningorder }},
       "semifinalvotes" : {{ entry.semifinalvotes }},
+      "semifinalvoters" : 0,
       "finalvotes" : {{ entry.finalvotes }},
+      "finalvoters" : 0,
       "semifinalvoting" : {{ entry.semifinalvoting }},
       "finalvoting" : {{ entry.finalvoting }}
     }{% unless forloop.last %},{% endunless %}

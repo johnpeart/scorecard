@@ -1,0 +1,43 @@
+---
+---
+
+<section id="page-scores" class="container">
+  
+  <section id="voting-unknown">
+  
+    <h1 class="largeTitle">Loading...</h1>
+    
+  </section>
+  
+  <section id="voting-closed">
+    
+    <h1 class="largeTitle">Voting is closed</h1>
+    
+    <p>During a live show, voting buttons will appear on the <a href="#vote">Vote</a> tab.</p>
+    
+    <p>You can award up to 12 points to each act.</p>
+    
+    <p><strong>Voting takes place during each performance.</strong> Voting for each entry opens when each act starts performing and closes when they complete their performance. Don't miss an act or you won't be able to vote for them.</p>
+      
+    <p>You can see an average of the points awarded to each entry on this tab. The winner of this year's Scorecard home vote is the entry with the highest average points.</p>
+    
+  </section>
+  
+  <section id="voting-open">
+    
+    <section id="live-scores">
+  
+      <h1 class="largeTitle">Scores</h1>
+    
+      {% include interface/sort-buttons.html %}
+      
+      {% assign entries = site.data.entries | sort: "country" %}
+      {% for entry in entries %}
+        {% include interface/entry.html %}
+      {% endfor %}
+      
+    </section>
+    
+  </section>
+  
+</section>

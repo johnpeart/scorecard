@@ -1,0 +1,46 @@
+---
+---
+
+{% assign event = "final" %}    
+
+<section id="page-all-entries" class="container">
+  
+  <h1 class="largeTitle">All entries</h1>
+
+  <p>Every act that has entered this year's Eurovision Song Contest.</p>
+  
+  <section>
+    {% assign entries = site.data.entries | sort: "country" %}
+    {% for entry in entries %}
+      
+    <article class="country-info" id="scorecard-{{ entry.shortcode }}">
+      
+      <div class="country-meta">
+        <h1 class="country">{{ entry.country }}</h1>
+        
+        {% if entry.semifinalone == true and entry.final == false %}{% assign shows = "Semi Final 1" %}{% endif %}
+        {% if entry.semifinaltwo == true and entry.final == false %}{% assign shows = "Semi Final 2" %}{% endif %}
+        {% if entry.semifinalone == true and entry.final == true %}{% assign shows = "Semi Final 1<br>Final" %}{% endif %}
+        {% if entry.semifinaltwo == true and entry.final == true %}{% assign shows = "Semi Final 2<br>Final" %}{% endif %}
+        {% if entry.semifinalone == false and entry.semifinaltwo == false and entry.final == true %}{% assign shows = "Final" %}{% endif %}
+        
+        <aside class="two-column">
+          <p class="meta-title">Hashtag</p>
+          <p class="meta-info">#{{ entry.shortcode }}</p>
+          <p class="meta-title">Emoji</p>
+          <p class="meta-info">{{ entry.emoji }}</p>
+          <p class="meta-title">Artist</p>
+          <p class="meta-info">{{ entry.artist }}</p>
+          <p class="meta-title">Song title</p>
+          <p class="meta-info">{{ entry.song }}</p>
+          <p class="meta-title">Shows</p>
+          <p class="meta-info">{{ shows }}</p>
+        </aside>
+      </div>
+      
+    </article>
+      
+    {% endfor %}
+  </section>
+  
+</section>

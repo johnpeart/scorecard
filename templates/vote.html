@@ -1,0 +1,53 @@
+---
+---  
+
+<section id="page-vote" class="container">
+  
+  <section id="voting-unknown">
+  
+    <h1 class="largeTitle">Loading...</h1>
+    
+  </section>
+  
+  <section id="voting-closed">
+  
+    <h1 class="largeTitle">Voting is closed</h1>
+    
+    <p>During a live show, voting buttons will appear on this tab.</p>
+    
+    <p>You can award up to 12 points to each act.</p>
+    
+    <p><strong>Voting takes place during each performance.</strong> Voting for each entry opens when each act starts performing and closes when they complete their performance. Don't miss an act or you won't be able to vote for them.</p>
+      
+    <p>You can see an average of the points awarded to each entry on the <a href="#scores">Scores</a> tab. The winner of this year's Scorecard home vote is the entry with the highest average points.</p>
+    
+  </section>
+  
+  <section id="voting-open">
+    
+    <h1 class="largeTitle">Vote</h1>
+    
+    <div id="now-playing" data-artist="unknown" data-song="unknown" data-emoji="">
+      <p id="now-performing">Performing now</p>
+      <h2 id="now-performing--country">⋯</h2>
+      <p id="now-performing--artist-song">⋯</p>
+    </div>
+    
+    <div id="voting-buttons">
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-1pts" class="button voting-button vote-1-points" onclick="vote(1)">1</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-2pts" class="button voting-button vote-2-points" onclick="vote(2)">2</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-3pts" class="button voting-button vote-3-points" onclick="vote(3)">3</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-4pts" class="button voting-button vote-4-points" onclick="vote(4)">4</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-5pts" class="button voting-button vote-5-points" onclick="vote(5)">5</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-6pts" class="button voting-button vote-6-points" onclick="vote(6)">6</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-7pts" class="button voting-button vote-7-points" onclick="vote(7)">7</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-8pts" class="button voting-button vote-8-points" onclick="vote(8)">8</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-10pts" class="button voting-button vote-10-points" onclick="vote(10)">10</button>
+      <button id="vote-{{ event }}-{{ entry.shortcode }}-12pts" class="button voting-button vote-12-points" onclick="vote(12)">12</button>
+    </div>
+    
+  </div>
+    
+  </section>
+  
+</section>

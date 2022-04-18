@@ -1,4 +1,4 @@
-<div class="country-scorecard" id="scorecard-{{ entry.shortcode }}" data-runningorder="" data-rank="" data-voting="unknown" data-votes="?">
+<div class="country-scorecard" id="scorecard-{{ entry.shortcode }}" data-runningorder="" data-rank="" data-votes="?" data-voters="?">
       
   <span id="scorecard-{{ entry.shortcode }}-position" class="position">⋯</span>
   <span id="scorecard-{{ entry.shortcode }}-score" class="score">⋯</span>
@@ -7,12 +7,12 @@
     <span class="country">{{ entry.country }} {{ entry.emoji }} </span>
     <span class="artist-song">{{ entry.song }} by {{ entry.artist }}</span>
   </div>
-  
+  <!-- 
   <div class="voting">
     <div class="voting-message">
       <p>This act hasn't performed yet. Voting opens during each act's performance.</p>
     </div>
-    <div class="voting-buttons">
+    <div id="vote-{{ event }}-{{ entry.shortcode }}" class="voting-buttons">
       <button id="vote-{{ event }}-{{ entry.shortcode }}-1pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 1)">1</button>
       <button id="vote-{{ event }}-{{ entry.shortcode }}-2pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 2)">2</button>
       <button id="vote-{{ event }}-{{ entry.shortcode }}-3pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 3)">3</button>
@@ -24,6 +24,9 @@
       <button id="vote-{{ event }}-{{ entry.shortcode }}-10pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 10)">10</button>
       <button id="vote-{{ event }}-{{ entry.shortcode }}-12pts" class="button voting-button" onclick="vote('{{ entry.shortcode }}', '{{ event }}', 12)">12</button>
     </div>
-  </div>
+    <div id="vote-{{ event }}-{{ entry.shortcode }}-cast" class="voting-voted">
+      <button class="button button-fullwidth">You awarded ?? points</button>
+    </div>
+  </div> -->
   
 </div>
