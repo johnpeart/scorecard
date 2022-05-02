@@ -13,6 +13,9 @@
   </div>
   
   <h2>Now playing</h2>
+  <div class="admin--now-playing one-column">
+  <button class="button" onclick="setNowPlaying('unknown')">Nothing playing</button>  
+  </div>
   <div class="admin--now-playing two-column">
   {% assign entries = site.data.entries %}
   {% for entry in entries %}
@@ -32,7 +35,7 @@
   
   <h2>Reset everything</h2>
   <div class="admin--reset one-column">
-    <button class="button">Reset all data</button>
+    <button onclick="resetEventData()" class="button">Reset all data</button>
   </div>
   
 </section>

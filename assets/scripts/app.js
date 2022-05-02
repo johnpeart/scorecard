@@ -117,9 +117,16 @@ function setCurrentEvent(event) {
 }
 
 function setNowPlaying(shortcode) {
-  settingsData.update({
-    currentsong: shortcode
-  });
+  if (shortcode == "unknown") {
+    settingsData.update({
+      currentsong: "false"
+    });  
+  } else {
+    settingsData.update({
+      currentsong: shortcode
+    });
+  }
+  
 }
 
 function setNotificationContent() {
@@ -168,7 +175,7 @@ function checkNowPerforming() {
       
       let votedCountry = app.dataset.votedcountry;
       let currentCountry = app.dataset.nowperforming;
-      if (votedCountry == currentCountry) {
+      if (currentCountry != "false" && votedCountry == currentCountry) {
         setDataAttribute(app, "voted", true);
       } else {
         setDataAttribute(app, "voted", false);
@@ -252,14 +259,16 @@ function countryDataListener(entries, toggle) {
           entryScorecard.dataset.votes = semiFinalVotes;
           entryScorecard.dataset.voters = semiFinalVoters;
           
-          var points = averagePoints(semiFinalVotes, semiFinalVoters);
+          // var points = averagePoints(semiFinalVotes, semiFinalVoters);
+          var points = semiFinalVotes;
           
         } else {
           entryScorecard.dataset.runningorder = finalRunningOrder;
           entryScorecard.dataset.votes = finalVotes;
           entryScorecard.dataset.voters = finalVoters;
           
-          var points = averagePoints(finalVotes, finalVoters);
+          // var points = averagePoints(finalVotes, finalVoters);
+          var points = finalVotes;
         }
         if (points > 0) {
 		      displayElementData(points, entryVotes);
@@ -344,7 +353,74 @@ function vote(vote) {
   
 }
 
+function resetEventData() {
 
+	var reset = confirm("Do you want to reset all data for this event?");
+	if (reset == false) {
+	  console.info("💿 Data reset cancelled.")
+	} else {
+
+	  // Add each country and set everything to zero
+	  for (i = 0; i < allEntries.length; i++) {
+
+		  var shortcode = allEntries[i];
+    	let entryData = database.ref('/2022/' + shortcode);
+    	let notificationData = database.ref('/Notification/');
+    	let settingsData = database.ref('/Settings/');
+
+      entryData.transaction(
+		    function(data) {
+          if (data) {
+	          data['semifinalvotes'] = 0;
+	          data['semifinalvoters'] = 0;
+	          data['finalvotes'] = 0;
+	          data['finalvoters'] = 0;
+		      }
+			    return data;
+		    },
+		    function(error, committed, snapshot) {
+			    if (error) {
+				    console.log('Transaction failed abnormally!', error);
+			    } else if (!committed) {
+				    console.log('Country not reset.');
+			    } else {
+				    console.log('Country reset');
+			    }
+		    }
+	    );
+
+	  };
+    
+	  // Also add or reset event settings
+	  notificationData.set({
+		  body: "",
+      show: false,
+      title: ""
+	  }, (error) => {
+		  if (error) {
+		    console.warn("⚙️ Notification failed to reset");
+		  } else {
+		    console.info("💿 Notification reset");
+		  }
+	  });    
+
+	  // Also add or reset event settings
+	  settingsData.set({
+		  currentevent: "false",
+      currentsong: "false"
+	  }, (error) => {
+		  if (error) {
+		    console.warn("⚙️ Settings failed to reset");
+		  } else {
+		    console.info("💿 Settings reset");
+		  }
+	  });
+
+	}
+
+
+
+}
 
 
 
@@ -459,7 +535,9 @@ const locationHandler = async () => {
       let votedCountry = app.dataset.votedcountry;
       let votedPoints = app.dataset.votedpoints;
       let currentCountry = app.dataset.nowperforming;
-      if (votedCountry == currentCountry) {
+      if (votedCountry == "false") {
+        setDataAttribute(app, "voted", false);
+      } else if (votedCountry == currentCountry) {
         setDataAttribute(app, "voted", true);
         displayElementData(app.dataset.country, votedHeader);
         displayElementData(votedPoints, votedContent);
