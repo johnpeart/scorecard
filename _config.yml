@@ -4,8 +4,8 @@ title: "Scorecard"
 
 description: "A digital scorecard that you can use at home as you watch the Eurovision Song Contest."
 
-baseurl: "/scorecard" # the subpath of your site, e.g. /blog
-url: "https://www.johnpe.art"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://scorecard.johnpe.art"
 author: "John Peart"
 
 # Images and assets
