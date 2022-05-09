@@ -21,6 +21,7 @@ favicon: "/favicon.ico"
 favicon-svg: "/assets/images/site/favicon.svg"
 favicon-pinned-svg: "/assets/images/site/favicon-pinned-svg.svg"
 favicon-large-png: "/assets/images/site/favicon-large-png.png"
+launch-image: "/assets/images/site/launch.png"
 
 # Social settings
 twitter-url: "https://twitter.com/johnpeart" # Twitter handle i.e. joebloggs
