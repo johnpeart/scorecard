@@ -13,7 +13,8 @@
 	<!-- In *some* situations this description is used as a part of the snippet shown in the search results. -->
 	<meta name="description" content="{{ site.description | strip_html }}" />
 	<meta name="author" content="{{ site.author }}" />
-	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
 	<!-- Control the behavior of search engine crawling and indexing -->
 	<meta name="robots" content="index,follow"><!-- All Search Engines -->
 	<meta name="googlebot" content="index,follow"><!-- Google Specific -->
@@ -42,7 +43,8 @@
 	
 	<!-- Favicons -->
 	<!-- Place favicon.ico in the root directory - no tag necessary -->
-	<meta name="theme-color" content="{{ site.theme-colour }}">
+	<meta name="theme-color" content="rgb(250,250,250)">
+  <meta name="theme-color" content="rgb(25,25,25)" media="(prefers-color-scheme: dark)">
 	<link rel="icon" href="{{ site.url | append: site.baseurl | append: site.favicon-svg }}">
 	<link rel="mask-icon" href="{{ site.url | append: site.baseurl | append: site.favicon-pinned-svg }}" color="{{ site.theme-colour }}">
 	<link rel="apple-touch-icon" href="{{ site.url | append: site.baseurl | append: site.favicon-large-png }}">

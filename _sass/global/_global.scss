@@ -16,6 +16,7 @@ html {
 	box-sizing: border-box;
 	-ms-overflow-style: scrollbar;
 	min-height: 100vh;
+  max-height: 100vh;
 
 	font-family: 			$font-family;
 	font-kerning: 			auto;
@@ -35,4 +36,7 @@ html {
 body {
 	@include toggleDarkMode(background, systemGray6);
 	@include toggleDarkMode(color, systemForeground);
+	min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 }

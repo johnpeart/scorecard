@@ -14,14 +14,18 @@ section#app {
 	position: 	relative;
 	display: 	grid;
 
+  width: 100vw;
+  
 	@include phone {
+	  height: calc(100vh - 54pt);
 		grid-template-columns: 100vw;
 		grid-template-rows: auto 54pt;
 		grid-template-areas: 'content' 'sidebar';
 	}
-
-	width: 100vw;
-	height: 100vh;
+  
+  @include tablet {
+    height: 100vh;
+  }
 
 	padding: 0;
 	margin: 0;
