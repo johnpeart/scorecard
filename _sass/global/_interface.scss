@@ -353,7 +353,7 @@ section#app-message {
     max-width: 700px;
   }
   
-  top: $container-padding;
+  top: -100vh;
   left: $container-padding;
   right: $container-padding;
   padding: $container-padding;
@@ -379,11 +379,15 @@ section#app-message {
 }
 
 section#app[data-message='false'] section#app-message {
-  display: none;
+  top: -100vh;
+  @include animation(slideout);
+  animation-duration: 1s;
 }
 
 section#app[data-message='true'] section#app-message {
-  display: block;
+  top: $container-padding;
+  @include animation(slidein);
+  animation-duration: 1s;
 }
 
 .alert-buttons {

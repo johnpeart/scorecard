@@ -28,3 +28,21 @@
 	-webkit-animation: 	$variables;
 	-o-animation: 		$variables;
 }
+
+@include keyframes(slidein) {
+  from {
+    top: -100vh;
+  }
+  to {
+    top: $container-padding;
+  }
+}
+
+@include keyframes(slideout) {
+  from {
+    top: $container-padding;
+  }
+  to {
+    top: -100vh;
+  }
+}
