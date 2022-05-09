@@ -342,7 +342,7 @@ function vote(vote) {
 		function(error, committed, snapshot) {
 			if (error) {
 				console.log('Transaction failed abnormally!', error);
-				alert("You can't vote whilst the event isn't taking place.")
+				console.log('Your vote wasn’t counted. Sorry.');
 			} else if (!committed) {
 				console.log('Your vote wasn’t counted. Sorry.');
 			} else {

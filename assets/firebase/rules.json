@@ -1,213 +1,95 @@
 ---
 ---
 {
-	  "rules": {
-		".read": false,
-		".write": false,
-		// Semi final one data
-		"semi-final-one": {
-			".read": false,
-			".write": false,
-			".validate": true,
-			"settings": {
+	"rules": {
+        ".read": false,
+        ".write": false,
+    
+        "2022": {
+            {% for entry in site.data.entries %}
+            "{{ entry.shortcode }}": {
 				".read": true,
-				".write": false,
+				".write": true,
 				".validate": true,
-				// Allowed fields
-				"calculation": { ".validate": "newData.isString()" },
-				"layout": { ".validate": "newData.isString()" },
-				"messagesposition": { ".validate": "newData.isString()" },
-				"messagesshow": { ".validate": "newData.isBoolean()" },
-				"messagetitle": { ".validate": "newData.isString()" },
-				"messagebody": { ".validate": "newData.isString()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				// Disallow all other fields
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			"null": {
-				".read": true,
-				".write": false,
-				".validate": true,
-			},
-			{% for entry in site.data.entries %}{% if entry.semi-final-one == "TRUE" %}{{ entry.code | append: '"' | prepend: '"' }}: {
-				".read": true,
-				".write": false,
-				".validate": true,
-				"count": { ".validate": "newData.isNumber()" },
-				"vote": { ".validate": "newData.isNumber()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				// Disallow all other fields
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			{% endif %}{% endfor %} // Disallow other fields
-			"$other": {
-				".read": false,
-				".write": false,
-				".validate": false,
-			},
-		},
+                "country" : { ".validate": "newData.isString()" },
+                "shortcode" : { ".validate": "newData.isString()" },
+                "emoji" : { ".validate": "newData.isString()" },
+                "artist" : { ".validate": "newData.isString()" },
+                "song" : { ".validate": "newData.isString()" },
+                "semifinalone" : { ".validate": "newData.isBoolean()" },
+                "semifinaltwo" : { ".validate": "newData.isBoolean()" },
+                "final" : { ".validate": "newData.isBoolean()" },
+                "semifinalrunningorder" : { ".validate": "newData.isNumber()" },
+                "finalrunningorder" : { ".validate": "newData.isNumber()" },
+                "semifinalvotes" : { ".write": true, ".validate": "newData.isNumber()" },
+                "semifinalvoters" : { ".write": true, ".validate": "newData.isNumber()" },
+                "finalvotes" : { ".write": true, ".validate": "newData.isNumber()" },
+                "finalvoters" : { ".write": true, ".validate": "newData.isNumber()" },
+                "semifinalvoting" :  { ".validate": "newData.isBoolean()" },
+                "finalvoting" :  { ".validate": "newData.isBoolean()" }
+            },
+            {% endfor %}
 
-		// Semi final two data
-		"semi-final-two": {
-			".read": false,
-			".write": false,
-			".validate": true,
-			"settings": {
-				".read": true,
-				".write": false,
-				".validate": true,
-				// Allowed fields
-				"calculation": { ".validate": "newData.isString()" },
-				"layout": { ".validate": "newData.isString()" },
-				"messagesposition": { ".validate": "newData.isString()" },
-				"messagesshow": { ".validate": "newData.isBoolean()" },
-				"messagetitle": { ".validate": "newData.isString()" },
-				"messagebody": { ".validate": "newData.isString()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				// Disallow all other fields
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			"null": {
-				".read": true,
-				".write": false,
-				".validate": true,
-			},
-			{% for entry in site.data.entries %}{% if entry.semi-final-two == "TRUE" %}{{ entry.code | append: '"' | prepend: '"' }}: {
-				".read": true,
-				".write": false,
-				".validate": true,
-				"count": { ".validate": "newData.isNumber()" },
-				"vote": { ".validate": "newData.isNumber()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			{% endif %}{% endfor %} // Disallow other fields
 			"$other": {
 				".read": false,
 				".write": false,
-				".validate": false,
-			},
-		},
+				".validate": false
+			}
+        },
+        
+        "Notification": {
+			".read": true,
+			".write": true,
+			".validate": true,
+            "body" :  { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
+            "title" :  { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
+            "show" : { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isBoolean()" 
+            },
 
-		// Grand final data
-		"grand-final": {
-			".read": false,
-			".write": false,
-			".validate": true,
-			"settings": {
-				".read": true,
-				".write": false,
-				".validate": true,
-				// Allowed fields
-				"calculation": { ".validate": "newData.isString()" },
-				"layout": { ".validate": "newData.isString()" },
-				"messagesposition": { ".validate": "newData.isString()" },
-				"messagesshow": { ".validate": "newData.isBoolean()" },
-				"messagetitle": { ".validate": "newData.isString()" },
-				"messagebody": { ".validate": "newData.isString()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				// Disallow all other fields
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			"null": {
-				".read": true,
-				".write": false,
-				".validate": true,
-			},
-			{% for entry in site.data.entries %}{{ entry.code | append: '"' | prepend: '"' }}: {
-				".read": true,
-				".write": false,
-				".validate": true,
-				"count": { ".validate": "newData.isNumber()" },
-				"vote": { ".validate": "newData.isNumber()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			{% endfor %} // Disallow other fields
 			"$other": {
 				".read": false,
 				".write": false,
-				".validate": false,
-			},
-		},
+				".validate": false
+			}
+        },
+        
+        "Settings": {
+			".read": true,
+			".write": true,
+			".validate": true,
+            "currentevent": { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
+            "currentsong": {
+                ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
 
-		// Test data (can be removed eventually)
-		"faux-final": {
-			".read": false,
-			".write": false,
-			".validate": true,
-			"settings": {
-				".read": true,
-				".write": false,
-				".validate": true,
-				// Allowed fields
-				"calculation": { ".validate": "newData.isString()" },
-				"layout": { ".validate": "newData.isString()" },
-				"messagesposition": { ".validate": "newData.isString()" },
-				"messagesshow": { ".validate": "newData.isBoolean()" },
-				"messagetitle": { ".validate": "newData.isString()" },
-				"messagebody": { ".validate": "newData.isString()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				// Disallow all other fields
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			"null": {
-				".read": true,
-				".write": false,
-				".validate": true,
-			},
-			{% for entry in site.data.entries %}{% if entry.faux-final == "TRUE" %}{{ entry.code | append: '"' | prepend: '"' }}: {
-				".read": true,
-				".write": false,
-				".validate": true,
-				"count": { ".validate": "newData.isNumber()" },
-				"vote": { ".validate": "newData.isNumber()" },
-				"nowplaying": { ".validate": "newData.isBoolean()" },
-				"$other": {
-					".read": false,
-					".write": false,
-					".validate": false,
-				},
-			},
-			{% endif %}{% endfor %} // Disallow other fields
 			"$other": {
 				".read": false,
 				".write": false,
-				".validate": false,
-			},
-		},
+				".validate": false
+			}
+        },
+        
 		"$other": {
 			".read": false,
 			".write": false,
-			".validate": false,
-		},
+			".validate": false
+		}
 	}
 }
