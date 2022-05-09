@@ -522,7 +522,7 @@ const locationHandler = async () => {
   	for (var i = 0; i < buttons.length; i++) {
   		buttons[i].dataset.status = "false";
   	}
-    document.getElementById(route.button).dataset.status = "active";
+    
     // set the description of the document to the description of the route
     document
         .querySelector('meta[name="description"]')

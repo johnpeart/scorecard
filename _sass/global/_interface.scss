@@ -329,9 +329,14 @@ section#app section#page-vote section#voting-open-notplaying {
   display: none;
 }
 
+
 section#app[data-nowperforming="false"] section#page-vote section#voting-open-notplaying {
   display: block !important;
-} 
+}
+
+section#app[data-currentevent="false"] section#page-vote section#voting-open-notplaying {
+  display: none !important;
+}
 
 section#app[data-nowperforming="false"] section#page-vote section#voting-open {
   display: none;
