@@ -259,16 +259,16 @@ function countryDataListener(entries, toggle) {
           entryScorecard.dataset.votes = semiFinalVotes;
           entryScorecard.dataset.voters = semiFinalVoters;
           
-          // var points = averagePoints(semiFinalVotes, semiFinalVoters);
-          var points = semiFinalVotes;
+          var points = averagePoints(semiFinalVotes, semiFinalVoters);
+          // var points = semiFinalVotes;
           
         } else {
           entryScorecard.dataset.runningorder = finalRunningOrder;
           entryScorecard.dataset.votes = finalVotes;
           entryScorecard.dataset.voters = finalVoters;
           
-          // var points = averagePoints(finalVotes, finalVoters);
-          var points = finalVotes;
+          var points = averagePoints(finalVotes, finalVoters);
+          // var points = finalVotes;
         }
         if (points > 0) {
 		      displayElementData(points, entryVotes);
