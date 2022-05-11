@@ -27,7 +27,7 @@ function toggleSidebar() {
 
 function closeMessage() {
   let app = document.getElementById("app")
-  app.dataset.message = "false";
+  setDataAttribute(app, "message", "false")
 }
 
 function openMessage(title, body) {
@@ -35,14 +35,13 @@ function openMessage(title, body) {
   let messageTitle = document.getElementById("app-message--title");
   let messageBody = document.getElementById("app-message--body");
   
+  setDataAttribute(app, "message", "false")
+  
   if (title == "") {
-      setDataAttribute(app, "message", "false")
   } else {
-    
+    setDataAttribute(app, "message", "true")
     messageTitle.innerText = title;
     messageBody.innerText = body;
-    setDataAttribute(app, "message", "true")
-     
   }
 }
 
@@ -135,7 +134,8 @@ function setNotificationContent() {
   
   notificationData.update({
     title: title,
-    body: body
+    body: body,
+    show: true
   });
 }
 
@@ -147,8 +147,13 @@ function checkNotificationData() {
       // Check to see notification contents
       var messageTitle = snapshot.val().title;
       var messageBody = snapshot.val().body;
+      var messageState = snapshot.val().show;
       
-      openMessage(messageTitle, messageBody);
+      if (messageState == true) {
+        openMessage(messageTitle, messageBody);
+      } else {
+        closeMessage();
+      }
       
   });
 }
@@ -219,7 +224,7 @@ function checkNowPerforming() {
 }
 
 function countryDataListener(entries, toggle) {
-  
+    
 	for (i = 0; i < entries.length; i++) {
     
 		let entry = entries[i];
@@ -272,16 +277,16 @@ function countryDataListener(entries, toggle) {
         }
         if (points > 0) {
 		      displayElementData(points, entryVotes);
+          checkTopScore(entries);
         } else {
           displayElementData(countryEmoji, entryVotes);
         }
-		    // displayElementData("#" + entryScorecard.dataset.runningorder, entryPosition);
-        
 		  })
     } else {
       entryData.off('value')
     }
-
+    
+    
 	};
 
 }
@@ -351,6 +356,43 @@ function vote(vote) {
 		}
 	);
   
+}
+
+function checkTopScore(entries) {
+	var allScores = new Array();
+
+	for (i = 0; i < entries.length; i++) {
+		let country = entries[i];
+		let points = document.getElementById("scorecard-" + country).dataset.votes;
+		allScores.push([country, points])
+	}
+
+	allScores.sort((a,b) => b[1] - a[1]);
+
+	let nonZero = 0;
+	for (i = 0; i < allScores.length; i++) {
+		if (allScores[i][1] > 0) {
+			nonZero++;
+		}
+	}
+  console.group("Top scores");
+	if (nonZero > 3) {
+		for (i = 0; i < allScores.length; i++) {
+			let rank = i + 1;
+			if (i < 3) {
+				console.log("🥇 " + allScores[i][0] + " – " + allScores[i][1] + " points")
+			}
+			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = rank;
+		}
+	} else {
+			console.log("🥇🥈🥉 There aren't enough votes yet...")
+			console.info("Scores will update once at least 3 contestants have a non-zero score")
+		for (i = 0; i < allScores.length; i++) {
+			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = 0;
+		}
+	}
+	console.groupEnd();
+
 }
 
 function resetEventData() {

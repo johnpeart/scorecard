@@ -15,17 +15,13 @@ section#app {
 	display: 	grid;
 
   width: 100vw;
+  height: 100vh;
   
 	@include phone {
-	  height: calc(100vh - 54pt);
 		grid-template-columns: 100vw;
-		grid-template-rows: auto 54pt;
+		grid-template-rows: calc(100vh - 54pt);
 		grid-template-areas: 'content' 'sidebar';
 	}
-  
-  @include tablet {
-    height: 100vh;
-  }
 
 	padding: 0;
 	margin: 0;
@@ -63,7 +59,13 @@ section#app-sidebar {
 	@include toggleDarkMode(background, systemGray6);
 
 	@include phone {
-		padding: 0;
+		padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    display: block;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    width: 100vw;
+    z-index: 999999;
 	}
 	@include tablet {
 		padding: ($container-padding * 5) $container-padding;
@@ -165,6 +167,12 @@ section#app-sidebar nav#sidebar-navigation {
 		@include tablet {
 			text-align: left;
 		}
+    
+    &.tablet-only {
+      @include phone {
+        display: none
+      }
+    }
 
 	}
 
@@ -736,62 +744,121 @@ section#app[data-voted="true"] div#voting-buttons {
 article.country-scorecard {
   
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: 'header' 'score';
   
-  &[data-runningorder="0"] {
+  border-radius: 10pt;
+  
+  @include phone {
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'header score';
+    
+    header.score--header { 
+      border-top-left-radius: 10pt;
+      border-bottom-left-radius: 10pt;
+    }
+    section.score--content {
+      border-top-right-radius: 10pt;
+      border-bottom-right-radius: 10pt;
+    } 
+  }
+  
+  @include tablet {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: 'header';
+    grid-template-rows: auto auto;
+    grid-template-areas: 'header' 'score';
+    
+    header.score--header { 
+      border-top-left-radius: 10pt;
+      border-top-right-radius: 10pt;
+    }
+    section.score--content {
+      border-bottom-right-radius: 10pt;
+      border-bottom-left-radius: 10pt;
+    } 
   }
 
 	margin: 0 0 $container-padding 0;
   
-  header.score--header,
-  section.score--content {
-    display: block;
-    padding: $container-padding;
-    text-align: center;
-  }
   header.score--header {
-    @include toggleDarkMode(background, systemGray4);
-    // @include toggleDarkMode(color, systemWhite);  
-    border-top-left-radius: 10pt;
-    border-top-right-radius: 10pt;
-  }
-  section.score--first-place, 
-  section.score--second-place, 
-  section.score--third-place {
-    display: none;
-    font-weight: 900;
-    text-align: center;
+    display: grid;
     padding: $container-padding;
-    text-transform: uppercase;
-  } 
-  section.score--first-place {
-    @include toggleDarkMode(background, systemYellow);  
-  } 
-  section.score--second-place {
-    @include toggleDarkMode(background, systemTeal);  
-  } 
-  section.score--third-place {
-    @include toggleDarkMode(background, systemPurple);  
-    @include toggleDarkMode(color, systemWhite);  
-  } 
+    @include tablet {
+      padding: $container-padding $container-padding ($container-padding / 2) $container-padding;
+    }
+  }
   section.score--content {
-    @include toggleDarkMode(background, systemGray5);  
-    border-bottom-right-radius: 10pt;
-    border-bottom-left-radius: 10pt;
+    display: grid;
+    padding: $container-padding;
+    @include tablet {
+      padding: ($container-padding / 2) $container-padding $container-padding $container-padding;
+    }
+  }
+  
+  header.score--header {
+    @include toggleDarkMode(background, systemGray5);
+    @include phone {
+      text-align: left;
+      justify-content: flex-start;
+    }
+    @include tablet {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  
+  section.score--content {
+    text-align: center;
+    justify-content: center;
+    @include toggleDarkMode(background, systemGray6);
     span {font-weight: 900;}
   } 
 }
 
-section#app article.country-scorecard[data-rank='1'] section.score--first-place,
-section#app article.country-scorecard[data-rank='2'] section.score--second-place,
-section#app article.country-scorecard[data-rank='3'] section.score--third-place {
-  display: inline-block;
-  border-radius: 15px;
+section#app article.country-scorecard[data-rank='1'] {
+  header.score--header {
+    background: #D4AF37;
+    background: linear-gradient(to bottom, #D4AF37 0%, #C5A028 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #D4AF37), color-stop(100%, #C5A028));
+    background: -webkit-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
+    background: -moz-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
+    background: -o-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
+    background: -ms-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4AF37', endColorstr='#C5A028', GradientType=0);
+    
+    @include toggleDarkMode(color, systemWhite);
+  }
+}
+section#app article.country-scorecard[data-rank='2'] {
+  header.score--header {
+    background: #C0C0C0;
+    background: linear-gradient(to bottom, #C0C0C0 0%, #B1B1B1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C0C0C0), color-stop(100%, #B1B1B1));
+    background: -webkit-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
+    background: -moz-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
+    background: -o-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
+    background: -ms-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
+  }
+}
+section#app article.country-scorecard[data-rank='3'] {
+  header.score--header {
+    background: #CD7F32;
+    background: linear-gradient(to bottom, #CD7F32 0%, #BE7023 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CD7F32), color-stop(100%, #BE7023));
+    background: -webkit-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
+    background: -moz-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
+    background: -o-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
+    background: -ms-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CD7F32', endColorstr='#BE7023', GradientType=0);
+    
+    @include toggleDarkMode(color, systemWhite);
+  }
+}
+
+section#app article.country-scorecard[data-rank='1'],
+section#app article.country-scorecard[data-rank='2'],
+section#app article.country-scorecard[data-rank='3'] {
+  transition: all 1s;
 }
 
 section#app[data-currentevent="sf1"] article.country-scorecard[data-semifinalone="false"] {
