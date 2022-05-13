@@ -52,7 +52,7 @@
   semifinaltwo: false
   final: true
   semifinalrunningorder: 21
-  finalrunningorder: 0
+  finalrunningorder: 21
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -172,7 +172,7 @@
   semifinaltwo: true
   final: true
   semifinalrunningorder: 25
-  finalrunningorder: 0
+  finalrunningorder: 25
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
