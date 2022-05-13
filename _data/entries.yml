@@ -35,9 +35,9 @@
   song: "Not The Same"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 8
-  finalrunningorder: 0
+  finalrunningorder: 21
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -50,9 +50,9 @@
   song: "Halo"
   semifinalone: true
   semifinaltwo: false
-  final: true
+  final: false
   semifinalrunningorder: 21
-  finalrunningorder: 21
+  finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
