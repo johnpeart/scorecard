@@ -29,7 +29,7 @@
     
     <section id="live-scores">
           
-      {% assign entries = site.data.entries | sort: "semifinalrunningorder" %}
+      {% assign entries = site.data.entries | sort: "finalrunningorder" %}
       {% for entry in entries %}
         {% include interface/entry.html %}
       {% endfor %}

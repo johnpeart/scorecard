@@ -814,6 +814,12 @@ article.country-scorecard {
   } 
 }
 
+section#app article.country-scorecard[data-rank='0'] {
+  header.score--header {
+
+  }
+}
+
 section#app article.country-scorecard[data-rank='1'] {
   header.score--header {
     background: #D4AF37;
@@ -838,6 +844,8 @@ section#app article.country-scorecard[data-rank='2'] {
     background: -o-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
     background: -ms-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
+    
+    @include toggleDarkMode(color, systemWhite);
   }
 }
 section#app article.country-scorecard[data-rank='3'] {

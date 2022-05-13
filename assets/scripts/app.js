@@ -107,7 +107,8 @@ const contestData = database.ref("/2022")
 const settingsData = database.ref("/Settings")
 const notificationData = database.ref("/Notification")
 
-const allEntries = [{% for entry in site.data.entries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+{% assign finalEntries = site.data.entries | where: "final", "true" %}
+const allEntries = [{% for entry in finalEntries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
 
 function setCurrentEvent(event) {
   settingsData.update({
@@ -241,6 +242,7 @@ function countryDataListener(entries, toggle) {
         var countryShortcode = snapshot.val().shortcode;
         var countryEmoji = snapshot.val().emoji;
   
+        var currentEvent = app.dataset.currentevent;
         // Check to see which events the country is part of
         var isSemiFinalOne = snapshot.val().semifinalone;
         var isSemiFinalTwo = snapshot.val().semifinaltwo;
@@ -259,7 +261,7 @@ function countryDataListener(entries, toggle) {
         
         var entryScorecard = document.getElementById('scorecard-' + countryShortcode);
         
-        if (isSemiFinalOne == true || isSemiFinalTwo == true) {
+        if (currentEvent == "sf1" || currentEvent == "sf2") {
           entryScorecard.dataset.runningorder = semiFinalRunningOrder;
           entryScorecard.dataset.votes = semiFinalVotes;
           entryScorecard.dataset.voters = semiFinalVoters;
@@ -288,6 +290,47 @@ function countryDataListener(entries, toggle) {
     
     
 	};
+
+}
+
+function checkTopScore(entries) {
+	var allScores = new Array();
+
+	for (i = 0; i < entries.length; i++) {
+		let country = entries[i];
+    let votes = parseInt(document.getElementById("scorecard-" + country).dataset.votes);
+    let voters = parseInt(document.getElementById("scorecard-" + country).dataset.voters);
+    if (votes > 0) {
+		  let points = votes / voters;
+	    allScores.push([country, points])
+    }
+	}
+
+	allScores.sort((a,b) => b[1] - a[1]);
+
+	let nonZero = 0;
+	for (i = 0; i < allScores.length; i++) {
+		if (allScores[i][1] > 0) {
+			nonZero++;
+		}
+	}
+  console.group("Top scores");
+	if (nonZero > 3) {
+		for (i = 0; i < allScores.length; i++) {
+			let rank = i + 1;
+			if (i < 3) {
+				console.log("🥇 " + allScores[i][0] + " – " + allScores[i][1] + " points")
+			}
+			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = rank;
+		}
+	} else {
+			console.log("🥇🥈🥉 There aren't enough votes yet...")
+			console.info("Scores will update once at least 3 contestants have a non-zero score")
+		for (i = 0; i < allScores.length; i++) {
+			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = 0;
+		}
+	}
+	console.groupEnd();
 
 }
 
@@ -356,43 +399,6 @@ function vote(vote) {
 		}
 	);
   
-}
-
-function checkTopScore(entries) {
-	var allScores = new Array();
-
-	for (i = 0; i < entries.length; i++) {
-		let country = entries[i];
-		let points = document.getElementById("scorecard-" + country).dataset.votes;
-		allScores.push([country, points])
-	}
-
-	allScores.sort((a,b) => b[1] - a[1]);
-
-	let nonZero = 0;
-	for (i = 0; i < allScores.length; i++) {
-		if (allScores[i][1] > 0) {
-			nonZero++;
-		}
-	}
-  console.group("Top scores");
-	if (nonZero > 3) {
-		for (i = 0; i < allScores.length; i++) {
-			let rank = i + 1;
-			if (i < 3) {
-				console.log("🥇 " + allScores[i][0] + " – " + allScores[i][1] + " points")
-			}
-			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = rank;
-		}
-	} else {
-			console.log("🥇🥈🥉 There aren't enough votes yet...")
-			console.info("Scores will update once at least 3 contestants have a non-zero score")
-		for (i = 0; i < allScores.length; i++) {
-			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = 0;
-		}
-	}
-	console.groupEnd();
-
 }
 
 function resetEventData() {

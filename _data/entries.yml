@@ -20,9 +20,9 @@
   song: "Snap"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 17
-  finalrunningorder: 0
+  finalrunningorder: 8
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -50,8 +50,8 @@
   song: "Halo"
   semifinalone: true
   semifinaltwo: false
-  final: false
-  semifinalrunningorder: 13
+  final: true
+  semifinalrunningorder: 21
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
@@ -65,9 +65,9 @@
   song: "Fade To Black"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 4
-  finalrunningorder: 0
+  finalrunningorder: 15
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -80,9 +80,9 @@
   song: "Miss You"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 16
-  finalrunningorder: 0
+  finalrunningorder: 16
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -140,9 +140,9 @@
   song: "Lights Off"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 18
-  finalrunningorder: 0
+  finalrunningorder: 1
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -170,8 +170,8 @@
   song: "Hope"
   semifinalone: false
   semifinaltwo: true
-  final: false
-  semifinalrunningorder: 12
+  final: true
+  semifinalrunningorder: 25
   finalrunningorder: 0
   semifinalvotes: 0
   finalvotes: 0
@@ -185,9 +185,9 @@
   song: "Jezebel"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 1
-  finalrunningorder: 0
+  finalrunningorder: 4
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -202,7 +202,7 @@
   semifinaltwo: false
   final: true
   semifinalrunningorder: 0
-  finalrunningorder: 0
+  finalrunningorder: 6
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -232,7 +232,7 @@
   semifinaltwo: false
   final: true
   semifinalrunningorder: 0
-  finalrunningorder: 0
+  finalrunningorder: 13
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -245,9 +245,9 @@
   song: "Tenfjord"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 15
-  finalrunningorder: 0
+  finalrunningorder: 17
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -260,9 +260,9 @@
   song: "Með Hækkandi Sól"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 14
-  finalrunningorder: 0
+  finalrunningorder: 18
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -307,7 +307,7 @@
   semifinaltwo: false
   final: true
   semifinalrunningorder: 0
-  finalrunningorder: 0
+  finalrunningorder: 9
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -335,9 +335,9 @@
   song: "Senitmentai"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 3
-  finalrunningorder: 0
+  finalrunningorder: 14
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -365,9 +365,9 @@
   song: "Trenulețul"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 9
-  finalrunningorder: 0
+  finalrunningorder: 19
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -395,9 +395,9 @@
   song: "De Diepte"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 8
-  finalrunningorder: 0
+  finalrunningorder: 11
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -425,9 +425,9 @@
   song: "Give That Wolf A Banana"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 16
-  finalrunningorder: 0
+  finalrunningorder: 7
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -440,9 +440,9 @@
   song: "River"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 14
-  finalrunningorder: 0
+  finalrunningorder: 23
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -455,9 +455,9 @@
   song: "Saudade, Saudade"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 10
-  finalrunningorder: 0
+  finalrunningorder: 3
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -470,9 +470,9 @@
   song: "Llámame"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 13
-  finalrunningorder: 0
+  finalrunningorder: 2
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -500,9 +500,9 @@
   song: "In Corpore Sano"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 3
-  finalrunningorder: 0
+  finalrunningorder: 24
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -532,7 +532,7 @@
   semifinaltwo: false
   final: true
   semifinalrunningorder: 0
-  finalrunningorder: 0
+  finalrunningorder: 10
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -545,9 +545,9 @@
   song: "Hold Me Closer"
   semifinalone: false
   semifinaltwo: true
-  final: false
+  final: true
   semifinalrunningorder: 17
-  finalrunningorder: 0
+  finalrunningorder: 20
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -560,9 +560,9 @@
   song: "Boys Do Cry"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 4
-  finalrunningorder: 0
+  finalrunningorder: 5
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -575,9 +575,9 @@
   song: "Stefania"
   semifinalone: true
   semifinaltwo: false
-  final: false
+  final: true
   semifinalrunningorder: 6
-  finalrunningorder: 0
+  finalrunningorder: 12
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
@@ -592,7 +592,7 @@
   semifinaltwo: false
   final: true
   semifinalrunningorder: 0
-  finalrunningorder: 0
+  finalrunningorder: 22
   semifinalvotes: 0
   finalvotes: 0
   semifinalvoting: false
