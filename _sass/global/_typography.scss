@@ -101,7 +101,7 @@ h1.message-title {
     }
     
     font-weight: bold !important;
-    padding: 0 0 $container-padding / 2 !important;
+    padding: 0 0 $container-padding * 0.5 !important;
 }
 
 h2 {
