@@ -1,0 +1,95 @@
+---
+---
+{
+	"rules": {
+        ".read": false,
+        ".write": false,
+    
+        "2023": {
+            {% for entry in site.data.entries %}
+            "{{ entry.shortcode }}": {
+				".read": true,
+				".write": true,
+				".validate": true,
+                "country" : { ".validate": "newData.isString()" },
+                "shortcode" : { ".validate": "newData.isString()" },
+                "emoji" : { ".validate": "newData.isString()" },
+                "artist" : { ".validate": "newData.isString()" },
+                "song" : { ".validate": "newData.isString()" },
+                "semifinalone" : { ".validate": "newData.isBoolean()" },
+                "semifinaltwo" : { ".validate": "newData.isBoolean()" },
+                "final" : { ".validate": "newData.isBoolean()" },
+                "semifinalrunningorder" : { ".validate": "newData.isNumber()" },
+                "finalrunningorder" : { ".validate": "newData.isNumber()" },
+                "semifinalvotes" : { ".write": true, ".validate": "newData.isNumber()" },
+                "semifinalvoters" : { ".write": true, ".validate": "newData.isNumber()" },
+                "finalvotes" : { ".write": true, ".validate": "newData.isNumber()" },
+                "finalvoters" : { ".write": true, ".validate": "newData.isNumber()" },
+                "semifinalvoting" :  { ".validate": "newData.isBoolean()" },
+                "finalvoting" :  { ".validate": "newData.isBoolean()" }
+            },
+            {% endfor %}
+
+			"$other": {
+				".read": false,
+				".write": false,
+				".validate": false
+			}
+        },
+        
+        "Notification": {
+			".read": true,
+			".write": true,
+			".validate": true,
+            "body" :  { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
+            "title" :  { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
+            "show" : { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isBoolean()" 
+            },
+
+			"$other": {
+				".read": false,
+				".write": false,
+				".validate": false
+			}
+        },
+        
+        "Settings": {
+			".read": true,
+			".write": true,
+			".validate": true,
+            "currentevent": { 
+			    ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
+            "currentsong": {
+                ".read": true,
+			    ".write": true,
+                ".validate": "newData.isString()" 
+            },
+
+			"$other": {
+				".read": false,
+				".write": false,
+				".validate": false
+			}
+        },
+        
+		"$other": {
+			".read": false,
+			".write": false,
+			".validate": false
+		}
+	}
+}

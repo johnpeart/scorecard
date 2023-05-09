@@ -39,6 +39,10 @@ analytics: false
 
 header: true
 
+# Config
+
+event: semifinal # semifinal or final
+
 # Collections
 
 collections:

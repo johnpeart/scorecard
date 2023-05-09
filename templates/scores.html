@@ -28,11 +28,23 @@
     <h1 class="largeTitle">Scores</h1>
     
     <section id="live-scores">
-          
-      {% assign entries = site.data.entries | sort: "finalrunningorder" %}
-      {% for entry in entries %}
-        {% include interface/entry.html %}
-      {% endfor %}
+      
+      {% if site.event == 'final' %}
+
+        {% assign entries = site.data.entries | sort: "finalrunningorder" %}
+        {% for entry in entries %}
+          {% include interface/entry.html %}
+        {% endfor %}
+
+      {% else %}
+      
+        {% assign entries = site.data.entries | sort: "semifinalrunningorder" %}
+        {% for entry in entries %}
+          {% include interface/entry.html %}
+        {% endfor %}
+      
+      {% endif %}          
+      
       
     </section>
     

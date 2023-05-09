@@ -103,12 +103,17 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 var presence = database.ref(".info/connected");
-const contestData = database.ref("/2022")
+const contestData = database.ref("/2023")
 const settingsData = database.ref("/Settings")
 const notificationData = database.ref("/Notification")
 
-{% assign finalEntries = site.data.entries | where: "final", "true" %}
-const allEntries = [{% for entry in finalEntries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+{% if site.event == 'final' %}
+  {% assign entries = site.data.entries | where: "final", "true" %}
+  const allEntries = [{% for entry in entries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+{% else %}
+  {% assign entries = site.data.entries | where: "final", "false" %}
+  const allEntries = [{% for entry in site.data.entries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+{% endif %}
 
 function setCurrentEvent(event) {
   settingsData.update({
@@ -193,7 +198,7 @@ function checkNowPerforming() {
       var currentsong = snapshot.val().currentsong;
       app.dataset.nowperforming = currentsong;
       
-      let currentSong = database.ref('/2022/' + currentsong);
+      let currentSong = database.ref('/2023/' + currentsong);
       
       currentSong.get().then((snapshot) => {
         if (snapshot.exists()) {
@@ -229,7 +234,7 @@ function countryDataListener(entries, toggle) {
 	for (i = 0; i < entries.length; i++) {
     
 		let entry = entries[i];
-		let entryData = database.ref('/2022/' + entry);
+		let entryData = database.ref('/2023/' + entry);
     
 		let entryElement = document.getElementById("scorecard-" + entry);
 		let entryVotes = document.getElementById("scorecard-" + entry + "-score");
@@ -361,7 +366,7 @@ function vote(vote) {
   let shortcode = app.dataset.nowperforming;
   
 	// Get the current score for the country
-	let entryData = database.ref('/2022/' + shortcode);
+	let entryData = database.ref('/2023/' + shortcode);
 	let points = parseInt(vote);
 
 	entryData.transaction(
@@ -412,7 +417,7 @@ function resetEventData() {
 	  for (i = 0; i < allEntries.length; i++) {
 
 		  var shortcode = allEntries[i];
-    	let entryData = database.ref('/2022/' + shortcode);
+    	let entryData = database.ref('/2023/' + shortcode);
     	let notificationData = database.ref('/Notification/');
     	let settingsData = database.ref('/Settings/');
 

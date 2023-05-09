@@ -1,0 +1,38 @@
+country,emoji,shortcode,artist,song,language,semifinal,semifinalone,semifinaltwo,final,semifinalrunningorder,finalrunningorder,semifinalvotes,finalvotes,semifinalvoting,finalvoting
+ Albania,🇦🇱,ALB,Albina and Familja Kelmendi,Duje,Albanian,2,false,true,false,14,,0,0,false,false
+ Armenia,🇦🇲,ARM,Brunette,Future Lover,"English, Armenian",2,false,true,false,2,,0,0,false,false
+ Australia,🇦🇺,AUS,Voyager,Promise,English,2,false,true,false,16,,0,0,false,false
+ Austria,🇦🇹,AUT,Teya and Salena,Who the Hell Is Edgar?,English,2,false,true,false,13,,0,0,false,false
+ Azerbaijan,🇦🇿,AZE,TuralTuranX,Tell Me More,English,1,true,false,false,12,,0,0,false,false
+ Belgium,🇧🇪,BEL,Gustaph,Because of You,English,2,false,true,false,5,,0,0,false,false
+ Croatia,🇭🇷,CRO,Let 3,Mama ŠČ!,Croatian,1,true,false,false,7,,0,0,false,false
+ Cyprus,🇨🇾,CYP,Andrew Lambrou,Break a Broken Heart,English,2,false,true,false,6,,0,0,false,false
+ Czech Republic,🇨🇿,CZE,Vesna,My Sister's Crown,"English, Ukrainian, Czech, Bulgarian",1,true,false,false,13,,0,0,false,false
+ Denmark,🇩🇰,DEN,Reiley,Breaking My Heart,English,2,false,true,false,1,,0,0,false,false
+ Estonia,🇪🇪,EST,Alika,Bridges,English,2,false,true,false,4,,0,0,false,false
+ Finland,🇫🇮,FIN,Käärijä,Cha Cha Cha,Finnish,1,true,false,false,15,,0,0,false,false
+ Georgia,🇬🇪,GEO,Iru,Echo,English,2,false,true,false,11,,0,0,false,false
+ Greece,🇬🇷,GRE,Victor Vernicos,What They Say,English,2,false,true,false,8,,0,0,false,false
+ Iceland,🇮🇸,ISL,Diljá,Power,English,2,false,true,false,7,,0,0,false,false
+ Ireland,🇮🇪,EIR,Wild Youth,We Are One,English,1,true,false,false,6,,0,0,false,false
+ Israel,🇮🇱,ISR,Noa Kirel,Unicorn,English,1,true,false,false,9,,0,0,false,false
+ Latvia,🇱🇻,LVA,Sudden Lights,Aijā,English,1,true,false,false,4,,0,0,false,false
+ Lithuania,🇱🇹,LIT,Monika Linkytė,Stay,English,2,false,true,false,15,,0,0,false,false
+ Malta,🇲🇹,MLT,The Busker,Dance (Our Own Party),English,1,true,false,false,2,,0,0,false,false
+ Moldova,🇲🇩,MDA,Pasha Parfeni,Soarele și luna,Romanian,1,true,false,false,10,,0,0,false,false
+ Netherlands,🇳🇱,NED,Mia Nicolai and Dion Cooper,Burning Daylight,English,1,true,false,false,14,,0,0,false,false
+ Norway,🇳🇴,NOR,Alessandra,Queen of Kings,English,1,true,false,false,1,,0,0,false,false
+ Poland,🇵🇱,POL,Blanka,Solo,English,2,false,true,false,9,,0,0,false,false
+ Portugal,🇵🇹,POR,Mimicat,Ai coração,Portuguese,1,true,false,false,5,,0,0,false,false
+ Romania,🇷🇴,ROM,Theodor Andrei,D.G.T. (Off and On),"Romanian, English",2,false,true,false,3,,0,0,false,false
+ San Marino,🇸🇲,SMR,Piqued Jacks,Like an Animal,English,2,false,true,false,12,,0,0,false,false
+ Serbia,🇷🇸,SRB,Luke Black,Samo mi se spava (Само ми се спава),"Serbian, English",1,true,false,false,3,,0,0,false,false
+ Slovenia,🇸🇮,SLO,Joker Out,Carpe Diem,Slovene,2,false,true,false,10,,0,0,false,false
+ Sweden,🇸🇪,SWE,Loreen,Tattoo,English,1,true,false,false,11,,0,0,false,false
+ Switzerland,🇨🇭,SUI,Remo Forrer,Watergun,English,1,true,false,false,8,,0,0,false,false
+ France,🇫🇷,FRA,La Zarra,Évidemment,French,false,false,false,true,,,0,0,false,false
+ Germany,🇩🇪,GER,Lord of the Lost,Blood & Glitter,English,false,false,false,true,,,0,0,false,false
+ Italy,🇮🇹,ITA,Marco Mengoni,Due vite,Italian,false,false,false,true,,,0,0,false,false
+ Spain,🇪🇸,ESP,Blanca Paloma,Eaea,Spanish,false,false,false,true,,,0,0,false,false
+ Ukraine,🇺🇦,UKR,Tvorchi,Heart of Steel,"English, Ukrainian",false,false,false,true,,19,0,0,false,false
+ United Kingdom,🇬🇧,GBR,Mae Muller,I Wrote a Song,English,false,false,false,true,,26,0,0,false,false
