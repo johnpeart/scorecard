@@ -29,22 +29,35 @@
     
     <section id="live-scores">
       
-      {% if site.event == 'final' %}
+      {% for entry in site.data.entries %}
+      
+        <article class="country-scorecard" id="scorecard-{{ entry.shortcode }}" 
+          data-semifinalone="{{ entry.semifinalone }}" 
+          data-semifinaltwo="{{ entry.semifinaltwo }}" 
+          data-final="{{ entry.final }}" 
+          
+          {% if site.event == "final" %}
+          data-runningorder="{{ entry.finalrunningorder }}" 
+          {% else %}
+          data-runningorder="{{ entry.semifinalrunningorder }}" 
+          {% endif %}
+          
+          data-rank="" 
+          data-votes="?" 
+          data-voters="?">
+        
+          <header class="score--header">
+            <span class="country">{{ entry.country }}</span>
+          </header>
+          <section class="score--content">
+            <span id="scorecard-{{ entry.shortcode }}-score" class="score">⋯</span>
+          </section>
+          
+        </article>
+      
+      {% endfor %}
 
-        {% assign entries = site.data.entries | sort: "finalrunningorder" %}
-        {% for entry in entries %}
-          {% include interface/entry.html %}
-        {% endfor %}
 
-      {% else %}
-      
-        {% assign entries = site.data.entries | sort: "semifinalrunningorder" %}
-        {% for entry in entries %}
-          {% include interface/entry.html %}
-        {% endfor %}
-      
-      {% endif %}          
-      
       
     </section>
     

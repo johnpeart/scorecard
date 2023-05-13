@@ -118,13 +118,13 @@ h3 {
 
 span.country {
   @extend h2;
-  padding: $container-padding/2 0;
+  padding: $container-padding * 0.5 0;
   line-height: 1;
 }
 
 span.position {
   @extend h3;
-  padding: $container-padding/2 0 0;
+  padding: $container-padding * 0.5 0 0;
   line-height: 1;
 }
 

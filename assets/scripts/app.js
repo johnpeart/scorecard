@@ -258,16 +258,12 @@ function countryDataListener(entries, toggle) {
 			  var finalVotes = snapshot.val().finalvotes;
 			  var finalVoters = snapshot.val().finalvoters;
         
-			  var semiFinalRunningOrder = snapshot.val().semifinalrunningorder;
-			  var finalRunningOrder = snapshot.val().finalrunningorder;
-        
 			  var semiFinalVoting = snapshot.val().semifinalvoting;
 			  var finalVoting = snapshot.val().finalvoting;
         
         var entryScorecard = document.getElementById('scorecard-' + countryShortcode);
         
         if (currentEvent == "sf1" || currentEvent == "sf2") {
-          entryScorecard.dataset.runningorder = semiFinalRunningOrder;
           entryScorecard.dataset.votes = semiFinalVotes;
           entryScorecard.dataset.voters = semiFinalVoters;
           
@@ -275,7 +271,6 @@ function countryDataListener(entries, toggle) {
           // var points = semiFinalVotes;
           
         } else {
-          entryScorecard.dataset.runningorder = finalRunningOrder;
           entryScorecard.dataset.votes = finalVotes;
           entryScorecard.dataset.voters = finalVoters;
           

@@ -41,7 +41,7 @@ header: true
 
 # Config
 
-event: semifinal # semifinal or final
+event: final # semifinal or final
 
 # Collections
 
