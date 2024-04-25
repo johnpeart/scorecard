@@ -1,0 +1,44 @@
+article.country-scorecard {
+  
+  display: grid;  
+  grid-template-columns: 50px 1fr auto;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'rank country score';
+
+  margin: 0;
+  
+  header.score--header,
+  section.score--country,
+  section.score--content {
+    line-height: 1;
+    align-content: center;
+    
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  header.score--header {
+    display: grid;
+    grid-area: rank;
+    padding: $container-padding;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10pt 0 0 10pt;
+    color: var(--systemForegroundTransparent);
+  }
+  section.score--country {
+    display: grid;
+    grid-area: country;
+    padding: $container-padding;
+    text-align: left;
+    justify-content: left;
+  }
+  section.score--content {
+    display: grid;
+    grid-area: score;
+    padding: $container-padding;
+    .score {font-weight: 900;}
+    border-radius: 0 10pt 10pt 0;
+  }
+}

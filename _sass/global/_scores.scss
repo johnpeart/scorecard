@@ -1,0 +1,500 @@
+section#app section.container#page-scores section#live-scores {
+  
+  @include phone() {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(26, auto);
+    grid-template-areas:
+	  "p1" 
+	  "p2" 
+	  "p3" 
+	  "p4" 
+	  "p5" 
+	  "p6" 
+	  "p7" 
+	  "p8" 
+	  "p9" 
+	  "p10" 
+	  "p11" 
+	  "p12" 
+	  "p13" 
+	  "p14" 
+	  "p15" 
+	  "p16" 
+	  "p17" 
+	  "p18" 
+	  "p19"
+	  "p20"
+    "p21"
+    "p22"
+    "p23"
+    "p24"
+    "p25"
+    "p26";
+    margin: 0 $container-padding * -1;
+  }
+  
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(13, 2fr);
+    grid-template-areas:
+	  "p1  p14"
+      "p2  p15"
+      "p3  p16"
+      "p4  p17"
+      "p5  p18"
+      "p6  p19"
+      "p7  p20"
+      "p8  p21"
+      "p9  p22"
+      "p10 p23"
+      "p11 p24"
+      "p12 p25"
+      "p13 p26";
+    
+    border-radius: 10pt;
+  }
+  
+}
+
+section#app[data-sidebar='show'][data-layout='rank'] section#live-scores {
+  @include tablet() {
+    article.country-scorecard[data-rank='1'] {
+      border-top-left-radius: 10pt;
+    }
+    article.country-scorecard[data-rank='14'] {
+      border-top-right-radius: 10pt;
+    }
+    article.country-scorecard[data-rank='13'] {
+      border-bottom-left-radius: 10pt;
+    }
+    article.country-scorecard[data-rank='26'] {
+      border-bottom-right-radius: 10pt;
+    } 
+  }
+}
+
+section#app[data-sidebar='show'][data-layout='running'] section#live-scores {
+    article.country-scorecard[data-runningorder='1'] {
+      border-top-left-radius: 10pt;
+    }
+    article.country-scorecard[data-runningorder='14'] {
+      border-top-right-radius: 10pt;
+    }
+    article.country-scorecard[data-runningorder='13'] {
+      border-bottom-left-radius: 10pt;
+    }
+    article.country-scorecard[data-runningorder='26'] {
+      border-bottom-right-radius: 10pt;
+    } 
+}
+
+section#app[data-sidebar='hide'][data-layout='rank'] section#live-scores {
+  
+  @include tablet {
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-template-rows: repeat(8, 1fr) !important;
+    grid-template-areas:
+	  "p1 p5   p13 p21"
+      "p1 p6   p14 p22"
+      "p2 p7   p15 p23"
+      "p2 p8   p16 p24"
+      "p3 p9   p17 p25"
+      "p3 p10  p18 p26"
+      "p4 p11  p19 ."
+      "p4 p12  p20 ." !important;
+    border-radius: 0 !important;
+  }
+  
+}
+
+section#app[data-layout='rank'] section#live-scores {
+  article.country-scorecard[data-rank='1'] {
+    grid-area: p1;
+  }
+  article.country-scorecard[data-rank='2'] {
+	grid-area: p2;
+  }
+  article.country-scorecard[data-rank='3'] {
+    grid-area: p3;
+  }
+  article.country-scorecard[data-rank='4'] {
+    grid-area: p4;
+  }
+  article.country-scorecard[data-rank='5'] {
+	grid-area: p5;
+  }
+  article.country-scorecard[data-rank='6'] {
+	grid-area: p6;
+  }
+  article.country-scorecard[data-rank='7'] {
+	grid-area: p7;
+  }
+  article.country-scorecard[data-rank='8'] {
+	grid-area: p8;
+  }
+  article.country-scorecard[data-rank='9'] {
+	grid-area: p9;
+  }
+  article.country-scorecard[data-rank='10'] {
+	grid-area: p10;
+  }
+  article.country-scorecard[data-rank='11'] {
+	grid-area: p11;
+  }
+  article.country-scorecard[data-rank='12'] {
+	grid-area: p12;
+  }
+  article.country-scorecard[data-rank='13'] {
+	grid-area: p13;
+  }
+  article.country-scorecard[data-rank='14'] {
+	grid-area: p14;
+  }
+  article.country-scorecard[data-rank='15'] {
+	grid-area: p15;
+  }
+  article.country-scorecard[data-rank='16'] {
+	grid-area: p16;
+  }
+  article.country-scorecard[data-rank='17'] {
+	grid-area: p17;
+  }
+  article.country-scorecard[data-rank='18'] {
+	grid-area: p18;
+  }
+  article.country-scorecard[data-rank='19'] {
+	grid-area: p19;
+  }
+  article.country-scorecard[data-rank='20'] {
+	grid-area: p20;
+  }
+  article.country-scorecard[data-rank='21'] {
+	grid-area: p21;
+  }
+  article.country-scorecard[data-rank='22'] {
+	grid-area: p22;
+  }
+  article.country-scorecard[data-rank='23'] {
+	grid-area: p23;
+  }
+  article.country-scorecard[data-rank='24'] {
+	grid-area: p24;
+  }
+  article.country-scorecard[data-rank='25'] {
+	grid-area: p25;
+  }
+  article.country-scorecard[data-rank='26'] {
+	grid-area: p26;
+  }
+  .scores-pos:after {
+    content: attr(data-rank); 
+  }
+}
+section#app[data-layout='rank'] section#live-scores {
+  article.country-scorecard[data-rank='1'] {
+    background: var(--gradient1);
+  }
+  article.country-scorecard[data-rank='2'] {
+    background: var(--gradient2);
+  }
+  article.country-scorecard[data-rank='3'] {
+
+    background: var(--gradient3);
+  }
+  article.country-scorecard[data-rank='4'] {
+
+    background: var(--gradient4);
+  }
+  article.country-scorecard[data-rank='5'] {
+    background: var(--gradient5);
+  }
+  article.country-scorecard[data-rank='6'] {
+    background: var(--gradient6);
+  }
+  article.country-scorecard[data-rank='7'] {
+    background: var(--gradient7);
+  }
+  article.country-scorecard[data-rank='8'] {
+    background: var(--gradient8);
+  }
+  article.country-scorecard[data-rank='9'] {
+    background: var(--gradient9);
+  }
+  article.country-scorecard[data-rank='10'] {
+    background: var(--gradient10);
+  }
+  article.country-scorecard[data-rank='11'] {
+    background: var(--gradient11);
+  }
+  article.country-scorecard[data-rank='12'] {
+    background: var(--gradient12);
+  }
+  article.country-scorecard[data-rank='13'] {
+    background: var(--gradient13);
+  }
+  article.country-scorecard[data-rank='14'] {
+    background: var(--gradient14);
+  }
+  article.country-scorecard[data-rank='15'] {
+    background: var(--gradient15);
+  }
+  article.country-scorecard[data-rank='16'] {
+    background: var(--gradient16);
+  }
+  article.country-scorecard[data-rank='17'] {
+    background: var(--gradient17);
+  }
+  article.country-scorecard[data-rank='18'] {
+    background: var(--gradient18);
+  }
+  article.country-scorecard[data-rank='19'] {
+    background: var(--gradient19);
+  }
+  article.country-scorecard[data-rank='20'] {
+    background: var(--gradient20);
+  }
+  article.country-scorecard[data-rank='21'] {
+    background: var(--gradient21);
+  }
+  article.country-scorecard[data-rank='22'] {
+    background: var(--gradient22);
+  }
+  article.country-scorecard[data-rank='23'] {
+    background: var(--gradient23);
+  }
+  article.country-scorecard[data-rank='24'] {
+    background: var(--gradient24);
+  }
+  article.country-scorecard[data-rank='25'] {
+    background: var(--gradient25);
+  }
+  article.country-scorecard[data-rank='26'] {
+    background: var(--gradient26);
+  }
+  background: var(--gradient26);
+  color: var(--gradientScoreTextBlack);
+  
+  p {
+    filter: invert(0.1);
+    mix-blend-mode: color-burn;
+  }
+}
+
+section#app[data-sidebar='hide'][data-layout='running'] section#live-scores {
+  
+  @include tablet {
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-template-rows: repeat(7, 1fr) !important;
+    grid-template-areas:
+	  "p1 p8   p15 p22"
+      "p2 p9   p16 p23"
+      "p3 p10  p17 p24"
+      "p4 p11  p18 p25"
+      "p5 p12  p19 p26"
+      "p6 p13  p20 ."
+      "p7 p14  p21 ." !important;
+  }
+  
+}
+
+section#app[data-layout='running'] section#live-scores {
+  article.country-scorecard[data-runningorder='1'] {
+    grid-area: p1;
+  }
+  article.country-scorecard[data-runningorder='2'] {
+    grid-area: p2;
+  }
+  article.country-scorecard[data-runningorder='3'] {
+    grid-area: p3;
+  }
+  article.country-scorecard[data-runningorder='4'] {
+    grid-area: p4;
+  }
+  article.country-scorecard[data-runningorder='5'] {
+    grid-area: p5;
+  }
+  article.country-scorecard[data-runningorder='6'] {
+    grid-area: p6;
+  }
+  article.country-scorecard[data-runningorder='7'] {
+    grid-area: p7;
+  }
+  article.country-scorecard[data-runningorder='8'] {
+    grid-area: p8;
+  }
+  article.country-scorecard[data-runningorder='9'] {
+    grid-area: p9;
+  }
+  article.country-scorecard[data-runningorder='10'] {
+    grid-area: p10;
+  }
+  article.country-scorecard[data-runningorder='11'] {
+    grid-area: p11;
+  }
+  article.country-scorecard[data-runningorder='12'] {
+    grid-area: p12;
+  }
+  article.country-scorecard[data-runningorder='13'] {
+    grid-area: p13;
+  }
+  article.country-scorecard[data-runningorder='14'] {
+    grid-area: p14;
+  }
+  article.country-scorecard[data-runningorder='15'] {
+    grid-area: p15;
+  }
+  article.country-scorecard[data-runningorder='16'] {
+    grid-area: p16;
+  }
+  article.country-scorecard[data-runningorder='17'] {
+    grid-area: p17;
+  }
+  article.country-scorecard[data-runningorder='18'] {
+    grid-area: p18;
+  }
+  article.country-scorecard[data-runningorder='19'] {
+    grid-area: p19;
+  }
+  article.country-scorecard[data-runningorder='20'] {
+    grid-area: p20;
+  }
+  article.country-scorecard[data-runningorder='21'] {
+    grid-area: p21;
+  }
+  article.country-scorecard[data-runningorder='22'] {
+    grid-area: p22;
+  }
+  article.country-scorecard[data-runningorder='23'] {
+    grid-area: p23;
+  }
+  article.country-scorecard[data-runningorder='24'] {
+    grid-area: p24;
+  }
+  article.country-scorecard[data-runningorder='25'] {
+    grid-area: p25;
+  }
+  article.country-scorecard[data-runningorder='26'] {
+    grid-area: p26;
+  }
+}
+
+section#app[data-layout='running'] section#live-scores {
+  article.country-scorecard[data-runningorder='1'] {
+    background: var(--gray-gradient1);
+  }
+  article.country-scorecard[data-runningorder='2'] {
+    background: var(--gray-gradient2);
+  }
+  article.country-scorecard[data-runningorder='3'] {
+
+    background: var(--gray-gradient3);
+  }
+  article.country-scorecard[data-runningorder='4'] {
+
+    background: var(--gray-gradient4);
+  }
+  article.country-scorecard[data-runningorder='5'] {
+    background: var(--gray-gradient5);
+  }
+  article.country-scorecard[data-runningorder='6'] {
+    background: var(--gray-gradient6);
+  }
+  article.country-scorecard[data-runningorder='7'] {
+    background: var(--gray-gradient7);
+  }
+  article.country-scorecard[data-runningorder='8'] {
+    background: var(--gray-gradient8);
+  }
+  article.country-scorecard[data-runningorder='9'] {
+    background: var(--gray-gradient9);
+  }
+  article.country-scorecard[data-runningorder='10'] {
+    background: var(--gray-gradient10);
+  }
+  article.country-scorecard[data-runningorder='11'] {
+    background: var(--gray-gradient11);
+  }
+  article.country-scorecard[data-runningorder='12'] {
+    background: var(--gray-gradient12);
+  }
+  article.country-scorecard[data-runningorder='13'] {
+    background: var(--gray-gradient13);
+  }
+  article.country-scorecard[data-runningorder='14'] {
+    background: var(--gray-gradient14);
+  }
+  article.country-scorecard[data-runningorder='15'] {
+    background: var(--gray-gradient15);
+  }
+  article.country-scorecard[data-runningorder='16'] {
+    background: var(--gray-gradient16);
+  }
+  article.country-scorecard[data-runningorder='17'] {
+    background: var(--gray-gradient17);
+  }
+  article.country-scorecard[data-runningorder='18'] {
+    background: var(--gray-gradient18);
+  }
+  article.country-scorecard[data-runningorder='19'] {
+    background: var(--gray-gradient19);
+  }
+  article.country-scorecard[data-runningorder='20'] {
+    background: var(--gray-gradient20);
+  }
+  article.country-scorecard[data-runningorder='21'] {
+    background: var(--gray-gradient21);
+  }
+  article.country-scorecard[data-runningorder='22'] {
+    background: var(--gray-gradient22);
+  }
+  article.country-scorecard[data-runningorder='23'] {
+    background: var(--gray-gradient23);
+  }
+  article.country-scorecard[data-runningorder='24'] {
+    background: var(--gray-gradient24);
+  }
+  article.country-scorecard[data-runningorder='25'] {
+    background: var(--gray-gradient25);
+  }
+  article.country-scorecard[data-runningorder='26'] {
+    background: var(--gray-gradient26);
+  }
+  background: var(--gray-gradient26);
+}
+
+section#app[data-layout='running'] section#live-scores .scores-pos:after {
+  content: attr(data-runningorder); 
+}
+
+section#app section.container#page-scores section#live-scores {
+  display: grid;
+}
+
+section#app[data-fullscreen='false']section.container#page-scores {
+  @include tablet() {
+    padding: 0 0 $container-padding * 4 !important;
+  }
+}
+section#app[data-fullscreen='true'][data-votingopen='true'] section.container#page-scores {    
+  
+  @include tablet {
+    min-height: 100vh;
+    max-width:  100% !important;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    align-content: center;
+    
+    h1.largeTitle,
+    p.lead {
+      display: none !important;
+    }
+    
+    section#live-scores {
+      height: 100vh;
+	  grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+}

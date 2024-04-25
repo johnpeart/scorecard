@@ -4,56 +4,24 @@
 // Other UI related scripts //
 //////////////////////////////
 
-var buttonSidebarToggle = document.getElementById("toggle-menu");
-buttonSidebarToggle.addEventListener("click", toggleSidebar);
+function toggleFullScreen() {
 
-var fullscreenToggle = document.getElementById("toggle-fullscreen");
-// fullscreenToggle.addEventListener("click", openFullScreen, appWindow);
-
-function toggleSidebar() {
-
-  let app = document.getElementById("app")
+  let app = document.getElementById("app");
+  let buttonFullScreen = document.getElementById("button--full-screen");
+  
 	if (app.dataset.sidebar == "show") {
 		app.dataset.sidebar = "hide";
     app.dataset.fullscreen = "true";
-    // openFullscreen(app);
+    
+    buttonFullScreen.dataset.visible = "false";
+    
 	} else {
-		app.dataset.sidebar = "show";
+		app.dataset.sidebar = "show";	
     app.dataset.fullscreen = "false";
-    // closeFullscreen(app);
-	}
-
-}
-
-function closeMessage() {
-  let app = document.getElementById("app")
-  setDataAttribute(app, "message", "false")
-}
-
-function openMessage(title, body) {
-  let app = document.getElementById("app")
-  let messageTitle = document.getElementById("app-message--title");
-  let messageBody = document.getElementById("app-message--body");
-  
-  setDataAttribute(app, "message", "false")
-  
-  if (title == "") {
-  } else {
-    setDataAttribute(app, "message", "true")
-    messageTitle.innerText = title;
-    messageBody.innerText = body;
+    
+    buttonFullScreen.dataset.visible = "true";
   }
-}
 
-/* View in fullscreen */
-function openFullscreen(elem) {
-  if (elem.requestFullscreen) {
-	 elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-	 elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-	 elem.msRequestFullscreen();
-  }
 }
 
 /* Close fullscreen */
@@ -66,9 +34,6 @@ function closeFullscreen(elem) {
 	 document.msExitFullscreen();
   }
 }
-
-
-
 
 function displayElementData(from, to) {
 	to.innerText = from;
@@ -105,7 +70,6 @@ var database = firebase.database();
 var presence = database.ref(".info/connected");
 const contestData = database.ref("/2023")
 const settingsData = database.ref("/Settings")
-const notificationData = database.ref("/Notification")
 
 {% if site.event == 'final' %}
   {% assign entries = site.data.entries | where: "final", "true" %}
@@ -118,49 +82,6 @@ const notificationData = database.ref("/Notification")
 function setCurrentEvent(event) {
   settingsData.update({
     currentevent: event
-  });
-}
-
-function setNowPlaying(shortcode) {
-  if (shortcode == "unknown") {
-    settingsData.update({
-      currentsong: "false"
-    });  
-  } else {
-    settingsData.update({
-      currentsong: shortcode
-    });
-  }
-  
-}
-
-function setNotificationContent() {
-  let title = document.getElementById("input--message-title").value;
-  let body = document.getElementById("input--message-body").value;
-  
-  notificationData.update({
-    title: title,
-    body: body,
-    show: true
-  });
-}
-
-function checkNotificationData() {
-  notificationData.on('value', (snapshot) => {
-
-      let app = document.getElementById("app")
-      
-      // Check to see notification contents
-      var messageTitle = snapshot.val().title;
-      var messageBody = snapshot.val().body;
-      var messageState = snapshot.val().show;
-      
-      if (messageState == true) {
-        openMessage(messageTitle, messageBody);
-      } else {
-        closeMessage();
-      }
-      
   });
 }
 
@@ -178,57 +99,6 @@ function checkCurrentEvent() {
   });
 }
 
-function checkNowPerforming() {
-  settingsData.on('value', (snapshot) => {
-      let app = document.getElementById("app");      
-      let nowPlayingCountry = document.getElementById("now-performing--country");
-      let nowPlayingArtistSong = document.getElementById("now-performing--artist-song");
-      
-      let votedCountry = app.dataset.votedcountry;
-      let currentCountry = app.dataset.nowperforming;
-      if (currentCountry != "false" && votedCountry == currentCountry) {
-        setDataAttribute(app, "voted", true);
-      } else {
-        setDataAttribute(app, "voted", false);
-      }
-      
-      // Check current event in firebase
-      var currentevent = app.dataset.currentevet;
-      // Check current song in firebase
-      var currentsong = snapshot.val().currentsong;
-      app.dataset.nowperforming = currentsong;
-      
-      let currentSong = database.ref('/2023/' + currentsong);
-      
-      currentSong.get().then((snapshot) => {
-        if (snapshot.exists()) {
-          
-          var country = snapshot.val().country;
-          var shortcode = snapshot.val().shortcode;
-          var artist = snapshot.val().artist;
-          var song = snapshot.val().song;
-          var emoji = snapshot.val().emoji;
-          
-          // Set the artist and song
-          setDataAttribute(app, "nowperforming", shortcode);
-          setDataAttribute(app, "artist", artist);
-          setDataAttribute(app, "song", song);
-          displayElementData(song + " by " + artist, nowPlayingArtistSong);
-          
-          // Set the country and emoji
-          setDataAttribute(app, "country", country);
-          setDataAttribute(app, "emoji", emoji);displayElementData(country + " " + emoji, nowPlayingCountry);
-          
-        } else {
-          console.log("No data available");
-        }
-      }).catch((error) => {
-        console.error(error);
-      });
-      
-  });
-}
-
 function countryDataListener(entries, toggle) {
     
 	for (i = 0; i < entries.length; i++) {
@@ -238,7 +108,6 @@ function countryDataListener(entries, toggle) {
     
 		let entryElement = document.getElementById("scorecard-" + entry);
 		let entryVotes = document.getElementById("scorecard-" + entry + "-score");
-		let entryPosition = document.getElementById("scorecard-" + entry + "-position");
     
     if (toggle == "start") {
 		  entryData.on('value', (snapshot) => {
@@ -266,16 +135,11 @@ function countryDataListener(entries, toggle) {
         if (currentEvent == "sf1" || currentEvent == "sf2") {
           entryScorecard.dataset.votes = semiFinalVotes;
           entryScorecard.dataset.voters = semiFinalVoters;
-          
           var points = averagePoints(semiFinalVotes, semiFinalVoters);
-          // var points = semiFinalVotes;
-          
         } else {
           entryScorecard.dataset.votes = finalVotes;
           entryScorecard.dataset.voters = finalVoters;
-          
           var points = averagePoints(finalVotes, finalVoters);
-          // var points = finalVotes;
         }
         if (points > 0) {
 		      displayElementData(points, entryVotes);
@@ -322,6 +186,7 @@ function checkTopScore(entries) {
 				console.log("🥇 " + allScores[i][0] + " – " + allScores[i][1] + " points")
 			}
 			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = rank;
+	    document.getElementById("scorecard-" + allScores[i][0] + "-position").dataset.rank = rank;      
 		}
 	} else {
 			console.log("🥇🥈🥉 There aren't enough votes yet...")
@@ -331,7 +196,6 @@ function checkTopScore(entries) {
 		}
 	}
 	console.groupEnd();
-
 }
 
 function averagePoints(votes, voters) {
@@ -413,7 +277,6 @@ function resetEventData() {
 
 		  var shortcode = allEntries[i];
     	let entryData = database.ref('/2023/' + shortcode);
-    	let notificationData = database.ref('/Notification/');
     	let settingsData = database.ref('/Settings/');
 
       entryData.transaction(
@@ -439,19 +302,6 @@ function resetEventData() {
 
 	  };
     
-	  // Also add or reset event settings
-	  notificationData.set({
-		  body: "",
-      show: false,
-      title: ""
-	  }, (error) => {
-		  if (error) {
-		    console.warn("⚙️ Notification failed to reset");
-		  } else {
-		    console.info("💿 Notification reset");
-		  }
-	  });    
-
 	  // Also add or reset event settings
 	  settingsData.set({
 		  currentevent: "false",
@@ -591,11 +441,12 @@ const locationHandler = async () => {
         displayElementData(votedPoints, votedContent);
       }
       checkCurrentEvent();
-      // Attach listener for current page
-      checkNowPerforming();
     }
     
     if (location == "scores") {
+      var buttonFullScreenToggle = document.getElementById("button--full-screen");
+      buttonFullScreenToggle.addEventListener("click", toggleFullScreen);
+      
       checkCurrentEvent();
       // Attach listener for current page
       countryDataListener(allEntries, "start");
@@ -616,7 +467,6 @@ window.onload = function() {
     } else {
 	    console.warn("📶 ⛔️ Not connected");
     }
-    checkNotificationData();
   });
   
 }

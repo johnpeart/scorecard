@@ -1,0 +1,74 @@
+.button {
+  display: block;
+  
+  cursor: pointer;
+  
+  -webkit-appearance: none;
+  background: none;
+  
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: var(--systemSidebarForegroundActive);
+  color: var(--systemSidebarForegroundActive);
+
+  @each $style, $sizes in $toggle {
+	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    padding: $container-padding !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+  
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &[data-status='active'] {
+		color: var(--systemSidebarBackgroundActive);
+		background: var(--systemSidebarForegroundActive);
+    text-decoration: none;
+		path {
+			fill: var(--systemSidebarForegroundActive);
+		}
+	}
+}
+
+button.fullscreen {
+
+  display: block;
+  position: relative;
+  
+  width: 100%;
+  cursor: pointer;
+  
+  -webkit-appearance: none;
+  background: none;
+  
+	border: 2px solid;
+	border-color: var(--systemSidebarForegroundActive);
+  border-radius: 10pt;
+  margin: 20px 0 0;
+	color: var(--systemSidebarForegroundActive);
+
+  @each $style, $sizes in $toggle {
+	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+    padding: $container-padding !important;
+    text-align: center !important;
+  }
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+  &[data-status='active'] {
+		color: var(--systemSidebarBackgroundActive);
+		background: var(--systemSidebarForegroundActive);
+
+		path {
+			fill: var(--systemSidebarForegroundActive);
+		}
+	}
+}
+
+button[data-visible='false'] {
+  display: none;
+}

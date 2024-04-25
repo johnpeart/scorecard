@@ -1,0 +1,143 @@
+
+
+section#app-sidebar {
+  display: block;
+  @include supports-sticky() {
+    top: auto;
+    bottom: 0;
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+  
+  background: var(--systemBackgroundTransparent);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  
+  width: 100vw;
+  z-index: 999999;
+}
+
+section#app[data-sidebar='hide'] section#app-sidebar {
+  @include tablet() {
+    display: none;
+  }
+}
+
+section#app[data-sidebar='hide'] {
+	
+}
+
+section#app-sidebar nav#sidebar-navigation {
+
+	h1 {
+		@extend h2;
+	}
+
+	ul.sidebar {
+
+		display: grid;
+
+		padding: $container-padding * 0.5;
+		grid-gap: $container-padding * 0.5;
+		grid-template-rows: auto;
+		grid-template-columns: repeat(3, 1fr);
+		width: 100%;
+		@include toggleSizes(max-width, 100vw, 100vw, 600px, 700px, 1000px);
+
+		margin: 0 auto;
+
+	}
+
+	li.menu-item {
+	  text-align: center;
+      &.tablet-only {
+        @include phone {
+          display: none
+        }
+      }
+	}
+
+	hr.menu-separator {
+		@include phone {
+			display: none;
+		}
+		border: none;
+		border-top: 1px solid;
+		width: 100%;
+		border-color: var(--systemBlue);
+	}
+
+  a.menu-item--button {
+
+		display: grid;
+
+		-webkit-appearance: none;
+		background: none;
+		color: none;
+		border: none;
+		cursor: pointer;
+
+		grid-template: auto auto / auto;
+		justify-items: center;
+		grid-gap: $container-padding * 0.5;
+	
+
+		border-radius: 5pt;
+
+		padding: $container-padding * 0.5;
+		width: 100%;
+
+		color: var(--systemPink);
+		path {
+			fill: var(--systemPink);
+		}
+
+		&:hover {
+			color: var(--systemWhite);
+			background: var(--systemPink);
+            text-decoration: none;
+
+			path {
+				fill: var(--systemWhite);
+			}
+		}
+		&:focus {
+			color: var(--systemSidebarForegroundFocus);
+			background: var(--systemSidebarBackgroundFocus);
+      text-decoration: none;
+
+			path {
+				fill: var(--systemSidebarForegroundFocus);
+			}
+
+		}
+		&:active,
+		&.active,
+		&[data-status="active"] {
+			color: var(--systemSidebarForegroundActive);
+			background: var(--systemSidebarBackgroundActive);
+      text-decoration: none;
+      
+			path {
+				fill: var(--systemSidebarForegroundActive);
+			}
+		}
+	}
+
+	span.label {
+
+		padding-bottom: 0 !important;
+		font-weight: 600;
+		line-height: 1;
+
+        display: block;
+        @each $style, $sizes in $label {
+         @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+        }
+	}
+
+	svg {
+		max-height: 20pt;
+		max-width: 20pt;
+	}
+
+}

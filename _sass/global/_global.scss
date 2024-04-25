@@ -16,14 +16,13 @@ html {
 	box-sizing: border-box;
 	-ms-overflow-style: scrollbar;
 	min-height: 100vh;
-  max-height: 100vh;
 
 	font-family: 			$font-family;
 	font-kerning: 			auto;
 	letter-spacing: 		normal;
 
-	@include toggleDarkMode(background, systemGray6);
-	@include toggleDarkMode(color, systemForeground);
+	background: var(--systemGray6);
+	color: var(--systemForeground);
 
 	@each $style, $sizes in $body {
 		@include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
@@ -34,9 +33,7 @@ html {
 }
 
 body {
-	@include toggleDarkMode(background, systemGray6);
-	@include toggleDarkMode(color, systemForeground);
+	background: var(--systemGray6);
+	color: var(--systemForeground);
 	min-height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
 }

@@ -59,8 +59,8 @@
 
   &:focus,
   &:hover {
-    @include toggleDarkMode(color, systemGray6);
-    @include toggleDarkMode(background, systemBlue);
+    color: var(--systemGray6);
+    background: var(--systemBlue);
     z-index: 999999 !important;
   }
 

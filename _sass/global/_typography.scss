@@ -4,19 +4,19 @@ a {
     cursor: pointer;
 
     &:link {
-        @include toggleDarkMode(color, systemBlue);
+        color: var(--systemBlue);
     }
     &:visited {
-        @include toggleDarkMode(color, systemBlue);
+        color: var(--systemBlue);
     }
     &:hover {
-        @include toggleDarkMode(color, systemTeal);
+        color: var(--systemTeal);
         text-decoration: 	underline;
     }
     &:focus {
-        @include toggleDarkMode(color, systemForegroundFocus);
-        @include toggleDarkMode(background, systemYellow);
-        @include toggleDarkMode(outline, systemYellow);
+        color: var(--systemForegroundFocus);
+        background: var(--systemYellow);
+        outline: var(--systemYellow);
     }
     &:active {
         text-decoration: 	none;
@@ -116,20 +116,20 @@ h3 {
     }
 }
 
-span.country {
+.country {
   @extend h2;
   padding: $container-padding * 0.5 0;
   line-height: 1;
 }
 
-span.position {
+.position {
   @extend h3;
   padding: $container-padding * 0.5 0 0;
   line-height: 1;
 }
 
-span.score {
-    @each $style, $sizes in $largeTitle {
+.score {
+    @each $style, $sizes in $title1 {
         @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
     }
     padding: 0 !important;

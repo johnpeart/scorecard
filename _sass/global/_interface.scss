@@ -11,290 +11,17 @@
 }
 
 section#app {
-	position: 	relative;
-	display: 	grid;
+  position: 	relative;
+  display: 	    block;
 
   width: 100vw;
-  height: 100vh;
-  
-	@include phone {
-		grid-template-columns: 100vw;
-		grid-template-rows: calc(100vh - 54pt);
-		grid-template-areas: 'content' 'sidebar';
-	}
-
-	padding: 0;
-	margin: 0;
-
-	overflow: hidden;
-}
-
-section#app[data-sidebar='show']  {
-
-	@include tablet {
-		grid-template-columns: minmax(250px, 1fr) 4fr;
-		grid-template-rows: auto;
-		grid-template-areas: 'sidebar content';
-	}
-
-}
-
-section#app[data-sidebar='hide']  {
-
-	@include tablet {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto;
-		grid-template-areas: 'content';
-
-		section#app-sidebar {
-			display: none;
-		}
-	}
-
-}
-
-section#app-sidebar {
-
-	grid-area: sidebar;
-	@include toggleDarkMode(background, systemGray6);
-
-	@include phone {
-		padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    display: block;
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    width: 100vw;
-    z-index: 999999;
-	}
-	@include tablet {
-		padding: ($container-padding * 5) $container-padding;
-		grid-gap: $container-padding;
-	}
-
-}
-
-section#app-sidebar h1#app-title {
-	@include sm-down {
-		display: none;
-	}
-}
-
-button#toggle-menu {
-
-	@include phone {
-		display: none;
-	}
-
-	position: absolute;
-	display: block;
-	cursor: pointer;
-
-	z-index: 9000;
-
-	top: $container-padding * 1.5;
-	left: $container-padding;
-	bottom: auto;
-	right: auto;
-
-	-webkit-appearance: none;
-	background: none;
-	color: none;
-	border: none;
-
-	text-align: left;
-	display: inline-block;
-
-	padding: 0;
-	margin: 0;
-
-	svg {
-		display: block;
-		height: 23pt;
-
-		z-index: 9000;
-	}
-
-	path {
-		@include toggleDarkMode(fill, systemGray1);
-	}
-
-	&:hover,
-	&:focus,
-	&:active,
-	&.active {
-		@include toggleDarkMode(color, systemSidebarForegroundActive);
-		@include toggleDarkMode(background, systemSidebarBackgroundActive);
-
-		path {
-			@include toggleDarkMode(fill, systemSidebarForegroundActive);
-		}
-	}
-}
-
-section#app-sidebar nav#sidebar-navigation {
-
-	h1 {
-		@extend h2;
-	}
-
-	ul.sidebar {
-
-		display: grid;
-
-		@include phone {
-			padding: $container-padding * 0.5;
-			grid-gap: $container-padding * 0.5;
-			grid-template-rows: auto;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
-		}
-		@include tablet {
-			grid-gap: $container-padding * 0.5;
-		}
-
-		width: 100%;
-
-		padding: 0;
-		margin: 0;
-
-	}
-
-	li.menu-item {
-
-		@include phone {
-			text-align: center;
-		}
-		@include tablet {
-			text-align: left;
-		}
-    
-    &.tablet-only {
-      @include phone {
-        display: none
-      }
-    }
-
-	}
-
-	hr.menu-separator {
-		@include phone {
-			display: none;
-		}
-		border: none;
-		border-top: 1px solid;
-		width: 100%;
-		@include toggleDarkMode(border-color, systemGray4);
-	}
-
-  a.menu-item--button {
-
-		display: grid;
-
-		-webkit-appearance: none;
-		background: none;
-		color: none;
-		border: none;
-		cursor: pointer;
-
-		@include phone {
-			grid-template: auto auto / auto;
-			justify-items: center;
-			grid-gap: $container-padding * 0.5;
-		}
-		@include tablet {
-			grid-template: auto / auto auto;
-			justify-content: flex-start;
-			grid-gap: $container-padding * 1.5;
-			align-items: center;
-		}
-
-		border-radius: 5pt;
-
-		padding: $container-padding * 0.5;
-		width: 100%;
-
-		@include phone {
-			@include toggleDarkMode(color, systemGray1);
-		}
-		@include tablet {
-			@include toggleDarkMode(color, systemForeground);
-		}
-		path {
-			@include toggleDarkMode(fill, systemGray1);
-		}
-
-		&:hover {
-			@include toggleDarkMode(color, systemSidebarForegroundHover);
-			@include toggleDarkMode(background, systemSidebarBackgroundHover);
-      text-decoration: none;
-
-			path {
-				@include toggleDarkMode(fill, systemGray6);
-			}
-		}
-		&:focus {
-			@include toggleDarkMode(color, systemSidebarForegroundFocus);
-			@include toggleDarkMode(background, systemSidebarBackgroundFocus);
-      text-decoration: none;
-
-			path {
-				@include toggleDarkMode(fill, systemSidebarForegroundFocus);
-			}
-
-		}
-		&:active,
-		&.active,
-		&[data-status="active"] {
-			@include toggleDarkMode(color, systemSidebarForegroundActive);
-			@include toggleDarkMode(background, systemSidebarBackgroundActive);
-      text-decoration: none;
-      
-			path {
-				@include toggleDarkMode(fill, systemSidebarForegroundActive);
-			}
-		}
-	}
-
-	span.label {
-
-		padding-bottom: 0 !important;
-		font-weight: 600;
-		line-height: 1;
-
-		@include phone {
-			display: block;
-			@each $style, $sizes in $label {
-				@include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
-			}
-		}
-
-		@include tablet {
-			display: inline-block;
-			@each $style, $sizes in $body {
-				@include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
-			}
-		}
-	}
-
-	svg {
-		max-height: 20pt;
-		max-width: 20pt;
-	}
-
+  padding: 0;
+  margin: 0;
 }
 
 section#app-panel {
-
-	grid-area: content;
-	max-height: 100vh;
-  
-  padding-bottom: $container-padding * 5;
-
-	overflow: scroll;
-	-webkit-overflow-scrolling: touch;
-
-	@include toggleDarkMode(background, systemBackground);
-
+	min-height: 100vh;
+	background: var(--systemBackground);
 }
 
 section#app[data-currentevent='unknown'] {
@@ -333,79 +60,6 @@ section#app[data-currentevent='final'] {
   }
 }
 
-section#app section#page-vote section#voting-open-notplaying {
-  display: none;
-}
-
-
-section#app[data-nowperforming="false"] section#page-vote section#voting-open-notplaying {
-  display: block !important;
-}
-
-section#app[data-currentevent="false"] section#page-vote section#voting-open-notplaying {
-  display: none !important;
-}
-
-section#app[data-nowperforming="false"] section#page-vote section#voting-open {
-  display: none;
-}
-
-section#app-message {
-  position: fixed;
-  z-index: 999999;
-  
-  @include sm-up {
-    max-width: 500px;
-  }
-  @include lg-up{
-    max-width: 700px;
-  }
-  
-  top: -100vh;
-  left: $container-padding;
-  right: $container-padding;
-  padding: $container-padding;
-  margin: 0 auto;
-  
-  border-radius: 10px;
-  @include phone {
-    box-shadow: 0px 0px 10px rgba(25,25,25, 0.3);
-  }
-  @include tablet {
-    box-shadow: 0px 0px 30px rgba(25,25,25, 0.3);
-  }
-	@include toggleDarkMode(background, systemBackground);
-  @supports (backdrop-filter: blur(1px)){ 
-	  @include toggleDarkMode(background, systemBackgroundTransparent);
-    backdrop-filter: blur(20px);
-  }
-  @supports (-webkit-backdrop-filter: blur(10px)){ 
-	  @include toggleDarkMode(background, systemBackgroundTransparent);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  
-}
-
-section#app[data-message='false'] section#app-message {
-  top: -100vh;
-  @include animation(slideout);
-  animation-duration: 1s;
-}
-
-section#app[data-message='true'] section#app-message {
-  top: $container-padding;
-  @include animation(slidein);
-  animation-duration: 1s;
-}
-
-.alert-buttons {
-  display: grid;
-  
-  grid-template-columns: auto;
-  grid-template-rows: 1fr;
-  grid-gap: $container-padding;
-}
-
 main.container,
 section.container,
 div.container {
@@ -417,55 +71,6 @@ div.container {
 	margin: 0 auto;
 	padding: 0 $container-padding;
 
-}
-
-section#app section.container#page-scores section#live-scores {
-  display: grid;
-  grid-gap: 0 $container-padding;
-}
-
-section#app[data-fullscreen='true'][data-currentevent='sf1'] section.container#page-scores,
-section#app[data-fullscreen='true'][data-currentevent='sf2'] section.container#page-scores,
-section#app[data-fullscreen='true'][data-currentevent='final'] section.container#page-scores {    
-  
-  min-height: 100vh;
-  
-  @include tablet() {
-    max-width:  100% !important;
-    padding: $container-padding * 4 !important;
-    margin: 0;
-    display: grid;
-    align-content: center;
-  }
-  
-  h1.largeTitle {
-    @include tablet() {
-      display: none;
-    }
-  }
-  section#live-scores {
-    @include tablet() {    
-      @include toggleSizes(grid-template-columns, 100%, 100%, 100%, 1fr 1fr, 1fr 1fr 1fr 1fr);
-    }
-  }
-  
-}
-section#app[data-fullscreen='false'][data-currentevent='sf1'] section.container#page-scores,
-section#app[data-fullscreen='false'][data-currentevent='sf2'] section.container#page-scores,
-section#app[data-fullscreen='false'][data-currentevent='final'] section.container#page-scores {
-  @include tablet() {
-    max-width:  100% !important;
-    padding: $container-padding * 4 !important;
-  
-    h1.largeTitle {
-        display: none;
-    }
-  }
-} 
-section#app[data-fullscreen='false'] section.container#page-scores section#live-scores {
-  @include tablet() {    
-    @include toggleSizes(grid-template-columns, 100%, 100%, 100%, 1fr 1fr, 1fr 1fr);
-  }  
 }
 
 ul.list {
@@ -481,10 +86,10 @@ ul.list {
 	  text-align: left;
     
     a {
-	    @include toggleDarkMode(background, systemWhite);
-	    @include toggleDarkMode(color, systemForeground);
+	    background: var(--systemWhite);
+	    color: var(--systemForeground);
       border: 1px solid;
-      @include toggleDarkMode(border-color, systemGray3);
+      border-color: var(--systemGray3);
       border-radius: 0;
     }
     
@@ -522,30 +127,30 @@ ul.list {
 	  padding: $container-padding;
 	  width: 100%;
     path {
-		  @include toggleDarkMode(fill, systemGray1);
+		  fill: var(--systemGray1);
 	  }
   
 	  &:hover {
-		  @include toggleDarkMode(color, systemSidebarForegroundHover);
-		  @include toggleDarkMode(background, systemSidebarBackgroundHover);
+		  color: var(--systemSidebarForegroundHover);
+		  background: var(--systemSidebarBackgroundHover);
       path {
-			  @include toggleDarkMode(fill, systemGray6);
+			  fill: var(--systemGray6);
 		  }
 	  }
 	  &:focus {
-		  @include toggleDarkMode(color, systemSidebarForegroundFocus);
-		  @include toggleDarkMode(background, systemSidebarBackgroundFocus);
+		  color: var(--systemSidebarForegroundFocus);
+		  background: var(--systemSidebarBackgroundFocus);
       path {
-			  @include toggleDarkMode(fill, systemSidebarForegroundFocus);
+			  fill: var(--systemSidebarForegroundFocus);
 		  }
 	  }
 	  &:active,
 	  &.active,
 	  &[data-status="active"] {
-		  @include toggleDarkMode(color, systemSidebarForegroundActive);
-		  @include toggleDarkMode(background, systemSidebarBackgroundActive);
+		  color: var(--systemSidebarForegroundActive);
+		  background: var(--systemSidebarBackgroundActive);
       path {
-			  @include toggleDarkMode(fill, systemSidebarForegroundActive);
+			  fill: var(--systemSidebarForegroundActive);
 		  }
 	  }
     
@@ -572,27 +177,6 @@ ul.list {
   
 }
 
-div.event-infobox {
-
-	margin: ($container-padding * 2) 0;
-	padding: $container-padding;
-
-	@include toggleDarkMode(background, systemGray5);
-	border-radius: 10pt;
-
-	h2:first-child {
-		padding-top: 0;
-	}
-
-	p:last-child {
-		padding-bottom: 0;
-	}
-}
-
-.event-infobox + h1.largeTitle {
-  padding-top: $container-padding;
-}
-
 section#voting-unknown {
   width: 100%;
   height: 100vh;
@@ -602,14 +186,12 @@ section#voting-unknown {
   }
 }
 
-div#now-playing {
+div.vote {
   
-  padding: $container-padding;
   margin-bottom: $container-padding;
   border-radius: 10pt;
   
-  @include toggleDarkMode(background, systemBlue);
-  @include toggleDarkMode(color, systemWhite);
+  background: var(--systemGray5);
   
   p, h2 {
     padding: 0;
@@ -617,13 +199,35 @@ div#now-playing {
   
 }
 
-div#voting-buttons {
+div.voting-info {
+	display: grid;
+	
+	grid-template-columns: auto 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: "emoji country";
+	
+	.voting-emoji {
+		grid-area: emoji;
+		padding: $container-padding;
+		border-top-left-radius: 10pt;
+		justify-content: center;
+		align-content: center;
+		height: 100%;
+		font-size: 30px;
+	}
+	.voting-country {
+		grid-area: country;
+		padding: $container-padding 0;
+	}
+}
+
+div.voting-buttons {
   
   display: grid;
   
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: 'vote1 vote2 vote3 vote4' 'vote5 vote6 vote7 vote8' 'vote10 vote10 vote12 vote12';
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'vote1 vote2 vote3 vote4 vote5' 'vote6 vote7 vote8 vote10 vote12';
   grid-gap: $container-padding;
   
   .vote-1-points {
@@ -657,15 +261,14 @@ div#voting-buttons {
     grid-area: vote12;
   }
   
+  background: var(--systemGray6);
   padding: $container-padding;
-  margin-bottom: $container-padding;
-  border-radius: 10pt;
-  
-  @include toggleDarkMode(background, systemGray5);
+  border-bottom-left-radius: 10pt;
+  border-bottom-right-radius: 10pt;
   
 }
 
-div#voting-voted {
+div.voting-voted {
   
   display: grid;
   grid-template-columns: 1fr;
@@ -680,42 +283,25 @@ div#voting-voted {
     text-align: center;
   }
   header.score--header {
-    @include toggleDarkMode(background, systemGreen);
-    @include toggleDarkMode(color, systemWhite);  
+    background: var(--systemGreen);
+    color: var(--systemWhite);  
     border-top-left-radius: 10pt;
     border-top-right-radius: 10pt;
   } 
   section.score--content {
-    @include toggleDarkMode(background, systemGray5);  
+    background: var(--systemGray5);  
     border-bottom-right-radius: 10pt;
     border-bottom-left-radius: 10pt;
     span {font-weight: 900;}
   } 
   
 }
-  
-  
-section#app[data-voted="false"] div#voting-voted {
-  display: none !important;
-} 
-
-section#app[data-voted="true"] div#voting-voted {
-  display: grid;
-}
-
-section#app[data-voted="false"] div#voting-buttons {
-  display: grid;
-}
-
-section#app[data-voted="true"] div#voting-buttons {
-  display: none !important;
-}
 
 .country-info {
   margin: 0 0 $container-padding 0;
 	padding: $container-padding;
 
-	@include toggleDarkMode(background, systemGray5);
+	background: var(--systemGray5);
 	border-radius: 10pt;
   
   h1.country {
@@ -723,7 +309,7 @@ section#app[data-voted="true"] div#voting-buttons {
     padding-bottom: $container-padding;
     margin-bottom: $container-padding;
     border-bottom: 2px solid;
-    @include toggleDarkMode(border-color, systemGray3);
+    border-color: var(--systemGray3);
   }
   aside.two-column {
     display: grid;
@@ -741,283 +327,7 @@ section#app[data-voted="true"] div#voting-buttons {
   
 }
 
-article.country-scorecard {
-  
-  display: grid;
-  
-  border-radius: 10pt;
-  
-  @include phone {
-    grid-template-columns: 5fr 2fr;
-    grid-template-rows: auto;
-    grid-template-areas: 'header score';
-    
-    header.score--header { 
-      border-top-left-radius: 10pt;
-      border-bottom-left-radius: 10pt;
-    }
-    section.score--content {
-      border-top-right-radius: 10pt;
-      border-bottom-right-radius: 10pt;
-    } 
-  }
-  
-  @include tablet {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas: 'header' 'score';
-    
-    header.score--header { 
-      border-top-left-radius: 10pt;
-      border-top-right-radius: 10pt;
-    }
-    section.score--content {
-      border-bottom-right-radius: 10pt;
-      border-bottom-left-radius: 10pt;
-    } 
-  }
-
-	margin: 0 0 $container-padding 0;
-  
-  header.score--header {
-    display: grid;
-    padding: $container-padding;
-    @include tablet {
-      padding: $container-padding $container-padding ($container-padding * 0.5) $container-padding;
-    }
-  }
-  section.score--content {
-    display: grid;
-    padding: $container-padding;
-    @include tablet {
-      padding: ($container-padding * 0.5) $container-padding $container-padding $container-padding;
-    }
-  }
-  
-  header.score--header {
-    @include toggleDarkMode(background, systemGray5);
-    @include phone {
-      text-align: left;
-      justify-content: flex-start;
-    }
-    @include tablet {
-      text-align: center;
-      justify-content: center;
-    }
-  }
-  
-  section.score--content {
-    text-align: center;
-    justify-content: center;
-    @include toggleDarkMode(background, systemGray6);
-    span {font-weight: 900;}
-  } 
-}
-
-section#app article.country-scorecard[data-rank='0'] {
-  header.score--header {
-
-  }
-}
-
-section#app article.country-scorecard[data-rank='1'] {
-  header.score--header {
-    background: #D4AF37;
-    background: linear-gradient(to bottom, #D4AF37 0%, #C5A028 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #D4AF37), color-stop(100%, #C5A028));
-    background: -webkit-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    background: -moz-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    background: -o-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    background: -ms-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4AF37', endColorstr='#C5A028', GradientType=0);
-    
-    @include toggleDarkMode(color, systemWhite);
-  }
-}
-section#app article.country-scorecard[data-rank='2'] {
-  header.score--header {
-    background: #C0C0C0;
-    background: linear-gradient(to bottom, #C0C0C0 0%, #B1B1B1 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C0C0C0), color-stop(100%, #B1B1B1));
-    background: -webkit-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
-    background: -moz-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
-    background: -o-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
-    background: -ms-linear-gradient(top, #C0C0C0 0%, #B1B1B1 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C0C0', endColorstr='#B1B1B1', GradientType=0);
-    
-    @include toggleDarkMode(color, systemWhite);
-  }
-}
-section#app article.country-scorecard[data-rank='3'] {
-  header.score--header {
-    background: #CD7F32;
-    background: linear-gradient(to bottom, #CD7F32 0%, #BE7023 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CD7F32), color-stop(100%, #BE7023));
-    background: -webkit-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
-    background: -moz-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
-    background: -o-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
-    background: -ms-linear-gradient(top, #CD7F32 0%, #BE7023 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CD7F32', endColorstr='#BE7023', GradientType=0);
-    
-    @include toggleDarkMode(color, systemWhite);
-  }
-}
-
-section#app article.country-scorecard[data-rank='1'],
-section#app article.country-scorecard[data-rank='2'],
-section#app article.country-scorecard[data-rank='3'] {
-  transition: all 1s;
-}
-
-section#app[data-currentevent="sf1"] article.country-scorecard[data-semifinalone="false"] {
-  display: none !important;
-}
-
-section#app[data-currentevent="sf2"] article.country-scorecard[data-semifinaltwo="false"] {
-  display: none !important;
-}
-
-section#app[data-currentevent="final"] article.country-scorecard[data-final="false"] {
-  display: none !important;
-}
-
-div.sort--scorecard {
-  display: grid;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  
-  padding: $container-padding;
-  margin: -#{$container-padding};
-  margin-bottom: 0;
-  
-  grid-template-columns: 50% 50%;
-  
-	@include toggleDarkMode(background, systemBackground);
-  @supports (backdrop-filter: blur(1px)){ 
-	  @include toggleDarkMode(background, systemBackgroundTransparent);
-    backdrop-filter: blur(10px);
-  }
-  @supports (-webkit-backdrop-filter: blur(10px)){ 
-	  @include toggleDarkMode(background, systemBackgroundTransparent);
-    -webkit-backdrop-filter: blur(10px);
-  }
-}
-
-button.sort--button {
-
-  @include toggleSizes(display, block, inline-block, inline-block, inline-block, inline-block);
-  width: 100%;
-	cursor: pointer;
-
-	-webkit-appearance: none;
-	background: none;
-	
-  border-radius: 10px;
-  
-  &:first-of-type {
-    border-top-right-radius: 0;
-    border-top-left-radius: 10px; 
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 10px;
-  }
-  
-  &:last-of-type {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 10px;
-    
-    border-left: 0;
-  }
-  
-	border: 2px solid;
-	@include toggleDarkMode(border-color, systemSidebarForegroundActive);
-	@include toggleDarkMode(color, systemSidebarForegroundActive);
-
-  @each $style, $sizes in $toggle {
-	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
-    padding: $container-padding !important;
-    margin: 0 !important;
-    text-align: center !important;
-  }
-
-	&:hover,
-	&:focus,
-	&:active,
-	&.active,
-  &[data-status='active'] {
-		@include toggleDarkMode(color, systemSidebarBackgroundActive);
-		@include toggleDarkMode(background, systemSidebarForegroundActive);
-
-		path {
-			@include toggleDarkMode(fill, systemSidebarForegroundActive);
-		}
-	}
-}
-
-.button {
-  display: block;
-  
-	cursor: pointer;
-  
-	-webkit-appearance: none;
-	background: none;
-	
-  border-radius: 10px;
-	border: 2px solid;
-	@include toggleDarkMode(border-color, systemSidebarForegroundActive);
-	@include toggleDarkMode(color, systemSidebarForegroundActive);
-
-  @each $style, $sizes in $toggle {
-	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
-    padding: $container-padding !important;
-    margin: 0 !important;
-    text-align: center !important;
-  }
-
-	&:hover,
-	&:focus,
-	&:active,
-	&.active,
-  &[data-status='active'] {
-		@include toggleDarkMode(color, systemSidebarBackgroundActive);
-		@include toggleDarkMode(background, systemSidebarForegroundActive);
-    text-decoration: none;
-		path {
-			@include toggleDarkMode(fill, systemSidebarForegroundActive);
-		}
-	}
-}
-  
-.button-fullwidth {
-  width: 100%;
-}
-
-.button.alert-action,
-.button.alert-cancel {
-  width: 100%;
-}
-
-textarea,
-input {
-  -webkit-appearance: none;
-  border: 2px solid;
-  @include toggleDarkMode(border-color, systemGray3);
-  border-radius: 10pt;
-  
-  @each $style, $sizes in $body {
-	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
-    padding: $container-padding !important;
-    margin: 0 !important;
-  }
-}
-
 div.admin--current-event,
-div.admin--now-playing,
-div.admin--messages,
 div.admin--reset {
   display: grid;
   

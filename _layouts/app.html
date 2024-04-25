@@ -13,38 +13,24 @@
       data-connection="false" 
       data-sidebar="show" 
       data-fullscreen="false" 
-      data-currentevent="unknown" 
+      data-currentevent="unknown"
+      data-layout="rank" 
+	  data-votingopen="true"
       data-country="unknown"
       data-runningorder="unknown"
       data-voted="false"
       data-votedcountry="false"
       data-votedpoints="false"
-      data-layout="running-order" 
-      data-message="false" 
     >
 
-      {% include interface/sidebar.html %}
 
       <section id="app-panel">
-
        
 
       </section>
-      
-      <section id="app-message">
-        
-        <h1 id="app-message--title" class="message-title">This is a message title</h1>
-        
-        <p id="app-message--body">
-        This is some information to display as part of a message.
-        </p>
-        
-        <div id="app-message--buttons" class="alert-buttons">
-          <button class="button alert-cancel" onclick="closeMessage()">Close</button>
-        </div>
-        
-      </section>
 
+      {% include interface/sidebar.html %}
+      
     </section>
     
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->

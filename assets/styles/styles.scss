@@ -7,17 +7,24 @@
 @import
 	"global/_reset",
 
+	"helpers/_darkmode",
+	"variables/_colours",
 	"variables/_default",
 
 	"helpers/_animations",
 	"helpers/_breakpoints",
 	"helpers/_clearfix",
-	"helpers/_darkmode",
 	"helpers/_screenreaders",
 	"helpers/_sticky",
 
 	"global/_typography",
 
 	"global/_global",
-	"global/_interface"
+	"global/_interface",
+	
+	"global/_scores",
+	
+	"components/_buttons",
+	"components/_sidebar",
+	"components/_scorecard"
 ;

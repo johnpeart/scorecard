@@ -13,54 +13,48 @@
     
     <h1 class="largeTitle">Voting is closed</h1>
     
-    <p>During a live show, voting buttons will appear on the <a href="#vote">Vote</a> tab.</p>
-    
-    <p>You can award up to 12 points to each act.</p>
-    
-    <p><strong>Voting takes place during each performance.</strong> Voting for each entry opens when each act starts performing and closes when they complete their performance. Don't miss an act or you won't be able to vote for them.</p>
-      
-    <p>You can see an average of the points awarded to each entry on this tab. The winner of this year's Scorecard home vote is the entry with the highest average points.</p>
+    <p>During a live show, scores for each country will appear on this tab.</p>
+	
+	<p><strong>Voting takes place throughout the show.</strong> You can vote at any time using the <a href="#vote">Vote</a> tab.</p>
+  
+  	<p><strong>Vote for every country.</strong> You can award 1, 2, 3, 4, 5, 6, 7, 8, 10 or 12 points to each country.</p>
     
   </section>
   
   <section id="voting-open">
-  
+	  
     <h1 class="largeTitle">Scores</h1>
-    
+	
+	<p class="lead">These are the average scores from everyone that has voted so far.</p>    
+
     <section id="live-scores">
       
       {% for entry in site.data.entries %}
       
         <article class="country-scorecard" id="scorecard-{{ entry.shortcode }}" 
-          data-semifinalone="{{ entry.semifinalone }}" 
-          data-semifinaltwo="{{ entry.semifinaltwo }}" 
-          data-final="{{ entry.final }}" 
-          
-          {% if site.event == "final" %}
           data-runningorder="{{ entry.finalrunningorder }}" 
-          {% else %}
-          data-runningorder="{{ entry.semifinalrunningorder }}" 
-          {% endif %}
-          
-          data-rank="" 
           data-votes="?" 
-          data-voters="?">
-        
+          data-rank="?" 
+          data-voters="?" >
+          
           <header class="score--header">
-            <span class="country">{{ entry.country }}</span>
+            <p id="scorecard-{{ entry.shortcode }}-position" class="scores-pos" data-runningorder="{{ entry.finalrunningorder }}"></p>
           </header>
+		      <section class="score--country">
+			      <p class="country">{{ entry.country }}</p>  
+		      </section>
           <section class="score--content">
-            <span id="scorecard-{{ entry.shortcode }}-score" class="score">⋯</span>
+            <p id="scorecard-{{ entry.shortcode }}-score" class="score">{{ entry.emoji }}</p>
           </section>
           
         </article>
       
       {% endfor %}
 
-
-      
     </section>
     
+    <button class="fullscreen hidden-phone" id="button--full-screen">Go full screen</button>
+
   </section>
   
 </section>
