@@ -1,29 +1,29 @@
 emoji,shortcode,country,artist,song,semifinal1,semifinal2,final
-🇨🇾,CYP, Cyprus,Silia Kapsis,Liar,1,0,2
-🇷🇸,SRB, Serbia,Teya Dora,Ramonda,2,0,3
-🇱🇹,LTU, Lithuania,Silvester Belt,Luktelk,3,0,4
-🇮🇪,IRE, Ireland,Bambie Thug,Doomsday Blue,4,0,5
-🇺🇦,UKR, Ukraine,Alyona Alyona and Jerry Heil,Teresa & Maria,5,0,6
-🇵🇱,POL, Poland,Luna,The Tower,6,0,7
-🇭🇷,CRO, Croatia,Baby Lasagna,Rim Tim Tagi Dim,7,0,8
-🇮🇸,ISL, Iceland,Hera Björk,Scared of Heights,8,0,9
-🇸🇮,SLO, Slovenia,Raiven,Veronika,9,0,10
-🇫🇮,FIN, Finland,Windows95man,No Rules!,10,0,11
+🇨🇾,CYP, Cyprus,Silia Kapsis,Liar,1,0,0
+🇷🇸,SRB, Serbia,Teya Dora,Ramonda,2,0,0
+🇱🇹,LTU, Lithuania,Silvester Belt,Luktelk,3,0,0
+🇮🇪,IRE, Ireland,Bambie Thug,Doomsday Blue,4,0,0
+🇺🇦,UKR, Ukraine,Alyona Alyona and Jerry Heil,Teresa & Maria,5,0,0
+🇵🇱,POL, Poland,Luna,The Tower,6,0,0
+🇭🇷,CRO, Croatia,Baby Lasagna,Rim Tim Tagi Dim,7,0,0
+🇮🇸,ISL, Iceland,Hera Björk,Scared of Heights,8,0,0
+🇸🇮,SLO, Slovenia,Raiven,Veronika,9,0,0
+🇫🇮,FIN, Finland,Windows95man,No Rules!,10,0,0
 🇲🇩,MDA, Moldova,Natalia Barbu,In the Middle,11,0,0
 🇦🇿,AZE, Azerbaijan,Fahree feat. Ilkin Dovlatov,Özünlə apar,12,0,0
 🇦🇺,AUS, Australia,Electric Fields,One Milkali (One Blood),13,0,0
 🇵🇹,POR, Portugal,Iolanda,Grito,14,0,0
 🇱🇺,LUX, Luxembourg,Tali,Fighter,15,0,0
-🇲🇹,MLT, Malta,Sarah Bonnici,Loop,0,1,12
-🇦🇱,ALB, Albania,Besa,Titan,0,2,13
-🇬🇷,GRE, Greece,Marina Satti,Zari,0,3,14
-🇨🇭,SUI, Switzerland,Nemo,The Code,0,4,15
-🇨🇿,CZE, Czechia,Aiko,Pedestal,0,5,16
-🇦🇹,AUT, Austria,Kaleen,We Will Rave,0,6,17
-🇩🇰,DEN, Denmark,Saba,Sand,0,7,18
-🇦🇲,ARM, Armenia,Ladaniva,Jako,0,8,19
-🇱🇻,LAT, Latvia,Dons,Hollow,0,9,20
-🇸🇲,SMR, San Marino,Megara,11:11,0,10,21
+🇲🇹,MLT, Malta,Sarah Bonnici,Loop,0,1,0
+🇦🇱,ALB, Albania,Besa,Titan,0,2,0
+🇬🇷,GRE, Greece,Marina Satti,Zari,0,3,0
+🇨🇭,SUI, Switzerland,Nemo,The Code,0,4,0
+🇨🇿,CZE, Czechia,Aiko,Pedestal,0,5,0
+🇦🇹,AUT, Austria,Kaleen,We Will Rave,0,6,0
+🇩🇰,DEN, Denmark,Saba,Sand,0,7,0
+🇦🇲,ARM, Armenia,Ladaniva,Jako,0,8,0
+🇱🇻,LAT, Latvia,Dons,Hollow,0,9,0
+🇸🇲,SMR, San Marino,Megara,11:11,0,10,0
 🇬🇪,GEO, Georgia,Nutsa Buzaladze,Firefighter,0,11,0
 🇧🇪,BEL, Belgium,Mustii,Before the Party's Over,0,12,0
 🇪🇪,EST, Estonia,5miinust and Puuluup,(Nendest) narkootikumidest ei tea me (küll) midagi,0,13,0
@@ -31,8 +31,8 @@ emoji,shortcode,country,artist,song,semifinal1,semifinal2,final
 🇳🇴,NOR, Norway,Gåte,Ulveham,0,15,0
 🇳🇱,NED, Netherlands,Joost Klein,Europapa,0,16,0
 🇸🇪,SWE, Sweden,Marcus & Martinus,Unforgettable,0,0,1
-🇫🇷,FRA, France,Slimane,Mon amour,0,0,22
-🇩🇪,GER, Germany,Isaak,Always on the Run,0,0,23
-🇮🇹,ITA, Italy,Angelina Mango,La noia,0,0,24
-🇪🇸,ESP, Spain,Nebulossa,Zorra,0,0,25
-🇬🇧,GBR, United Kingdom,Olly Alexander,Dizzy,0,0,26
+🇫🇷,FRA, France,Slimane,Mon amour,0,0,2
+🇩🇪,GER, Germany,Isaak,Always on the Run,0,0,3
+🇮🇹,ITA, Italy,Angelina Mango,La noia,0,0,4
+🇪🇸,ESP, Spain,Nebulossa,Zorra,0,0,6
+🇬🇧,GBR, United Kingdom,Olly Alexander,Dizzy,0,0,5

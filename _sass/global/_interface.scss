@@ -35,7 +35,7 @@ section#app[data-event='unknown'] {
   }
 }
 
-section#app[data-event='false'] {
+section#app[data-event='NONE'] {
   section#voting-unknown {
     display: none;
   }
@@ -49,7 +49,8 @@ section#app[data-event='false'] {
 
 section#app[data-event='SF1'],
 section#app[data-event='SF2'],
-section#app[data-event='FINAL'] {
+section#app[data-event='FINAL'],
+section#app[data-event='TEST'] {
   section#voting-unknown {
     display: none;
   }

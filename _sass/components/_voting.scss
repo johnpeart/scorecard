@@ -163,6 +163,12 @@ button.voting-button {
   }
 }
 
+.vote .voting-voted p {
+  text-align: center;
+}
+.vote .voting-voted .voting-voted--points {
+  font-weight: 900;
+}
 .vote .voting-voted .voting-voted--points::before {
   display: inline-block;
   position: relative;

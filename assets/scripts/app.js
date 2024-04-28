@@ -42,7 +42,7 @@ const allEntries = [{% for entry in entries %}"{{ entry.shortcode }}"{% unless f
 
 {% assign events = site.data.dates %}
 {% for event in events %}
-const {{ event.event }} = {start: {{ event.start }}, end: {{ event.end }}};
+const {{ event.event }} = {date: "{{ event.date }}"};
 {% endfor %}
 
 function between(x, min, max) {
@@ -50,17 +50,20 @@ function between(x, min, max) {
 }
 
 function checkCurrentEvent() {
-    var currentTime = new Date().getTime();
-    
-    if (between(currentTime, semifinal1["start"], semifinal2["end"])) {
+    var currentDay = new Date().getUTCDate();
+    var currentMonth = new Date().getUTCMonth() + 1;
+    var currentYear = new Date().getFullYear();
+    var currentDate = currentDay  + '-' + currentMonth + '-' + currentYear ;
+    if (currentDate === semifinal1["date"]) {
         var event = app.dataset.event = "SF1";
-    } else if (between(currentTime, semifinal2["start"], semifinal2["end"])) {
+    } else if (currentDate === semifinal2["date"]) {
         var event = app.dataset.event = "SF2";
-    } else if (between(currentTime, final["start"], final["end"])) { 
+    } else if (currentDate === final["date"]) { 
         var event = app.dataset.event = "FINAL";
+    } else if (currentDate === test["date"]) { 
+        var event = app.dataset.event = "SF1";
     } else {
-        var event = app.dataset.event = "FINAL";
-        console.log("No event set – defaulting to FINAL");
+        var event = app.dataset.event = "NONE";
     }
     
     return event;
@@ -126,8 +129,6 @@ function countryDataListener(entries, event, toggle) {
                 
                 if (score > 0) {
                     displayElementData(score, entryScore);
-                } else {
-                    displayElementData('', entryScore);
                 }
                 
                 checkTopScore(entries);
@@ -176,8 +177,6 @@ function checkTopScore(entries) {
 function vote(points, country) {
   
     var app = document.getElementById("app");
-    var votingButtons = document.getElementById("voting-buttons");
-    var votingVoted = document.getElementById("voting-voted");
     var event = app.dataset.event;
   
 	// Get the current score for the country
@@ -191,11 +190,12 @@ function vote(points, country) {
                 var currentVotes = data.votes;
                 data['points'] = currentPoints + points;
                 data['votes'] = currentVotes + 1;
-                // displayElementData(app.dataset.country, votedHeader);
-                // displayElementData(points, votedContent);
-                // setDataAttribute(app, "votedpoints", points);
-                // setDataAttribute(app, "votedcountry", currentcountry);
-                // setDataAttribute(app, "voted", true);
+                
+                var voteCard = document.getElementById("vote-" + country);
+                var voteValue = document.getElementById("voted-" + country);
+                setDataAttribute(voteCard, "voted", "true");
+                setDataAttribute(voteValue, "points", points);
+                displayElementData(points, voteValue);
 			}
 			return data;
 		},

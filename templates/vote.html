@@ -27,7 +27,7 @@
     
     {% assign entries = site.data.entries | sort: "final" %}
 	{% for entry in entries %}
-    <div id="vote-{{ entry.shortcode }}" class="vote" data-voted="false" data-runningorder="{{ entry.final }}">
+    <div id="vote-{{ entry.shortcode }}" class="vote" data-voted="false" data-runningorder="{{ entry.semifinal1 }}">
       
       <div class="voting-info">
         <h2 class="voting-country">{{ entry.country }}</h2>
@@ -67,7 +67,7 @@
       </div>
       
       <div class="voting-voted">
-        <p class="lead">You gave <span id="voted-{{ entry.shortcode }}" class="voting-voted--points" data-vote="0"></span> points</p>
+        <p class="lead">You gave <span id="voted-{{ entry.shortcode }}" class="voting-voted--points" data-points="0"></span> points</p>
       </div>
 	</div>
     {% endfor %}
