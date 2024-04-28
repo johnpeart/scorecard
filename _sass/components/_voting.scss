@@ -1,0 +1,171 @@
+div.vote {
+  
+  margin-bottom: $container-padding;
+  
+  p, h2 {
+    padding: 0;
+  }
+  
+}
+
+div.vote[data-runningorder='0'] {
+  display: none;
+}
+
+div.voting-info {
+  display: grid;
+  h2 {
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--systemWhite);
+    filter: invert(0.4);
+    mix-blend-mode: color-dodge;
+  }
+  
+  padding: $container-padding;
+  background: var(--gradient26);
+  border-radius: 10pt 10pt 0 0;
+}
+
+div.voting-buttons {
+  display: grid;
+  
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "v1 v2 v3 v4 v10 v12"
+    "v5 v6 v7 v8 v10 v12";
+    
+  .vote-1-points {
+    grid-area: v1;
+  }
+  .vote-2-points {
+    grid-area: v2;
+  }
+  .vote-3-points {
+    grid-area: v3;
+  }
+  .vote-4-points {
+    grid-area: v4;
+  }
+  .vote-5-points {
+    grid-area: v5;
+  }
+  .vote-6-points {
+    grid-area: v6;
+  }
+  .vote-7-points {
+    grid-area: v7;
+  }
+  .vote-8-points {
+    grid-area: v8;
+  }
+  .vote-10-points {
+    grid-area: v10;
+  }
+  .vote-12-points {
+    grid-area: v12;
+  }
+  
+}
+
+.voting-voted {
+  background: var(--gray-gradient1);
+  padding: $container-padding;
+  border-radius: 0 0 10pt 10pt;
+  
+  p {
+    color: var(--gradientScoreTextBlack);
+    mix-blend-mode: color-burn;
+    text-align: center;
+  }
+}
+
+button.voting-button {
+  width: 100%;
+  border-radius: 0;
+  
+  border: none;
+  
+  @each $style, $sizes in $lead {
+      @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
+  }
+  
+  .button-label {
+    color: var(--gradientScoreTextBlack);
+    filter: invert(0.1);
+    mix-blend-mode: color-burn;
+  }
+    
+  &.vote-1-points {
+    background: var(--gradient19);
+  }
+  &.vote-2-points {
+    background: var(--gradient17);
+  }
+  &.vote-3-points {
+    background: var(--gradient15);
+  }
+  &.vote-4-points {
+    background: var(--gradient13);
+  }
+  &.vote-5-points {
+    background: var(--gradient11);
+    border-bottom-left-radius: 10pt;
+  }
+  &.vote-6-points {
+    background: var(--gradient9);
+  }
+  &.vote-7-points {
+    background: var(--gradient7);
+  }
+  &.vote-8-points {
+    background: var(--gradient5);
+  }
+  &.vote-10-points {
+    background: var(--gradient3);
+  }
+  &.vote-12-points {
+    background: var(--gradient1);
+    border-bottom-right-radius: 10pt;
+  }
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &[data-status='active'] {
+    color: var(--systemSidebarBackgroundActive);
+    background: var(--systemSidebarForegroundActive);
+    text-decoration: none;
+    font-weight: 900;
+    path {
+      fill: var(--systemSidebarForegroundActive);
+    }
+  }
+}
+
+.vote[data-voted="true"] {
+  .voting-buttons {
+    display: none;
+  }
+  .voting-voted {
+    display: block;
+  }
+}
+
+.vote[data-voted="false"] {
+  .voting-buttons {
+    display: grid;
+  }
+  .voting-voted {
+    display: none;
+  }
+}
+
+.vote .voting-voted .voting-voted--points::before {
+  display: inline-block;
+  position: relative;
+  content: attr(data-vote);
+  font-weight: 900;
+}

@@ -5,8 +5,8 @@
 //////////////////////////////
 
 function toggleFullScreen() {
-    var app = document.getElementById("app");
-    var buttonFullScreen = document.getElementById("button--full-screen");
+    let app = document.getElementById("app");
+    let buttonFullScreen = document.getElementById("button--full-screen");
     if (app.dataset.sidebar == "show") {
         app.dataset.sidebar = "hide";
         app.dataset.fullscreen = "true";
@@ -37,7 +37,7 @@ function setDataAttribute(el, attr, value) {
 	el.setAttribute('data-' + attr, value);
 }
 
-{% assign entries = site.data.entries | sort: 'final' %}
+{% assign entries = site.data.entries %}
 const allEntries = [{% for entry in entries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
 
 {% assign events = site.data.dates %}
@@ -53,14 +53,14 @@ function checkCurrentEvent() {
     var currentTime = new Date().getTime();
     
     if (between(currentTime, semifinal1["start"], semifinal2["end"])) {
-        var event = app.dataset.event = "SF1";
+        var event = app.dataset.currentevent = "SF1";
     } else if (between(currentTime, semifinal2["start"], semifinal2["end"])) {
-        var event = app.dataset.event = "SF2";
+        var event = app.dataset.currentevent = "SF2";
     } else if (between(currentTime, final["start"], final["end"])) { 
-        var event = app.dataset.event = "FINAL";
+        var event = app.dataset.currentevent = "FINAL";
     } else {
-        var event = app.dataset.event = "FINAL";
-        console.log("No event set – defaulting to FINAL");
+        var event = app.dataset.currentevent = "FINAL";
+        console.log("No data available");
     }
     
     return event;
@@ -99,38 +99,37 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 var presence = database.ref(".info/connected");
+const contestData = database.ref("/2024")
 
 function countryDataListener(entries, event, toggle) {
     
-    var app = document.getElementById("app");
-    var event = app.dataset.event;
-    
+    var event = app.dataset.currentevent;
 	for (i = 0; i < entries.length; i++) {
-        
+    
         let entry = entries[i];
         let entryData = database.ref('/2024/' + entry + '/' + event);
-        let entryScorecard = document.getElementById('scorecard-' + entry);
+        
+        var entryScorecard = document.getElementById('scorecard-' + entry);
         let entryScore = document.getElementById("scorecard-" + entry + "-score");
-        let count = i + 1;
         
         if (toggle == "start") {
 	        entryData.on('value', (snapshot) => {
-                let points = snapshot.val().points;
+                
+                var points = snapshot.val().points;
                 entryScorecard.dataset.points = points;
                 
-                let votes = snapshot.val().votes;
+                var votes = snapshot.val().votes;
                 entryScorecard.dataset.votes = votes;
                 
-                let score = averagePoints(points, votes);
-                console.log(count, entry, points, votes, score);
+                var score = averagePoints(points, votes);
+                
+                checkTopScore(entries);
                 
                 if (score > 0) {
                     displayElementData(score, entryScore);
                 } else {
-                    displayElementData('', entryScore);
+                    displayElementData('-', entryScore);
                 }
-                
-                checkTopScore(entries);
             })
         } else {
             entryData.off('value')
@@ -146,15 +145,15 @@ function checkTopScore(entries) {
 		let country = entries[i];
         let points = parseInt(document.getElementById("scorecard-" + country).dataset.points);
         let votes = parseInt(document.getElementById("scorecard-" + country).dataset.votes);
-        if (points > 0 || votes > 0) {
+        if (votes > 0) {
 		    let score = points / votes;
 	        allScores.push([country, score])
         }
 	}
-    
+
 	allScores.sort((a,b) => b[1] - a[1]);
 
-	var nonZero = 0;
+	let nonZero = 0;
 	for (i = 0; i < allScores.length; i++) {
 		if (allScores[i][1] > 0) {
 			nonZero++;
@@ -168,17 +167,18 @@ function checkTopScore(entries) {
 			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = rank;
 	        document.getElementById("scorecard-" + allScores[i][0] + "-position").dataset.rank = rank;      
 		}
-	} 
+	}
+	
 }
 
 // When this call is triggered, it will update the score for the country,
 // in a given event or create it if it doesn't exist
 function vote(points, country) {
   
-    var app = document.getElementById("app");
-    var votingButtons = document.getElementById("voting-buttons");
-    var votingVoted = document.getElementById("voting-voted");
-    var event = app.dataset.event;
+    let app = document.getElementById("app");
+    let votingButtons = document.getElementById("voting-buttons");
+    let votingVoted = document.getElementById("voting-voted");
+    let event = app.dataset.currentevent;
   
 	// Get the current score for the country
 	var entryData = database.ref('/2024/' + country + '/' + event);
@@ -290,7 +290,7 @@ const locationHandler = async () => {
         .setAttribute("content", route.description);
     
     if (location == "vote") {
-        var app = document.getElementById("app");
+        let app = document.getElementById("app");
         var event = checkCurrentEvent();
     }
     

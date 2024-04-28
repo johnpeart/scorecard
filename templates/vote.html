@@ -25,29 +25,52 @@
     
     <h1 class="largeTitle">Vote</h1>
     
-    {% assign entries = site.data.entries | where: "final", "true" %}
-		{% for entry in entries %}
-    <div class="vote" data-emoji="{{ entry.emoji }}">
+    {% assign entries = site.data.entries | sort: "final" %}
+	{% for entry in entries %}
+    <div id="vote-{{ entry.shortcode }}" class="vote" data-voted="false" data-runningorder="{{ entry.final }}">
       
       <div class="voting-info">
-        <p class="voting-emoji">{{ entry.emoji }}</p>
         <h2 class="voting-country">{{ entry.country }}</h2>
       </div>
     
-    	<div class="voting-buttons">
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-1pts" class="button voting-button vote-1-points" onclick="vote(1, '{{ entry.shortcode }}')">1</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-2pts" class="button voting-button vote-2-points" onclick="vote(2, '{{ entry.shortcode }}')">2</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-3pts" class="button voting-button vote-3-points" onclick="vote(3, '{{ entry.shortcode }}')">3</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-4pts" class="button voting-button vote-4-points" onclick="vote(4, '{{ entry.shortcode }}')">4</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-5pts" class="button voting-button vote-5-points" onclick="vote(5, '{{ entry.shortcode }}')">5</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-6pts" class="button voting-button vote-6-points" onclick="vote(6, '{{ entry.shortcode }}')">6</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-7pts" class="button voting-button vote-7-points" onclick="vote(7, '{{ entry.shortcode }}')">7</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-8pts" class="button voting-button vote-8-points" onclick="vote(8, '{{ entry.shortcode }}')">8</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-10pts" class="button voting-button vote-10-points" onclick="vote(10, '{{ entry.shortcode }}')">10</button>
-      	<button id="vote-{{ event }}-{{ entry.shortcode }}-12pts" class="button voting-button vote-12-points" onclick="vote(12, '{{ entry.shortcode }}')">12</button>
-    	</div>
-		</div>
-		{% endfor %}
+      <div class="voting-buttons">
+      	<button id="vote-{{ entry.shortcode }}-1pts" class="button voting-button vote-1-points" onclick="vote(1, '{{ entry.shortcode }}')">
+          <span class="button-label">1</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-2pts" class="button voting-button vote-2-points" onclick="vote(2, '{{ entry.shortcode }}')">
+          <span class="button-label">2</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-3pts" class="button voting-button vote-3-points" onclick="vote(3, '{{ entry.shortcode }}')">
+          <span class="button-label">3</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-4pts" class="button voting-button vote-4-points" onclick="vote(4, '{{ entry.shortcode }}')">
+          <span class="button-label">4</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-5pts" class="button voting-button vote-5-points" onclick="vote(5, '{{ entry.shortcode }}')">
+          <span class="button-label">5</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-6pts" class="button voting-button vote-6-points" onclick="vote(6, '{{ entry.shortcode }}')">
+          <span class="button-label">6</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-7pts" class="button voting-button vote-7-points" onclick="vote(7, '{{ entry.shortcode }}')">
+          <span class="button-label">7</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-8pts" class="button voting-button vote-8-points" onclick="vote(8, '{{ entry.shortcode }}')">
+          <span class="button-label">8</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-10pts" class="button voting-button vote-10-points" onclick="vote(10, '{{ entry.shortcode }}')">
+          <span class="button-label">10</span>
+        </button>
+      	<button id="vote-{{ entry.shortcode }}-12pts" class="button voting-button vote-12-points" onclick="vote(12, '{{ entry.shortcode }}')">
+          <span class="button-label">12</span>
+        </button>
+      </div>
+      
+      <div class="voting-voted">
+        <p class="lead">You gave <span id="voted-{{ entry.shortcode }}" class="voting-voted--points" data-vote="0"></span> points</p>
+      </div>
+	</div>
+    {% endfor %}
     
   </div>
     

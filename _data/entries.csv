@@ -1,27 +1,38 @@
-country,emoji,shortcode,artist,song,language,semifinal,semifinalone,semifinaltwo,final,semifinalrunningorder,finalrunningorder,semifinalvotes,finalvotes,semifinalvoting,finalvoting
-Austria,🇦🇹,AUT,Teya and Salena,Who the Hell Is Edgar?,English,2,false,true,true,13,1,0,0,false,false
-Portugal,🇵🇹,POR,Mimicat,Ai coração,Portuguese,1,true,false,true,5,2,0,0,false,false
-Switzerland,🇨🇭,SUI,Remo Forrer,Watergun,English,1,true,false,true,8,3,0,0,false,false
-Poland,🇵🇱,POL,Blanka,Solo,English,2,false,true,true,9,4,0,0,false,false
-Serbia,🇷🇸,SRB,Luke Black,Samo mi se spava (Само ми се спава),"Serbian, English",1,true,false,true,3,5,0,0,false,false
-France,🇫🇷,FRA,La Zarra,Évidemment,French,false,false,false,true,,6,0,0,false,false
-Cyprus,🇨🇾,CYP,Andrew Lambrou,Break a Broken Heart,English,2,false,true,true,6,7,0,0,false,false
-Spain,🇪🇸,ESP,Blanca Paloma,Eaea,Spanish,false,false,false,true,,8,0,0,false,false
-Sweden,🇸🇪,SWE,Loreen,Tattoo,English,1,true,false,true,11,9,0,0,false,false
-Albania,🇦🇱,ALB,Albina and Familja Kelmendi,Duje,Albanian,2,false,true,true,14,10,0,0,false,false
-Italy,🇮🇹,ITA,Marco Mengoni,Due vite,Italian,false,false,false,true,,11,0,0,false,false
-Estonia,🇪🇪,EST,Alika,Bridges,English,2,false,true,true,4,12,0,0,false,false
-Finland,🇫🇮,FIN,Käärijä,Cha Cha Cha,Finnish,1,true,false,true,15,13,0,0,false,false
-Czechia,🇨🇿,CZE,Vesna,My Sister's Crown,"English, Ukrainian, Czech, Bulgarian",1,true,false,true,13,14,0,0,false,false
-Australia,🇦🇺,AUS,Voyager,Promise,English,2,false,true,true,16,15,0,0,false,false
-Belgium,🇧🇪,BEL,Gustaph,Because of You,English,2,false,true,true,5,16,0,0,false,false
-Armenia,🇦🇲,ARM,Brunette,Future Lover,"English, Armenian",2,false,true,true,2,17,0,0,false,false
-Moldova,🇲🇩,MDA,Pasha Parfeni,Soarele și luna,Romanian,1,true,false,true,10,18,0,0,false,false
-Ukraine,🇺🇦,UKR,Tvorchi,Heart of Steel,"English, Ukrainian",false,false,false,true,,19,0,0,false,false
-Norway,🇳🇴,NOR,Alessandra,Queen of Kings,English,1,true,false,true,1,20,0,0,false,false
-Germany,🇩🇪,GER,Lord of the Lost,Blood & Glitter,English,false,false,false,true,,21,0,0,false,false
-Lithuania,🇱🇹,LIT,Monika Linkytė,Stay,English,2,false,true,true,15,22,0,0,false,false
-Israel,🇮🇱,ISR,Noa Kirel,Unicorn,English,1,true,false,true,9,23,0,0,false,false
-Slovenia,🇸🇮,SLO,Joker Out,Carpe Diem,Slovene,2,false,true,true,10,24,0,0,false,false
-Croatia,🇭🇷,CRO,Let 3,Mama ŠČ!,Croatian,1,true,false,true,7,25,0,0,false,false
-United Kingdom,🇬🇧,GBR,Mae Muller,I Wrote a Song,English,false,false,false,true,,26,0,0,false,false
+emoji,shortcode,country,artist,song,semifinal1,semifinal2,final
+🇨🇾,CYP, Cyprus,Silia Kapsis,Liar,1,0,2
+🇷🇸,SRB, Serbia,Teya Dora,Ramonda,2,0,3
+🇱🇹,LTU, Lithuania,Silvester Belt,Luktelk,3,0,4
+🇮🇪,IRE, Ireland,Bambie Thug,Doomsday Blue,4,0,5
+🇺🇦,UKR, Ukraine,Alyona Alyona and Jerry Heil,Teresa & Maria,5,0,6
+🇵🇱,POL, Poland,Luna,The Tower,6,0,7
+🇭🇷,CRO, Croatia,Baby Lasagna,Rim Tim Tagi Dim,7,0,8
+🇮🇸,ISL, Iceland,Hera Björk,Scared of Heights,8,0,9
+🇸🇮,SLO, Slovenia,Raiven,Veronika,9,0,10
+🇫🇮,FIN, Finland,Windows95man,No Rules!,10,0,11
+🇲🇩,MDA, Moldova,Natalia Barbu,In the Middle,11,0,0
+🇦🇿,AZE, Azerbaijan,Fahree feat. Ilkin Dovlatov,Özünlə apar,12,0,0
+🇦🇺,AUS, Australia,Electric Fields,One Milkali (One Blood),13,0,0
+🇵🇹,POR, Portugal,Iolanda,Grito,14,0,0
+🇱🇺,LUX, Luxembourg,Tali,Fighter,15,0,0
+🇲🇹,MLT, Malta,Sarah Bonnici,Loop,0,1,12
+🇦🇱,ALB, Albania,Besa,Titan,0,2,13
+🇬🇷,GRE, Greece,Marina Satti,Zari,0,3,14
+🇨🇭,SUI, Switzerland,Nemo,The Code,0,4,15
+🇨🇿,CZE, Czechia,Aiko,Pedestal,0,5,16
+🇦🇹,AUT, Austria,Kaleen,We Will Rave,0,6,17
+🇩🇰,DEN, Denmark,Saba,Sand,0,7,18
+🇦🇲,ARM, Armenia,Ladaniva,Jako,0,8,19
+🇱🇻,LAT, Latvia,Dons,Hollow,0,9,20
+🇸🇲,SMR, San Marino,Megara,11:11,0,10,21
+🇬🇪,GEO, Georgia,Nutsa Buzaladze,Firefighter,0,11,0
+🇧🇪,BEL, Belgium,Mustii,Before the Party's Over,0,12,0
+🇪🇪,EST, Estonia,5miinust and Puuluup,(Nendest) narkootikumidest ei tea me (küll) midagi,0,13,0
+🇮🇱,ISR, Israel,Eden Golan,Hurricane,0,14,0
+🇳🇴,NOR, Norway,Gåte,Ulveham,0,15,0
+🇳🇱,NED, Netherlands,Joost Klein,Europapa,0,16,0
+🇸🇪,SWE, Sweden,Marcus & Martinus,Unforgettable,0,0,1
+🇫🇷,FRA, France,Slimane,Mon amour,0,0,22
+🇩🇪,GER, Germany,Isaak,Always on the Run,0,0,23
+🇮🇹,ITA, Italy,Angelina Mango,La noia,0,0,24
+🇪🇸,ESP, Spain,Nebulossa,Zorra,0,0,25
+🇬🇧,GBR, United Kingdom,Olly Alexander,Dizzy,0,0,26

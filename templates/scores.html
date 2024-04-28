@@ -32,13 +32,13 @@
       {% for entry in site.data.entries %}
       
         <article class="country-scorecard" id="scorecard-{{ entry.shortcode }}" 
-          data-runningorder="{{ entry.finalrunningorder }}" 
-          data-votes="?" 
-          data-rank="?" 
-          data-voters="?" >
+          data-runningorder="{{ entry.final }}" 
+          data-rank="0" 
+          data-points="0" 
+          data-votes="0">
           
           <header class="score--header">
-            <p id="scorecard-{{ entry.shortcode }}-position" class="scores-pos" data-runningorder="{{ entry.finalrunningorder }}"></p>
+            <p id="scorecard-{{ entry.shortcode }}-position" class="scores-pos" data-runningorder="{{ entry.final | default: '0' }}"></p>
           </header>
 		      <section class="score--country">
 			      <p class="country">{{ entry.country }}</p>  
