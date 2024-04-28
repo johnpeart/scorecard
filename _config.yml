@@ -24,24 +24,11 @@ favicon-large-png: "/assets/images/site/favicon-large-png.png"
 launch-image: "/assets/images/site/launch.png"
 
 # Social settings
-twitter-url: "https://twitter.com/johnpeart" # Twitter handle i.e. joebloggs
-twitter-handle: "johnpeart" # Twitter handle i.e. joebloggs
-
-mastodon-url: "https://mastodon.social/@johnpeart"
-mastodon-handle: "johnpeart@mastodon.social"
 
 github-url:  "https://github.com/johnpeart"
 github-handle:  "johnpeart"
 
 analytics: false
-
-# Site header
-
-header: true
-
-# Config
-
-event: final # semifinal or final
 
 # Collections
 

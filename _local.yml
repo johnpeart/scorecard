@@ -33,10 +33,6 @@ github-handle:  "johnpeart"
 
 analytics: false
 
-# Site header
-
-header: true
-
 # Collections
 
 collections:
