@@ -474,6 +474,10 @@ section#app[data-layout='rank'] section#live-scores {
     filter: invert(0.1);
     mix-blend-mode: color-burn;
   }
+  [data-rank='0'] p.score {
+    filter: unset;
+    mix-blend-mode: unset;
+  }
 }
 
 section#app[data-layout='running'] section#live-scores {

@@ -61,7 +61,7 @@ function checkCurrentEvent() {
     } else if (currentDate === final["date"]) { 
         var event = app.dataset.event = "FINAL";
     } else if (currentDate === test["date"]) { 
-        var event = app.dataset.event = "SF1";
+        var event = app.dataset.event = "NONE";
     } else {
         var event = app.dataset.event = "NONE";
     }
