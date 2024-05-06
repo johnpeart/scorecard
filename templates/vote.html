@@ -24,10 +24,10 @@
   <section id="voting-open">
     
     <h1 class="largeTitle">Vote</h1>
+    {% assign entries = site.data.entries %}
     
-    {% assign entries = site.data.entries | sort: "final" %}
 	{% for entry in entries %}
-    <div id="vote-{{ entry.shortcode }}" class="vote" data-voted="false" data-runningorder="{{ entry.semifinal1 }}">
+    <div id="vote-{{ entry.shortcode }}" class="vote" data-voted="false" data-runningorder="0">
       
       <div class="voting-info">
         <h2 class="voting-country">{{ entry.country }}</h2>

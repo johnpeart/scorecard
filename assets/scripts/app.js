@@ -37,17 +37,47 @@ function setDataAttribute(el, attr, value) {
 	el.setAttribute('data-' + attr, value);
 }
 
-{% assign entries = site.data.entries | sort: 'final' %}
-const allEntries = [{% for entry in entries %}"{{ entry.shortcode }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+{% assign entries = site.data.entries | where_exp: 'entry', 'entry.final != "0"' %}
+const finalEntries = [
+  {%- for entry in entries %}
+  {
+    shortcode: "{{ entry.shortcode }}",
+    runningorder: {{ entry.final }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+
+{% assign entries = site.data.entries | where_exp: 'entry', 'entry.semifinal1 != "0"' %}
+const semiFinal1Entries = [
+  {%- for entry in entries %}
+  {
+    shortcode: "{{ entry.shortcode }}",
+    runningorder: {{ entry.semifinal1 }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+
+{% assign entries = site.data.entries | where_exp: 'entry', 'entry.semifinal2 != "0"' %}
+const semiFinal2Entries = [
+  {%- for entry in entries %}
+  {
+    shortcode: "{{ entry.shortcode }}",
+    runningorder: {{ entry.semifinal2 }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+
 
 {% assign events = site.data.dates %}
 {% for event in events %}
 const {{ event.event }} = {date: "{{ event.date }}"};
 {% endfor %}
 
+
 function between(x, min, max) {
-  return x >= min && x <= max;
+    return x >= min && x <= max;
 }
+
 
 function checkCurrentEvent() {
     var currentDay = new Date().getUTCDate();
@@ -61,12 +91,68 @@ function checkCurrentEvent() {
     } else if (currentDate === final["date"]) { 
         var event = app.dataset.event = "FINAL";
     } else if (currentDate === test["date"]) { 
-        var event = app.dataset.event = "NONE";
+        var event = app.dataset.event = "SF1";
     } else {
         var event = app.dataset.event = "NONE";
     }
     
     return event;
+}
+
+function getEntries() {
+    var currentDay = new Date().getUTCDate();
+    var currentMonth = new Date().getUTCMonth() + 1;
+    var currentYear = new Date().getFullYear();
+    var currentDate = currentDay  + '-' + currentMonth + '-' + currentYear ;
+    if (currentDate === semifinal1["date"]) {
+        var entries = semiFinal1Entries;
+    } else if (currentDate === semifinal2["date"]) {
+        var entries = semiFinal2Entries;
+    } else if (currentDate === final["date"]) { 
+        var entries = finalEntries;
+    } else if (currentDate === test["date"]) { 
+        var entries = semiFinal1Entries;
+    } else {
+        var entries = null;
+    }
+    
+    return entries;
+}
+
+function setRunningOrder(entries, id) {
+    
+    var app = document.getElementById("app");
+    var event = app.dataset.event;
+    
+	for (i = 0; i < entries.length; i++) {
+        var entry = entries[i]['shortcode'];
+        var entryScorecard = document.getElementById(id + '-' + entry);
+        entryScorecard.dataset.runningorder = entries[i]['runningorder'];
+        let count = i + 1;
+    }
+    
+}
+
+function checkIfVoted(entries) {
+    
+    var app = document.getElementById("app");
+    var event = app.dataset.event;
+    
+	for (i = 0; i < entries.length; i++) {
+        var entry = entries[i]['shortcode'];
+        var voteCard = document.getElementById("vote-" + entry);
+        var voteValue = document.getElementById("voted-" + entry);
+        var voteRecord = localStorage.getItem(event + '-' + entry);
+        
+        if (voteRecord != null) {
+            setDataAttribute(voteCard, "voted", "true");
+            setDataAttribute(voteValue, "points", voteRecord);
+            voteValue.innerText = voteRecord;
+        }
+        
+        let count = i + 1;
+    }
+    
 }
 
 
@@ -110,7 +196,7 @@ function countryDataListener(entries, event, toggle) {
     
 	for (i = 0; i < entries.length; i++) {
         
-        let entry = entries[i];
+        let entry = entries[i]['shortcode'];
         let entryData = database.ref('/2024/' + entry + '/' + event);
         let entryScorecard = document.getElementById('scorecard-' + entry);
         let entryScore = document.getElementById("scorecard-" + entry + "-score");
@@ -144,7 +230,7 @@ function checkTopScore(entries) {
 	var allScores = new Array();
 
 	for (i = 0; i < entries.length; i++) {
-		let country = entries[i];
+		let country = entries[i]['shortcode'];
         let points = parseInt(document.getElementById("scorecard-" + country).dataset.points);
         let votes = parseInt(document.getElementById("scorecard-" + country).dataset.votes);
         if (points > 0 || votes > 0) {
@@ -167,7 +253,7 @@ function checkTopScore(entries) {
 		for (i = 0; i < allScores.length; i++) {
 			let rank = i + 1;
 			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = rank;
-	        document.getElementById("scorecard-" + allScores[i][0] + "-position").dataset.rank = rank;      
+	        document.getElementById("scorecard-position-" + allScores[i][0]).dataset.rank = rank;      
 		}
 	} 
 }
@@ -207,6 +293,8 @@ function vote(points, country) {
 				console.log('Your vote wasn’t counted. Sorry.');
 			} else {
 				console.log('You gave ' + points + ' points to ' + country);
+                
+                localStorage.setItem(event + '-' + country, points);
 			}
 		}
 	);
@@ -292,18 +380,25 @@ const locationHandler = async () => {
     if (location == "vote") {
         var app = document.getElementById("app");
         var event = checkCurrentEvent();
+        var allEntries = getEntries();
+        setRunningOrder(allEntries, 'vote');
+        checkIfVoted(allEntries);
     }
     
     if (location == "scores") {
         var buttonFullScreenToggle = document.getElementById("button--full-screen");
         buttonFullScreenToggle.addEventListener("click", toggleFullScreen);
         var event = checkCurrentEvent();
+        var allEntries = getEntries();
+        setRunningOrder(allEntries, 'scorecard');
+        setRunningOrder(allEntries, 'scorecard-position');
         // Attach listener for current page
-        countryDataListener(allEntries, event, "start");
+        countryDataListener(allEntries, event, 'start');
     } else {
         var event = checkCurrentEvent();
+        var allEntries = getEntries();
         // Reset the country listener
-        countryDataListener(allEntries, event, "stop");
+        countryDataListener(allEntries, event, 'stop');
     }
     
 };
