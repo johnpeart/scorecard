@@ -12,7 +12,7 @@ function toggleFullScreen() {
         app.dataset.fullscreen = "true";
         buttonFullScreen.dataset.visible = "false";
     } else {
-        app.dataset.sidebar = "show";	
+        app.dataset.sidebar = "show";
         app.dataset.fullscreen = "false";
         buttonFullScreen.dataset.visible = "true";
     }
@@ -88,14 +88,14 @@ function checkCurrentEvent() {
         var event = app.dataset.event = "SF1";
     } else if (currentDate === semifinal2["date"]) {
         var event = app.dataset.event = "SF2";
-    } else if (currentDate === final["date"]) { 
+    } else if (currentDate === final["date"]) {
         var event = app.dataset.event = "FINAL";
-    } else if (currentDate === test["date"]) { 
+    } else if (currentDate === test["date"]) {
         var event = app.dataset.event = "SF1";
     } else {
         var event = app.dataset.event = "NONE";
     }
-    
+
     return event;
 }
 
@@ -108,51 +108,51 @@ function getEntries() {
         var entries = semiFinal1Entries;
     } else if (currentDate === semifinal2["date"]) {
         var entries = semiFinal2Entries;
-    } else if (currentDate === final["date"]) { 
+    } else if (currentDate === final["date"]) {
         var entries = finalEntries;
-    } else if (currentDate === test["date"]) { 
+    } else if (currentDate === test["date"]) {
         var entries = semiFinal1Entries;
     } else {
         var entries = null;
     }
-    
+
     return entries;
 }
 
 function setRunningOrder(entries, id) {
-    
+
     var app = document.getElementById("app");
     var event = app.dataset.event;
-    
+
 	for (i = 0; i < entries.length; i++) {
         var entry = entries[i]['shortcode'];
         var entryScorecard = document.getElementById(id + '-' + entry);
         entryScorecard.dataset.runningorder = entries[i]['runningorder'];
         let count = i + 1;
     }
-    
+
 }
 
 function checkIfVoted(entries) {
-    
+
     var app = document.getElementById("app");
     var event = app.dataset.event;
-    
+
 	for (i = 0; i < entries.length; i++) {
         var entry = entries[i]['shortcode'];
         var voteCard = document.getElementById("vote-" + entry);
         var voteValue = document.getElementById("voted-" + entry);
         var voteRecord = localStorage.getItem(event + '-' + entry);
-        
+
         if (voteRecord != null) {
             setDataAttribute(voteCard, "voted", "true");
             setDataAttribute(voteValue, "points", voteRecord);
             voteValue.innerText = voteRecord;
         }
-        
+
         let count = i + 1;
     }
-    
+
 }
 
 
@@ -190,40 +190,40 @@ var database = firebase.database();
 var presence = database.ref(".info/connected");
 
 function countryDataListener(entries, event, toggle) {
-    
+
     var app = document.getElementById("app");
     var event = app.dataset.event;
-    
+
 	for (i = 0; i < entries.length; i++) {
-        
+
         let entry = entries[i]['shortcode'];
         let entryData = database.ref('/2024/' + entry + '/' + event);
         let entryScorecard = document.getElementById('scorecard-' + entry);
         let entryScore = document.getElementById("scorecard-" + entry + "-score");
         let count = i + 1;
-        
+
         if (toggle == "start") {
 	        entryData.on('value', (snapshot) => {
                 let points = snapshot.val().points;
                 entryScorecard.dataset.points = points;
-                
+
                 let votes = snapshot.val().votes;
                 entryScorecard.dataset.votes = votes;
-                
+
                 let score = averagePoints(points, votes);
                 console.log(count, entry, points, votes, score);
-                
+
                 if (score > 0) {
                     displayElementData(score, entryScore);
                 }
-                
+
                 checkTopScore(entries);
             })
         } else {
             entryData.off('value')
         }
 	};
-    
+
 };
 
 function checkTopScore(entries) {
@@ -238,7 +238,7 @@ function checkTopScore(entries) {
 	        allScores.push([country, score])
         }
 	}
-    
+
 	allScores.sort((a,b) => b[1] - a[1]);
 
 	var nonZero = 0;
@@ -253,52 +253,65 @@ function checkTopScore(entries) {
 		for (i = 0; i < allScores.length; i++) {
 			let rank = i + 1;
 			document.getElementById("scorecard-" + allScores[i][0]).dataset.rank = rank;
-	        document.getElementById("scorecard-position-" + allScores[i][0]).dataset.rank = rank;      
+	        document.getElementById("scorecard-position-" + allScores[i][0]).dataset.rank = rank;
 		}
-	} 
+	}
 }
 
 // When this call is triggered, it will update the score for the country,
 // in a given event or create it if it doesn't exist
 function vote(points, country) {
-  
+
     var app = document.getElementById("app");
     var event = app.dataset.event;
-  
+
 	// Get the current score for the country
 	var entryData = database.ref('/2024/' + country + '/' + event);
 	var points = parseInt(points);
 
-	entryData.transaction(
-		function(data) {
-			if (data) {
-                var currentPoints = data.points;
-                var currentVotes = data.votes;
-                data['points'] = currentPoints + points;
-                data['votes'] = currentVotes + 1;
-                
-                var voteCard = document.getElementById("vote-" + country);
-                var voteValue = document.getElementById("voted-" + country);
-                setDataAttribute(voteCard, "voted", "true");
-                setDataAttribute(voteValue, "points", points);
-                displayElementData(points, voteValue);
-			}
-			return data;
-		},
-		function(error, committed, snapshot) {
-			if (error) {
-				console.log('Transaction failed abnormally!', error);
-				console.log('Your vote wasn’t counted. Sorry.');
-			} else if (!committed) {
-				console.log('Your vote wasn’t counted. Sorry.');
-			} else {
-				console.log('You gave ' + points + ' points to ' + country);
-                
-                localStorage.setItem(event + '-' + country, points);
-			}
-		}
-	);
-  
+    if (points > 1) {
+      var pluralised = "points";
+    } else {
+      var pluralised = "point";
+    }
+
+    var confirmationString = "🗳️ CONFIRM YOUR VOTE 🗳️ \n\n" + "You are about to award " + points + " " + pluralised + " to " + country + ".\n" + "This cannot be undone.\n\n" + "To confirm your vote, select “OK”.\n" + "To cancel your vote, select “Cancel”."
+
+    if (confirm(confirmationString) == true) {
+      entryData.transaction(
+        function(data) {
+          if (data) {
+                    var currentPoints = data.points;
+                    var currentVotes = data.votes;
+                    data['points'] = currentPoints + points;
+                    data['votes'] = currentVotes + 1;
+
+                    var voteCard = document.getElementById("vote-" + country);
+                    var voteValue = document.getElementById("voted-" + country);
+                    setDataAttribute(voteCard, "voted", "true");
+                    setDataAttribute(voteValue, "points", points);
+                    displayElementData(points, voteValue);
+          }
+          return data;
+        },
+        function(error, committed, snapshot) {
+          if (error) {
+            console.log('Transaction failed abnormally!', error);
+            console.log('Your vote wasn’t counted. Sorry.');
+          } else if (!committed) {
+            console.log('Your vote wasn’t counted. Sorry.');
+          } else {
+            console.log('You gave ' + points + ' points to ' + country);
+
+                    localStorage.setItem(event + '-' + country, points);
+          }
+        }
+      );
+    } else {
+      text = "Vote cancelled";
+    }
+
+
 }
 
 
@@ -346,9 +359,9 @@ const routes = {
 };
 
 const locationHandler = async () => {
-  
+
     console.clear();
-    
+
     // get the url path, replace hash with empty string
     var location = window.location.hash.replace("#", "");
     // if the path length is 0, set it to primary page route
@@ -357,7 +370,7 @@ const locationHandler = async () => {
     }
     // get the route object from the routes object
     const route = routes[location] || routes["404"];
-    
+
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
     // set the content of the content div to the html
@@ -367,16 +380,16 @@ const locationHandler = async () => {
     // set the button in the menu
   	var menu = document.getElementById("sidebar-navigation-buttons");
   	var buttons = document.getElementsByClassName("menu-item--button");
-  
+
   	for (var i = 0; i < buttons.length; i++) {
   		buttons[i].dataset.status = "false";
   	}
-    
+
     // set the description of the document to the description of the route
     document
         .querySelector('meta[name="description"]')
         .setAttribute("content", route.description);
-    
+
     if (location == "vote") {
         var app = document.getElementById("app");
         var event = checkCurrentEvent();
@@ -384,7 +397,7 @@ const locationHandler = async () => {
         setRunningOrder(allEntries, 'vote');
         checkIfVoted(allEntries);
     }
-    
+
     if (location == "scores") {
         var buttonFullScreenToggle = document.getElementById("button--full-screen");
         buttonFullScreenToggle.addEventListener("click", toggleFullScreen);
@@ -400,21 +413,21 @@ const locationHandler = async () => {
         // Reset the country listener
         countryDataListener(allEntries, event, 'stop');
     }
-    
+
 };
 
 // create a function that watches the hash and calls the urlLocationHandler
 window.addEventListener("hashchange", locationHandler);
 window.onload = function() {
-  
+
   presence.on("value", (snap) => {
     if (snap.val() === true) {
-	    console.info("📶 ✅ Connected");   
+	    console.info("📶 ✅ Connected");
     } else {
 	    console.info("📶 ⛔️ Not connected");
     }
   });
-  
+
 }
 // call the urlLocationHandler to load the page
 locationHandler();
