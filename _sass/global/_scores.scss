@@ -1,29 +1,33 @@
+section#live-scores {
+  grid-auto-flow: column;
+}
+
 section#app[data-event='SF1'] section.container#page-scores section#live-scores,
 section#app[data-event='SF2'] section.container#page-scores section#live-scores {
-  
+
   @include phone() {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(16, auto);
     grid-template-areas:
-      "p1" 
-      "p2" 
-      "p3" 
-      "p4" 
-      "p5" 
-      "p6" 
-      "p7" 
-      "p8" 
-      "p9" 
-      "p10" 
-      "p11" 
-      "p12" 
-      "p13" 
-      "p14" 
-      "p15" 
+      "p1"
+      "p2"
+      "p3"
+      "p4"
+      "p5"
+      "p6"
+      "p7"
+      "p8"
+      "p9"
+      "p10"
+      "p11"
+      "p12"
+      "p13"
+      "p14"
+      "p15"
       "p16";
     margin: 0 $container-padding * -1;
   }
-  
+
   @include tablet {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(8, 2fr);
@@ -38,12 +42,12 @@ section#app[data-event='SF2'] section.container#page-scores section#live-scores 
       "p8  p16";
     border-radius: 10pt;
   }
-  
+
 }
 
 section#app[data-sidebar='hide'][data-event='SF1'] section#live-scores,
 section#app[data-sidebar='hide'][data-event='SF2'] section#live-scores{
-  
+
   @include tablet {
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
     grid-template-rows: repeat(4, 1fr) !important;
@@ -53,7 +57,7 @@ section#app[data-sidebar='hide'][data-event='SF2'] section#live-scores{
       "p3 p7  p11 p15"
       "p4 p8  p12 p16" !important;
   }
-  
+
 }
 
 section#app[data-sidebar='show'][data-layout='rank'][data-event='SF1'] section#live-scores,
@@ -70,7 +74,7 @@ section#app[data-sidebar='show'][data-layout='rank'][data-event='SF2'] section#l
     }
     article.country-scorecard[data-rank='16'] {
       border-bottom-right-radius: 10pt;
-    } 
+    }
   }
 }
 
@@ -88,34 +92,34 @@ section#app[data-sidebar='show'][data-layout='running'][data-event='SF2'] sectio
     }
     article.country-scorecard[data-runningorder='16'] {
       border-bottom-right-radius: 10pt;
-    } 
+    }
   }
 }
 
 section#app[data-event='FINAL'] section.container#page-scores section#live-scores {
-  
+
   @include phone() {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(26, auto);
     grid-template-areas:
-      "p1" 
-      "p2" 
-      "p3" 
-      "p4" 
-      "p5" 
-      "p6" 
-      "p7" 
-      "p8" 
-      "p9" 
-      "p10" 
-      "p11" 
-      "p12" 
-      "p13" 
-      "p14" 
-      "p15" 
-      "p16" 
-      "p17" 
-      "p18" 
+      "p1"
+      "p2"
+      "p3"
+      "p4"
+      "p5"
+      "p6"
+      "p7"
+      "p8"
+      "p9"
+      "p10"
+      "p11"
+      "p12"
+      "p13"
+      "p14"
+      "p15"
+      "p16"
+      "p17"
+      "p18"
       "p19"
       "p20"
       "p21"
@@ -126,7 +130,7 @@ section#app[data-event='FINAL'] section.container#page-scores section#live-score
       "p26";
     margin: 0 $container-padding * -1;
   }
-  
+
   @include tablet {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(13, 2fr);
@@ -146,11 +150,11 @@ section#app[data-event='FINAL'] section.container#page-scores section#live-score
       "p13 p26";
     border-radius: 10pt;
   }
-  
+
 }
 
 section#app[data-sidebar='hide'][data-layout='rank'][data-event='FINAL'] section#live-scores {
-  
+
   @include tablet {
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
     grid-template-rows: repeat(8, 1fr) !important;
@@ -165,11 +169,11 @@ section#app[data-sidebar='hide'][data-layout='rank'][data-event='FINAL'] section
       "p4 p12  p20 ." !important;
     border-radius: 0 !important;
   }
-  
+
 }
 
 section#app[data-sidebar='hide'][data-layout='running'][data-event='FINAL'] section#live-scores {
-  
+
   @include tablet {
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
     grid-template-rows: repeat(7, 1fr) !important;
@@ -182,7 +186,7 @@ section#app[data-sidebar='hide'][data-layout='running'][data-event='FINAL'] sect
       "p6 p13  p20 ."
       "p7 p14  p21 ." !important;
   }
-  
+
 }
 
 section#app[data-sidebar='show'][data-layout='rank'][data-event='FINAL'] section#live-scores {
@@ -198,7 +202,7 @@ section#app[data-sidebar='show'][data-layout='rank'][data-event='FINAL'] section
     }
     article.country-scorecard[data-rank='26'] {
       border-bottom-right-radius: 10pt;
-    } 
+    }
   }
 }
 
@@ -215,7 +219,7 @@ section#app[data-sidebar='show'][data-layout='running'][data-event='FINAL'] sect
     }
     article.country-scorecard[data-runningorder='26'] {
       border-bottom-right-radius: 10pt;
-    } 
+    }
   }
 }
 
@@ -299,7 +303,7 @@ section#app[data-layout='rank'] section#live-scores {
 	grid-area: p26;
   }
   .scores-pos:after {
-    content: attr(data-rank); 
+    content: attr(data-rank);
   }
 }
 
@@ -469,7 +473,7 @@ section#app[data-layout='rank'] section#live-scores {
   }
   background: var(--gradient26);
   color: var(--gradientScoreTextBlack);
-  
+
   p {
     filter: invert(0.1);
     mix-blend-mode: color-burn;
@@ -568,7 +572,7 @@ article.country-scorecard[data-runningorder='0'][data-rank='0'] {
 }
 
 section#app[data-layout='running'] section#live-scores .scores-pos:after {
-  content: attr(data-runningorder); 
+  content: attr(data-runningorder);
 }
 
 section#app section.container#page-scores section#live-scores {
@@ -580,8 +584,8 @@ section#app[data-fullscreen='false']section.container#page-scores {
     padding: 0 0 $container-padding * 4 !important;
   }
 }
-section#app[data-fullscreen='true'] section.container#page-scores {    
-  
+section#app[data-fullscreen='true'] section.container#page-scores {
+
   @include tablet {
     min-height: 100vh;
     max-width:  100% !important;
@@ -589,17 +593,17 @@ section#app[data-fullscreen='true'] section.container#page-scores {
     margin: 0;
     display: grid;
     align-content: center;
-    
+
     h1.largeTitle,
     p.lead {
       display: none !important;
     }
-    
+
     section#live-scores {
       height: 100vh;
 	  grid-template-columns: 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
-  
+
 }
