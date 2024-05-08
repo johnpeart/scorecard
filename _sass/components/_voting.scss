@@ -71,13 +71,14 @@ div.voting-buttons {
 }
 
 .voting-voted {
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto;
   background: var(--gray-gradient1);
   padding: $container-padding;
   border-radius: 0 0 10pt 10pt;
   
   p {
-    color: var(--gradientScoreTextBlack);
-    mix-blend-mode: color-burn;
+    color: var(--systemForegroundTransparent);
     text-align: center;
   }
 }
@@ -150,7 +151,7 @@ button.voting-button {
     display: none;
   }
   .voting-voted {
-    display: block;
+    display: grid;
   }
 }
 
@@ -162,9 +163,8 @@ button.voting-button {
     display: none;
   }
 }
-
-.vote .voting-voted p {
-  text-align: center;
+.vote .voting-voted * {
+  text-align: center !important;
 }
 .vote .voting-voted .voting-voted--points {
   font-weight: 900;

@@ -43,11 +43,11 @@ button.fullscreen {
   -webkit-appearance: none;
   background: none;
   
-	border: 2px solid;
-	border-color: var(--systemSidebarForegroundActive);
+  border: 2px solid;
+  border-color: var(--systemSidebarForegroundActive);
   border-radius: 10pt;
   margin: 20px 0 0;
-	color: var(--systemSidebarForegroundActive);
+  color: var(--systemSidebarForegroundActive);
 
   @each $style, $sizes in $toggle {
 	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
@@ -67,6 +67,12 @@ button.fullscreen {
 			fill: var(--systemSidebarForegroundActive);
 		}
 	}
+}
+
+.undo-button {
+  display: inline-block;
+  padding: $container-padding * 0.5 !important;
+  color: var(--systemSidebarForegroundActive);
 }
 
 button[data-visible='false'] {
