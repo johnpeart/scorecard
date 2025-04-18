@@ -1,0 +1,55 @@
+---
+---
+{
+	"rules": {
+        ".read": false,
+        ".write": false,
+    
+        "2025": {
+            {% for entry in site.data.entries %}
+            "{{ entry.shortcode }}": {
+                "TEST": {
+                    ".read": true,
+                    ".write": true,
+                    ".validate": true,
+                    "votes" : { ".write": true, ".validate": "newData.isNumber()" },
+                    "points" : { ".write": true, ".validate": "newData.isNumber()" },
+                },
+                "SF1": {
+                    ".read": true,
+                    ".write": true,
+                    ".validate": true,
+                    "votes" : { ".write": true, ".validate": "newData.isNumber()" },
+                    "points" : { ".write": true, ".validate": "newData.isNumber()" },
+                },
+                "SF2": {
+                    ".read": true,
+                    ".write": true,
+                    ".validate": true,
+                    "votes" : { ".write": true, ".validate": "newData.isNumber()" },
+                    "points" : { ".write": true, ".validate": "newData.isNumber()" },
+                },
+                "FINAL": {
+                    ".read": true,
+                    ".write": true,
+                    ".validate": true,
+                    "votes" : { ".write": true, ".validate": "newData.isNumber()" },
+                    "points" : { ".write": true, ".validate": "newData.isNumber()" },
+                }
+            },
+            {% endfor %}
+
+			"$other": {
+				".read": false,
+				".write": false,
+				".validate": false
+			}
+        },
+        
+		"$other": {
+			".read": false,
+			".write": false,
+			".validate": false
+		}
+	}
+}

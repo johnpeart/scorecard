@@ -1,11 +1,11 @@
 - event: test
-  date: 6-5-2024 # Tue May 07 2024
+  date: 18-4-2025 # NOW
 
 - event: semifinal1
-  date: 7-5-2024 # Tue May 07 2024
+  date: 13-5-2025 # Tue May 13 2024
   
 - event: semifinal2
-  date: 9-5-2024 # Thu May 09 2024
+  date: 15-5-2025 # Thu May 15 2024
 
 - event: final
-  date: 11-5-2024 # Sat May 11 2024
+  date: 17-5-2025 # Sat May 17 2024

@@ -1,0 +1,27 @@
+---
+---
+
+{
+  "2025" : {
+    {% for entry in site.data.entries %}
+    "{{ entry.shortcode }}" : {
+      "TEST": {
+        "points" : {{ entry.semifinalrunningorder | default: 0 }},
+        "votes" : {{ entry.finalrunningorder | default: 0 }}
+      },
+      "SF1": {
+        "points" : {{ entry.semifinalrunningorder | default: 0 }},
+        "votes" : {{ entry.finalrunningorder | default: 0 }}
+      },
+      "SF2": {
+        "points" : {{ entry.semifinalrunningorder | default: 0 }},
+        "votes" : {{ entry.finalrunningorder | default: 0 }}
+      },
+      "FINAL": {
+        "points" : {{ entry.semifinalrunningorder | default: 0 }},
+        "votes" : {{ entry.finalrunningorder | default: 0 }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  },
+}

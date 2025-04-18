@@ -2,6 +2,7 @@ section#live-scores {
   grid-auto-flow: column;
 }
 
+section#app[data-event='TEST'] section.container#page-scores section#live-scores,
 section#app[data-event='SF1'] section.container#page-scores section#live-scores,
 section#app[data-event='SF2'] section.container#page-scores section#live-scores {
 
@@ -45,6 +46,7 @@ section#app[data-event='SF2'] section.container#page-scores section#live-scores 
 
 }
 
+section#app[data-sidebar='hide'][data-event='TEST'] section#live-scores,
 section#app[data-sidebar='hide'][data-event='SF1'] section#live-scores,
 section#app[data-sidebar='hide'][data-event='SF2'] section#live-scores{
 
@@ -60,6 +62,7 @@ section#app[data-sidebar='hide'][data-event='SF2'] section#live-scores{
 
 }
 
+section#app[data-sidebar='show'][data-layout='rank'][data-event='TEST'] section#live-scores,
 section#app[data-sidebar='show'][data-layout='rank'][data-event='SF1'] section#live-scores,
 section#app[data-sidebar='show'][data-layout='rank'][data-event='SF2'] section#live-scores {
   @include tablet() {
@@ -78,6 +81,7 @@ section#app[data-sidebar='show'][data-layout='rank'][data-event='SF2'] section#l
   }
 }
 
+section#app[data-sidebar='show'][data-layout='running'][data-event='TEST'] section#live-scores,
 section#app[data-sidebar='show'][data-layout='running'][data-event='SF1'] section#live-scores,
 section#app[data-sidebar='show'][data-layout='running'][data-event='SF2'] section#live-scores {
   @include tablet() {

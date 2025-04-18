@@ -1,4 +1,5 @@
 # Site settings
+timezone: Europe/London
 
 title: "Scorecard"
 

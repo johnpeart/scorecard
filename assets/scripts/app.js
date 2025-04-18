@@ -67,6 +67,16 @@ const semiFinal2Entries = [
   {% endfor %}
 ];
 
+{% assign entries = site.data.entries | where_exp: 'entry', 'entry.test != "0"' %}
+const testEntries = [
+  {%- for entry in entries %}
+  {
+    shortcode: "{{ entry.shortcode }}",
+    runningorder: {{ entry.test }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+
 
 {% assign events = site.data.dates %}
 {% for event in events %}
@@ -91,7 +101,7 @@ function checkCurrentEvent() {
     } else if (currentDate === final["date"]) { 
         var event = app.dataset.event = "FINAL";
     } else if (currentDate === test["date"]) { 
-        var event = app.dataset.event = "SF2";
+        var event = app.dataset.event = "TEST";
     } else {
         var event = app.dataset.event = "NONE";
     }
@@ -111,7 +121,7 @@ function getEntries() {
     } else if (currentDate === final["date"]) { 
         var entries = finalEntries;
     } else if (currentDate === test["date"]) { 
-        var entries = semiFinal2Entries;
+        var entries = testEntries;
     } else {
         var entries = null;
     }
@@ -202,11 +212,12 @@ function countryDataListener(entries, event, toggle) {
     
     var app = document.getElementById("app");
     var event = app.dataset.event;
+    var currentYear = new Date().getFullYear();
     
 	for (i = 0; i < entries.length; i++) {
         
         let entry = entries[i]['shortcode'];
-        let entryData = database.ref('/2024/' + entry + '/' + event);
+        let entryData = database.ref('/' + currentYear + '/' + entry + '/' + event);
         let entryScorecard = document.getElementById('scorecard-' + entry);
         let entryScore = document.getElementById("scorecard-" + entry + "-score");
         let count = i + 1;
@@ -275,9 +286,10 @@ function vote(points, country, plusMinus) {
   
   var app = document.getElementById("app");
   var event = app.dataset.event;
-  
+  var currentYear = new Date().getFullYear();
+
 	// Get the current score for the country
-	var entryData = database.ref('/2024/' + country + '/' + event);
+	var entryData = database.ref('/' + currentYear + '/' + country + '/' + event);
 	var points = parseInt(points);
 
 	entryData.transaction(
