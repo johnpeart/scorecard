@@ -86,14 +86,14 @@ section#app-sidebar nav#sidebar-navigation {
 		padding: $container-padding * 0.5;
 		width: 100%;
 
-		color: var(--systemPink);
+		color: var(--systemSidebarBackgroundHover);
 		path {
-			fill: var(--systemPink);
+			fill: var(--systemSidebarBackgroundHover);
 		}
 
 		&:hover {
-			color: var(--systemWhite);
-			background: var(--systemPink);
+			color: var(--systemSidebarForegroundHover);
+			background: var(--systemSidebarBackgroundHover);
             text-decoration: none;
 
 			path {

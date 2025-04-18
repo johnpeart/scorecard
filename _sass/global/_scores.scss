@@ -611,3 +611,8 @@ section#app[data-fullscreen='true'] section.container#page-scores {
   }
 
 }
+
+.score svg {
+    max-height: 40px;
+    max-width: 40px;
+}

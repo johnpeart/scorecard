@@ -236,7 +236,7 @@ function countryDataListener(entries, event, toggle) {
                 if (score > 0) {
                   displayElementData(score, entryScore);
                 } else {
-                  displayElementData(entryScorecard.dataset.emoji, entryScore);
+                  // displayElementData(entryScorecard.dataset.emoji, entryScore);
                 }
                 
                 checkTopScore(entries);

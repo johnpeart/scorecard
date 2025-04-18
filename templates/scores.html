@@ -46,7 +46,10 @@
 			      <p class="country">{{ entry.country }}</p>  
 		      </section>
           <section class="score--content">
-            <p id="scorecard-{{ entry.shortcode }}-score" class="score">{{ entry.emoji }}</p>
+            <p id="scorecard-{{ entry.shortcode }}-score" class="score">
+                {% assign flag = entry.country | slugify | prepend: '/flags/' | append: '.svg' %}
+                {% include {{ flag }} %}
+            </p>
           </section>
           
         </article>
