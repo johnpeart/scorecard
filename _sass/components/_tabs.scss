@@ -1,32 +1,18 @@
-
-
-section#app-sidebar {
+section#app-tabbar {
   display: block;
-  @include supports-sticky() {
-    top: auto;
-    bottom: 0;
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-  }
+  position: sticky;
+  top: auto;
+  bottom: 0;
   
-  background: var(--systemBackgroundTransparent);
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   
   width: 100vw;
   z-index: 999999;
 }
 
-section#app[data-sidebar='hide'] section#app-sidebar {
-  @include tablet() {
-    display: none;
-  }
-}
-
-section#app[data-sidebar='hide'] {
-	
-}
-
-section#app-sidebar nav#sidebar-navigation {
+section#app-tabbar nav#navigation {
+  
+  padding: 15px;
 
 	h1 {
 		@extend h2;
@@ -35,13 +21,21 @@ section#app-sidebar nav#sidebar-navigation {
 	ul.sidebar {
 
 		display: grid;
+  
+    @include material(
+      $depth: 1, 
+      $inset: false,
+      $radius: 45px,
+      $bg: var(--systemBackgroundTransparent),
+      $blur: true
+    );
 
 		padding: $container-padding * 0.5;
 		grid-gap: $container-padding * 0.5;
 		grid-template-rows: auto;
 		grid-template-columns: repeat(3, 1fr);
 		width: 100%;
-		@include toggleSizes(max-width, 100vw, 100vw, 600px, 700px, 1000px);
+		@include toggleSizes(max-width, 100vw, 100vw, 400px, 500px, 600px);
 
 		margin: 0 auto;
 
@@ -54,16 +48,6 @@ section#app-sidebar nav#sidebar-navigation {
           display: none
         }
       }
-	}
-
-	hr.menu-separator {
-		@include phone {
-			display: none;
-		}
-		border: none;
-		border-top: 1px solid;
-		width: 100%;
-		border-color: var(--systemBlue);
 	}
 
   a.menu-item--button {
@@ -80,24 +64,20 @@ section#app-sidebar nav#sidebar-navigation {
 		justify-items: center;
 		grid-gap: $container-padding * 0.5;
 	
-
-		border-radius: 5pt;
-
 		padding: $container-padding * 0.5;
 		width: 100%;
 
-		color: var(--systemSidebarBackgroundHover);
+		color: var(--systemGray1);
 		path {
-			fill: var(--systemSidebarBackgroundHover);
+			fill: var(--systemGray1);
 		}
 
 		&:hover {
-			color: var(--systemSidebarForegroundHover);
-			background: var(--systemSidebarBackgroundHover);
-            text-decoration: none;
-
+      text-decoration: none;
+      color: var(--systemSidebarBackgroundHover);
+      
 			path {
-				fill: var(--systemWhite);
+				fill: var(--systemSidebarForegroundActive);
 			}
 		}
 		&:focus {
@@ -113,9 +93,17 @@ section#app-sidebar nav#sidebar-navigation {
 		&:active,
 		&.active,
 		&[data-status="active"] {
-			color: var(--systemSidebarForegroundActive);
-			background: var(--systemSidebarBackgroundActive);
+      
+      @include material(
+        $depth: 1, 
+        $inset: false,
+        $radius: 45px,
+        $bg: var(--systemBackgroundTransparent),
+        $blur: true
+      );
+
       text-decoration: none;
+      color: var(--systemSidebarForegroundActive);
       
 			path {
 				fill: var(--systemSidebarForegroundActive);

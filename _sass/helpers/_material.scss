@@ -1,0 +1,67 @@
+@mixin material(
+    $depth: 1, 
+    $inset: false,
+    $radius: #{$border-radius * 2},
+    $bg: var(--systemBackgroundTransparent),
+    $blur: false
+) {
+    
+    background: $bg;
+    
+    @if $radius != false {
+        border-radius:  $radius;
+    }
+    
+    @if $depth == 1 {
+        @if $inset == true { 
+            box-shadow: 
+                .5px .5px 1px rgba(255,255,255,0.5),
+                -.5px -.5px 1px rgba(0,0,0,0.15),
+                inset .222px .222px .314px -.5px rgba(0,0,0,0.2),
+                inset .605px .605px .856px -1px rgba(0,0,0,0.18),
+                inset 1.329px 1.329px 1.88px -1.5px rgba(0,0,0,0.25),
+                inset 2.95px 2.95px 4.172px -2px rgba(0,0,0,0.10),
+                inset 2.5px 2.5px 3px -2.5px rgba(0,0,0,0.15),
+                -.5px -.5px 0 0 rgba(0,0,0,0.10);
+        } @else { 
+            box-shadow: 
+                inset .5px .5px 1px rgba(255,255,255,1),
+                inset -.5px -.5px 1px rgba(0,0,0,0.15),
+                .222px .222px .314px -.5px rgba(0,0,0,0.2),
+                .605px .605px .856px -1px rgba(0,0,0,0.18),
+                1.329px 1.329px 1.88px -1.5px rgba(0,0,0,0.25),
+                2.95px 2.95px 4.172px -2px rgba(0,0,0,0.10),
+                2.5px 2.5px 3px -2.5px rgba(0,0,0,0.15),
+                -.5px -.5px 0 0 rgba(0,0,0,0.10);
+        }
+    } @else if $depth == 2 {
+        @if $inset == true { 
+            box-shadow: 
+                1px 1px 1px 0 rgba(255,255,255,0.5),
+                -1px -1px 1px 0 rgba(0,0,0,0.15),
+                inset .444584px .444584px .628737px -1px rgba(0,0,0,0.26),
+                inset 1.21072px 1.21072px 1.71222px -1.5px rgba(0,0,0,0.247),
+                inset 2.6583px 2.6583px 3.75941px -2.25px rgba(0,0,0,0.23),
+                inset 5.90083px 5.90083px 8.34503px -3px rgba(0,0,0,0.192),
+                inset 10px 10px 21.2132px -3.75px rgba(0,0,0,0.056),
+                inset -.5px -.5px 0 0 rgba(0,0,0,0.05);
+        } @else {
+            box-shadow: 
+                inset 1px 1px 1px 0 rgba(255,255,255,0.5),
+                inset -1px -1px 1px 0 rgba(0,0,0,0.15),
+                .444584px .444584px .628737px -1px rgba(0,0,0,0.26),
+                1.21072px 1.21072px 1.71222px -1.5px rgba(0,0,0,0.247),
+                2.6583px 2.6583px 3.75941px -2.25px rgba(0,0,0,0.23),
+                5.90083px 5.90083px 8.34503px -3px rgba(0,0,0,0.192),
+                10px 10px 21.2132px -3.75px rgba(0,0,0,0.056),
+                -.5px -.5px 0 0 rgba(0,0,0,0.05);
+        }
+    }
+
+        
+    @if $blur == true {
+        -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: blur(20px);
+    }
+        
+}

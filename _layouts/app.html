@@ -15,13 +15,43 @@
       data-event=""
     >
 
-
       <section id="app-panel">
        
 
       </section>
-
-      {% include interface/sidebar.html %}
+      
+      <section id="app-tabbar">
+      
+          <nav id="navigation">
+      
+              <ul id="navigation-buttons" class="sidebar">
+      
+                  <li class="menu-item">
+                      <a class="menu-item--button" id="button-home" data-status="active" href="#home">
+                          {% include interface/icon-home.svg %}
+                          <span class="label">Home</span>
+                      </a>
+                  </li>
+      
+                  <li class="menu-item">
+                      <a class="menu-item--button" id="button-vote" data-status="false" href="#vote">
+                          {% include interface/icon-vote.svg %}
+                          <span class="label">Vote</span>
+                      </a>
+                  </li>
+      
+                  <li class="menu-item">
+                      <a class="menu-item--button" id="button-scores" data-status="false" href="#scores">
+                          {% include interface/icon-scores.svg %}
+                          <span class="label">Scores</span>
+                      </a>
+                  </li>
+      
+              </ul>
+      
+          </nav>
+      
+      </section>
       
     </section>
     

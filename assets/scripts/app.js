@@ -401,9 +401,12 @@ const locationHandler = async () => {
     // set the title of the document to the title of the route
     document.title = route.title;
     // set the button in the menu
-  	var menu = document.getElementById("sidebar-navigation-buttons");
+  	var menu = document.getElementById("navigation-buttons");
   	var buttons = document.getElementsByClassName("menu-item--button");
-  
+    var homeTab = document.getElementById("button-home");
+    var voteTab = document.getElementById("button-vote");
+    var scoresTab = document.getElementById("button-scores");
+    
   	for (var i = 0; i < buttons.length; i++) {
   		buttons[i].dataset.status = "false";
   	}
@@ -413,10 +416,15 @@ const locationHandler = async () => {
         .querySelector('meta[name="description"]')
         .setAttribute("content", route.description);
     
+    if (location == "home") {
+        homeTab.dataset.status = "active";
+    }
+    
     if (location == "vote") {
         var app = document.getElementById("app");
         var event = checkCurrentEvent();
         var allEntries = getEntries();
+        voteTab.dataset.status = "active";
         setRunningOrder(allEntries, 'vote');
         checkIfVoted(allEntries);
     }
@@ -426,6 +434,7 @@ const locationHandler = async () => {
         buttonFullScreenToggle.addEventListener("click", toggleFullScreen);
         var event = checkCurrentEvent();
         var allEntries = getEntries();
+        scoresTab.dataset.status = "active";
         setRunningOrder(allEntries, 'scorecard');
         setRunningOrder(allEntries, 'scorecard-position');
         // Attach listener for current page
@@ -441,6 +450,7 @@ const locationHandler = async () => {
 
 // create a function that watches the hash and calls the urlLocationHandler
 window.addEventListener("hashchange", locationHandler);
+
 window.onload = function() {
   
   presence.on("value", (snap) => {

@@ -21,7 +21,7 @@ html {
 	font-kerning: 			auto;
 	letter-spacing: 		normal;
 
-	background: var(--systemGray6);
+	background: var(--systemBackground);
 	color: var(--systemForeground);
 
 	@each $style, $sizes in $body {
@@ -32,8 +32,8 @@ html {
 	margin: 0 !important;
 }
 
-body {
-	background: var(--systemGray6);
+body {	
+    background: var(--systemBackground);
 	color: var(--systemForeground);
 	min-height: 100vh;
 }
