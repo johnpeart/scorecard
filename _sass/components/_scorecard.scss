@@ -6,7 +6,15 @@ article.country-scorecard {
   grid-template-areas: 'rank country score';
 
   margin: 0;
-  
+
+    @include material(
+        $depth: 1, 
+        $inset: false,
+        $radius: 30px,
+        $bg: transparent,
+        $blur: true
+    );
+      
   header.score--header,
   section.score--country,
   section.score--content {

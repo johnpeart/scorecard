@@ -4,17 +4,6 @@ section#live-scores {
     grid-gap: $container-padding;
 }
 
-
-article.country-scorecard {
-    @include material(
-        $depth: 1, 
-        $inset: false,
-        $radius: 30px,
-        $bg: transparent,
-        $blur: true
-    );
-}
-
 section#app {
     &[data-event='TEST'],
     &[data-event='SF1'],
