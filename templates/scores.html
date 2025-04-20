@@ -29,17 +29,7 @@
 
     <section id="live-scores">
     
-    {% assign date = 'now' | date: "%-d-%-m-%Y" %}
-    {% for event in site.data.dates %}
-        {% if event.date == date %}
-            {% assign sortEvent = event.event %}
-        {% else %}
-            {% assign sortEvent = 'final' %}
-        {% endif %}
-    {% endfor %}
-      
-    {% assign entries = site.data.entries | sort: sortEvent %}
-    
+    {% assign entries = site.data.entries %}
 	{% for entry in entries %}      
         <article class="country-scorecard" id="scorecard-{{ entry.shortcode }}" 
           data-runningorder="0" 

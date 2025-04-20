@@ -1,6 +1,151 @@
+section#page-vote section#voting-open div#voting-cards {
+    display: grid;
+    grid-gap: 15px;
+}
+
+section#app {
+    &[data-event='TEST'],
+    &[data-event='SF1'],
+    &[data-event='SF2'] {
+        div#voting-cards {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(16, auto);
+            grid-template-areas:
+                "p1"
+                "p2"
+                "p3"
+                "p4"
+                "p5"
+                "p6"
+                "p7"
+                "p8"
+                "p9"
+                "p10"
+                "p11"
+                "p12"
+                "p13"
+                "p14"
+                "p15"
+                "p16";
+        }
+    }
+    &[data-event='FINAL'] {
+        div#voting-cards {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(26, auto);
+            grid-template-areas:
+                "p1"
+                "p2"
+                "p3"
+                "p4"
+                "p5"
+                "p6"
+                "p7"
+                "p8"
+                "p9"
+                "p10"
+                "p11"
+                "p12"
+                "p13"
+                "p14"
+                "p15"
+                "p16"
+                "p17"
+                "p18"
+                "p19"
+                "p20"
+                "p21"
+                "p22"
+                "p23"
+                "p24"
+                "p25"
+                "p26";
+        }
+    }
+}    
+
+div#voting-cards {
+  div.vote[data-runningorder='1'] {
+    grid-area: p1;
+  }
+  div.vote[data-runningorder='2'] {
+    grid-area: p2;
+  }
+  div.vote[data-runningorder='3'] {
+    grid-area: p3;
+  }
+  div.vote[data-runningorder='4'] {
+    grid-area: p4;
+  }
+  div.vote[data-runningorder='5'] {
+    grid-area: p5;
+  }
+  div.vote[data-runningorder='6'] {
+    grid-area: p6;
+  }
+  div.vote[data-runningorder='7'] {
+    grid-area: p7;
+  }
+  div.vote[data-runningorder='8'] {
+    grid-area: p8;
+  }
+  div.vote[data-runningorder='9'] {
+    grid-area: p9;
+  }
+  div.vote[data-runningorder='10'] {
+    grid-area: p10;
+  }
+  div.vote[data-runningorder='11'] {
+    grid-area: p11;
+  }
+  div.vote[data-runningorder='12'] {
+    grid-area: p12;
+  }
+  div.vote[data-runningorder='13'] {
+    grid-area: p13;
+  }
+  div.vote[data-runningorder='14'] {
+    grid-area: p14;
+  }
+  div.vote[data-runningorder='15'] {
+    grid-area: p15;
+  }
+  div.vote[data-runningorder='16'] {
+    grid-area: p16;
+  }
+  div.vote[data-runningorder='17'] {
+    grid-area: p17;
+  }
+  div.vote[data-runningorder='18'] {
+    grid-area: p18;
+  }
+  div.vote[data-runningorder='19'] {
+    grid-area: p19;
+  }
+  div.vote[data-runningorder='20'] {
+    grid-area: p20;
+  }
+  div.vote[data-runningorder='21'] {
+    grid-area: p21;
+  }
+  div.vote[data-runningorder='22'] {
+    grid-area: p22;
+  }
+  div.vote[data-runningorder='23'] {
+    grid-area: p23;
+  }
+  div.vote[data-runningorder='24'] {
+    grid-area: p24;
+  }
+  div.vote[data-runningorder='25'] {
+    grid-area: p25;
+  }
+  div.vote[data-runningorder='26'] {
+    grid-area: p26;
+  }
+}
+
 div.vote {
-  
-  margin-bottom: $container-padding;
     
     @include material(
         $depth: 1, 
