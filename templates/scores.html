@@ -28,9 +28,19 @@
 	<p class="lead">These are the average scores from everyone that has voted so far.</p>    
 
     <section id="live-scores">
+    
+    {% assign date = 'now' | date: "%-d-%-m-%Y" %}
+    {% for event in site.data.dates %}
+        {% if event.date == date %}
+            {% assign sortEvent = event.event %}
+        {% else %}
+            {% assign sortEvent = 'final' %}
+        {% endif %}
+    {% endfor %}
       
-      {% for entry in site.data.entries %}
-      
+    {% assign entries = site.data.entries | sort: sortEvent %}
+    
+	{% for entry in entries %}      
         <article class="country-scorecard" id="scorecard-{{ entry.shortcode }}" 
           data-runningorder="0" 
           data-rank="0" 
