@@ -27,6 +27,8 @@
     {% for event in site.data.dates %}
         {% if event.date == date %}
             {% assign sortEvent = event.event %}
+        {% else %}
+            {% assign sortEvent = 'final' %}
         {% endif %}
     {% endfor %}
     

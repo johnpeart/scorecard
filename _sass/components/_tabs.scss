@@ -10,9 +10,13 @@ section#app-tabbar {
   z-index: 999999;
 }
 
+section#app[data-fullscreen='true'] section#app-tabbar {
+    position: relative;
+}
+
 section#app-tabbar nav#navigation {
   
-  padding: 15px;
+  padding: 7.5px;
 
 	h1 {
 		@extend h2;
@@ -22,13 +26,13 @@ section#app-tabbar nav#navigation {
 
 		display: grid;
   
-    @include material(
-      $depth: 1, 
-      $inset: false,
-      $radius: 45px,
-      $bg: var(--systemBackgroundTransparent),
-      $blur: true
-    );
+        @include material(
+            $depth: 2, 
+            $inset: false,
+            $radius: 45px,
+            $bg: var(--systemBackgroundTransparent),
+            $blur: true
+        );
 
 		padding: $container-padding * 0.5;
 		grid-gap: $container-padding * 0.5;
@@ -66,6 +70,8 @@ section#app-tabbar nav#navigation {
 	
 		padding: $container-padding * 0.5;
 		width: 100%;
+        
+        border-radius: 45px;
 
 		color: var(--systemGray1);
 		path {
@@ -73,22 +79,23 @@ section#app-tabbar nav#navigation {
 		}
 
 		&:hover {
-      text-decoration: none;
-      color: var(--systemSidebarBackgroundHover);
+            text-decoration: none;
+            color: var(--systemTabsBackgroundHover);
       
 			path {
-				fill: var(--systemSidebarForegroundActive);
+				fill: var(--systemTabsForegroundActive);
 			}
 		}
 		&:focus {
-			color: var(--systemSidebarForegroundFocus);
-			background: var(--systemSidebarBackgroundFocus);
-      text-decoration: none;
-
+			outline: 5px solid var(--systemTabsBackgroundFocus);
+            outline-offset: 5px;
+            background: var(--systemTabsBackgroundFocus);
+            
+            color: var(--systemTabsForegroundFocus);
+      
 			path {
-				fill: var(--systemSidebarForegroundFocus);
+				fill: var(--systemTabsForegroundFocus);
 			}
-
 		}
 		&:active,
 		&.active,
@@ -103,10 +110,10 @@ section#app-tabbar nav#navigation {
       );
 
       text-decoration: none;
-      color: var(--systemSidebarForegroundActive);
+      color: var(--systemTabsForegroundActive);
       
 			path {
-				fill: var(--systemSidebarForegroundActive);
+				fill: var(--systemTabsForegroundActive);
 			}
 		}
 	}

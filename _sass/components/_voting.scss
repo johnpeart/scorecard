@@ -1,6 +1,14 @@
 div.vote {
   
   margin-bottom: $container-padding;
+    
+    @include material(
+        $depth: 1, 
+        $inset: false,
+        $radius: 45px,
+        $bg: transparent,
+        $blur: true
+    );
   
   p, h2 {
     padding: 0;
@@ -18,21 +26,21 @@ div.voting-info {
     text-align: center;
     font-weight: 900;
     text-transform: uppercase;
-    color: var(--systemWhite);
-    filter: invert(0.4);
-    mix-blend-mode: color-dodge;
+    color: var(--systemForeground);
   }
   
   padding: $container-padding;
-  background: var(--gradient26);
-  border-radius: 10pt 10pt 0 0;
 }
 
 div.voting-buttons {
   display: grid;
+  padding: 15px;
   
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 7.5px;
+  
+  grid-template-columns: repeat(6 1fr);
   grid-template-rows: 1fr 1fr;
+  
   grid-template-areas: 
     "v1 v2 v3 v4 v10 v12"
     "v5 v6 v7 v8 v10 v12";
@@ -74,8 +82,7 @@ div.voting-buttons {
   grid-template-columns: 1fr auto;
   grid-template-rows: auto;
   background: var(--gray-gradient1);
-  padding: $container-padding;
-  border-radius: 0 0 10pt 10pt;
+  padding: $container-padding $container-padding * 2;
   
   p {
     color: var(--systemForegroundTransparent);
@@ -94,54 +101,65 @@ button.voting-button {
   }
   
   .button-label {
-    color: var(--gradientScoreTextBlack);
-    filter: invert(0.1);
-    mix-blend-mode: color-burn;
+    color: var(--systemBackground);
+    font-weight: bold;
   }
+  
+    @include material(
+        $depth: 1, 
+        $inset: false,
+        $radius: 45px,
+        $bg: var(--systemBackgroundTransparent),
+        $blur: true
+    );
+
     
   &.vote-1-points {
-    background: var(--gradient19);
+    background: var(--systemRed);
   }
   &.vote-2-points {
-    background: var(--gradient17);
+    background: var(--systemRed);
   }
   &.vote-3-points {
-    background: var(--gradient15);
+    background: var(--systemRed);
   }
   &.vote-4-points {
-    background: var(--gradient13);
+    background: var(--systemRed);
   }
   &.vote-5-points {
-    background: var(--gradient11);
-    border-bottom-left-radius: 10pt;
+    background: var(--systemRed);
   }
   &.vote-6-points {
-    background: var(--gradient9);
+    background: var(--systemRed);
   }
   &.vote-7-points {
-    background: var(--gradient7);
+    background: var(--systemRed);
   }
   &.vote-8-points {
-    background: var(--gradient5);
+    background: var(--systemRed);
   }
   &.vote-10-points {
-    background: var(--gradient3);
+    background: var(--systemRed);
   }
   &.vote-12-points {
-    background: var(--gradient1);
-    border-bottom-right-radius: 10pt;
+    background: var(--systemRed);
   }
   &:hover,
   &:focus,
   &:active,
   &.active,
   &[data-status='active'] {
-    color: var(--systemSidebarBackgroundActive);
-    background: var(--systemSidebarForegroundActive);
-    text-decoration: none;
-    font-weight: 900;
-    path {
-      fill: var(--systemSidebarForegroundActive);
+    @include material(
+        $depth: 1, 
+        $inset: true,
+        $radius: 45px,
+        $bg: var(--systemGray6),
+        $blur: true
+    );
+  
+    .button-label {
+        color: var(--systemRed);
+        font-weight: bold;
     }
   }
 }

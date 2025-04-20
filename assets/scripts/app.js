@@ -7,12 +7,10 @@
 function toggleFullScreen() {
     var app = document.getElementById("app");
     var buttonFullScreen = document.getElementById("button--full-screen");
-    if (app.dataset.sidebar == "show") {
-        app.dataset.sidebar = "hide";
+    if (app.dataset.fullscreen == "false") {
         app.dataset.fullscreen = "true";
         buttonFullScreen.dataset.visible = "false";
     } else {
-        app.dataset.sidebar = "show";	
         app.dataset.fullscreen = "false";
         buttonFullScreen.dataset.visible = "true";
     }
@@ -314,23 +312,23 @@ function vote(points, country, plusMinus) {
 			} else if (!committed) {
 				console.log('Your vote wasn’t counted. Sorry.');
 			} else {
-        if (plusMinus == 'plus') {
-				  console.log('You gave ' + points + ' points to ' + country);
-          var voteCard = document.getElementById("vote-" + country);
-          var voteValue = document.getElementById("voted-" + country);
-          setDataAttribute(voteCard, "voted", "true");
-          setDataAttribute(voteValue, "points", points);
-          displayElementData(points, voteValue);
-          localStorage.setItem(event + '-' + country, points);
-        } else {
-          console.log(points + ' awarded to ' + country + ' undone');
-          var voteCard = document.getElementById("vote-" + country);
-          var voteValue = document.getElementById("voted-" + country);
-          setDataAttribute(voteCard, "voted", "false");
-          setDataAttribute(voteValue, "points", points);
-          displayElementData(points, voteValue);
-          localStorage.removeItem(event + '-' + country);
-        }
+                if (plusMinus == 'plus') {
+                        console.log('You gave ' + points + ' points to ' + country);
+                var voteCard = document.getElementById("vote-" + country);
+                var voteValue = document.getElementById("voted-" + country);
+                setDataAttribute(voteCard, "voted", "true");
+                setDataAttribute(voteValue, "points", points);
+                displayElementData(points, voteValue);
+                localStorage.setItem(event + '-' + country, points);
+                } else {
+                console.log(points + ' awarded to ' + country + ' undone');
+                var voteCard = document.getElementById("vote-" + country);
+                var voteValue = document.getElementById("voted-" + country);
+                setDataAttribute(voteCard, "voted", "false");
+                setDataAttribute(voteValue, "points", points);
+                displayElementData(points, voteValue);
+                localStorage.removeItem(event + '-' + country);
+                }
 			}
 		}
 	);
@@ -401,11 +399,15 @@ const locationHandler = async () => {
     // set the title of the document to the title of the route
     document.title = route.title;
     // set the button in the menu
+    var app = document.getElementById("app");
   	var menu = document.getElementById("navigation-buttons");
   	var buttons = document.getElementsByClassName("menu-item--button");
     var homeTab = document.getElementById("button-home");
     var voteTab = document.getElementById("button-vote");
     var scoresTab = document.getElementById("button-scores");
+    
+    var buttonFullScreen = document.getElementById("button--full-screen");
+    app.dataset.fullscreen = "false";
     
   	for (var i = 0; i < buttons.length; i++) {
   		buttons[i].dataset.status = "false";
@@ -439,7 +441,9 @@ const locationHandler = async () => {
         setRunningOrder(allEntries, 'scorecard-position');
         // Attach listener for current page
         countryDataListener(allEntries, event, 'start');
-    } else {
+    } 
+    
+    else {
         var event = checkCurrentEvent();
         var allEntries = getEntries();
         // Reset the country listener

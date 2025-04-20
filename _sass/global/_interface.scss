@@ -15,14 +15,13 @@ section#app {
   display: 	    block;
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
 }
 
 section#app-panel {
 	min-height: 100vh;
-	background: var(--systemBackground);
 }
 
 section#app[data-event='unknown'] {
@@ -73,110 +72,6 @@ div.container {
 	margin: 0 auto;
 	padding: 0 $container-padding;
 
-}
-
-ul.list {
-
-	display: grid;
-
-	width: 100%;
-
-	padding: 0;
-	margin: 0;
-
-    li.list-item {
-      text-align: left;
-      
-      a {
-        background: var(--systemWhite);
-        color: var(--systemForeground);
-        border: 1px solid;
-        border-color: var(--systemGray3);
-        border-radius: 0;
-      }
-      
-      &:first-of-type,
-      &:first-of-type a {
-        border-radius: 0;
-        border-bottom: 0;
-        border-top-left-radius: 5pt;
-        border-top-right-radius: 5pt;
-      }
-      
-      &:last-of-type,
-      &:last-of-type a {
-        border-top: 0;
-        border-radius: 0;
-        border-bottom-left-radius: 5pt;
-        border-bottom-right-radius: 5pt;
-      }
-    }
-    
-    a.list-item--button {
-      
-      display: grid;
-      
-	    grid-template: auto / 1fr auto;
-	    justify-content: flex-start;
-	    grid-gap: $container-padding * 1.5;
-	    align-items: center;
-    
-      margin: 0;
-      -webkit-appearance: none;
-    
-      cursor: pointer;
-    
-      padding: $container-padding;
-      width: 100%;
-      path {
-	      fill: var(--systemGray1);
-      }
-    
-      &:hover {
-	      color: var(--systemSidebarForegroundHover);
-	      background: var(--systemSidebarBackgroundHover);
-        path {
-		      fill: var(--systemGray6);
-	      }
-      }
-      &:focus {
-	      color: var(--systemSidebarForegroundFocus);
-	      background: var(--systemSidebarBackgroundFocus);
-        path {
-		      fill: var(--systemSidebarForegroundFocus);
-	      }
-      }
-      &:active,
-      &.active,
-      &[data-status="active"] {
-	      color: var(--systemSidebarForegroundActive);
-	      background: var(--systemSidebarBackgroundActive);
-        path {
-		      fill: var(--systemSidebarForegroundActive);
-	      }
-      }
-      
-    }
-    
-    span.label {
-    
-      padding-bottom: 0 !important;
-      font-weight: 600;
-      line-height: 1;
-    
-      display: block;
-      @each $style, $sizes in $body {
-	      @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
-      }
-      
-    }
-
-	svg {
-		max-height: 10pt;
-		max-width: 10pt;
-    justify-content: flex-end;
-	}
-  
 }
 
 section#voting-unknown {

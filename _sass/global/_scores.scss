@@ -1,230 +1,166 @@
 section#live-scores {
-  grid-auto-flow: column;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: $container-padding;
 }
 
-section#app[data-event='TEST'] section.container#page-scores section#live-scores,
-section#app[data-event='SF1'] section.container#page-scores section#live-scores,
-section#app[data-event='SF2'] section.container#page-scores section#live-scores {
 
-  @include phone() {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(16, auto);
-    grid-template-areas:
-      "p1"
-      "p2"
-      "p3"
-      "p4"
-      "p5"
-      "p6"
-      "p7"
-      "p8"
-      "p9"
-      "p10"
-      "p11"
-      "p12"
-      "p13"
-      "p14"
-      "p15"
-      "p16";
-    margin: 0 $container-padding * -1;
-  }
-
-  @include tablet {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(8, 2fr);
-    grid-template-areas:
-	  "p1  p9"
-      "p2  p10"
-      "p3  p11"
-      "p4  p12"
-      "p5  p13"
-      "p6  p14"
-      "p7  p15"
-      "p8  p16";
-    border-radius: 10pt;
-  }
-
+article.country-scorecard {
+    @include material(
+        $depth: 1, 
+        $inset: false,
+        $radius: 30px,
+        $bg: transparent,
+        $blur: true
+    );
 }
 
-section#app[data-sidebar='hide'][data-event='TEST'] section#live-scores,
-section#app[data-sidebar='hide'][data-event='SF1'] section#live-scores,
-section#app[data-sidebar='hide'][data-event='SF2'] section#live-scores{
-
-  @include tablet {
-    grid-template-columns: 1fr 1fr 1fr 1fr !important;
-    grid-template-rows: repeat(4, 1fr) !important;
-    grid-template-areas:
-	  "p1 p5  p9  p13"
-      "p2 p6  p10 p14"
-      "p3 p7  p11 p15"
-      "p4 p8  p12 p16" !important;
-  }
-
-}
-
-section#app[data-sidebar='show'][data-layout='rank'][data-event='TEST'] section#live-scores,
-section#app[data-sidebar='show'][data-layout='rank'][data-event='SF1'] section#live-scores,
-section#app[data-sidebar='show'][data-layout='rank'][data-event='SF2'] section#live-scores {
-  @include tablet() {
-    article.country-scorecard[data-rank='1'] {
-      border-top-left-radius: 10pt;
+section#app {
+    &[data-event='TEST'],
+    &[data-event='SF1'],
+    &[data-event='SF2'] {
+        &[data-fullscreen='false'] {
+            section#live-scores {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(16, auto);
+                grid-template-areas:
+                    "p1"
+                    "p2"
+                    "p3"
+                    "p4"
+                    "p5"
+                    "p6"
+                    "p7"
+                    "p8"
+                    "p9"
+                    "p10"
+                    "p11"
+                    "p12"
+                    "p13"
+                    "p14"
+                    "p15"
+                    "p16";
+                
+                @include tablet {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: repeat(8, 2fr);
+                    grid-template-areas:
+                    "p1  p9"
+                    "p2  p10"
+                    "p3  p11"
+                    "p4  p12"
+                    "p5  p13"
+                    "p6  p14"
+                    "p7  p15"
+                    "p8  p16";
+                }
+            }
+        }
+        &[data-fullscreen='true'] {
+            section#live-scores {
+                @include tablet {
+                    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+                    grid-template-rows: repeat(4, 1fr) !important;
+                    grid-template-areas:
+                    "p1 p5  p9  p13"
+                    "p2 p6  p10 p14"
+                    "p3 p7  p11 p15"
+                    "p4 p8  p12 p16" !important;
+                }
+            }
+        }
     }
-    article.country-scorecard[data-rank='9'] {
-      border-top-right-radius: 10pt;
+        
+    &[data-event='FINAL'] {
+        &[data-fullscreen='false'] {
+            section#live-scores {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(26, auto);
+                grid-template-areas:
+                    "p1"
+                    "p2"
+                    "p3"
+                    "p4"
+                    "p5"
+                    "p6"
+                    "p7"
+                    "p8"
+                    "p9"
+                    "p10"
+                    "p11"
+                    "p12"
+                    "p13"
+                    "p14"
+                    "p15"
+                    "p16"
+                    "p17"
+                    "p18"
+                    "p19"
+                    "p20"
+                    "p21"
+                    "p22"
+                    "p23"
+                    "p24"
+                    "p25"
+                    "p26";
+                
+                @include tablet {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: repeat(13, 2fr);
+                    grid-template-areas:
+                    "p1  p14"
+                    "p2  p15"
+                    "p3  p16"
+                    "p4  p17"
+                    "p5  p18"
+                    "p6  p19"
+                    "p7  p20"
+                    "p8  p21"
+                    "p9  p22"
+                    "p10 p23"
+                    "p11 p24"
+                    "p12 p25"
+                    "p13 p26";
+                }
+            }
+        }
+        &[data-fullscreen='true'] {
+            &[data-layout='rank'] {
+                section#live-scores {
+                    @include tablet {
+                        grid-template-columns: 1fr 1fr 1fr 1fr !important;
+                        grid-template-rows: repeat(8, 1fr) !important;
+                        grid-template-areas:
+                        "p1 p5   p13 p21"
+                        "p1 p6   p14 p22"
+                        "p2 p7   p15 p23"
+                        "p2 p8   p16 p24"
+                        "p3 p9   p17 p25"
+                        "p3 p10  p18 p26"
+                        "p4 p11  p19 ."
+                        "p4 p12  p20 ." !important;
+                    }
+                }
+            }
+            &[data-layout='running'] {
+                section#live-scores {
+                    @include tablet {
+                        grid-template-columns: 1fr 1fr 1fr 1fr !important;
+                        grid-template-rows: repeat(7, 1fr) !important;
+                        grid-template-areas:
+                        "p1 p8   p15 p22"
+                        "p2 p9   p16 p23"
+                        "p3 p10  p17 p24"
+                        "p4 p11  p18 p25"
+                        "p5 p12  p19 p26"
+                        "p6 p13  p20 ."
+                        "p7 p14  p21 ." !important;
+                    }
+                }
+            }
+        }
+        
     }
-    article.country-scorecard[data-rank='8'] {
-      border-bottom-left-radius: 10pt;
-    }
-    article.country-scorecard[data-rank='16'] {
-      border-bottom-right-radius: 10pt;
-    }
-  }
-}
-
-section#app[data-sidebar='show'][data-layout='running'][data-event='TEST'] section#live-scores,
-section#app[data-sidebar='show'][data-layout='running'][data-event='SF1'] section#live-scores,
-section#app[data-sidebar='show'][data-layout='running'][data-event='SF2'] section#live-scores {
-  @include tablet() {
-    article.country-scorecard[data-runningorder='1'] {
-      border-top-left-radius: 10pt;
-    }
-    article.country-scorecard[data-runningorder='9'] {
-      border-top-right-radius: 10pt;
-    }
-    article.country-scorecard[data-runningorder='8'] {
-      border-bottom-left-radius: 10pt;
-    }
-    article.country-scorecard[data-runningorder='16'] {
-      border-bottom-right-radius: 10pt;
-    }
-  }
-}
-
-section#app[data-event='FINAL'] section.container#page-scores section#live-scores {
-
-  @include phone() {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(26, auto);
-    grid-template-areas:
-      "p1"
-      "p2"
-      "p3"
-      "p4"
-      "p5"
-      "p6"
-      "p7"
-      "p8"
-      "p9"
-      "p10"
-      "p11"
-      "p12"
-      "p13"
-      "p14"
-      "p15"
-      "p16"
-      "p17"
-      "p18"
-      "p19"
-      "p20"
-      "p21"
-      "p22"
-      "p23"
-      "p24"
-      "p25"
-      "p26";
-    margin: 0 $container-padding * -1;
-  }
-
-  @include tablet {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(13, 2fr);
-    grid-template-areas:
-	  "p1  p14"
-      "p2  p15"
-      "p3  p16"
-      "p4  p17"
-      "p5  p18"
-      "p6  p19"
-      "p7  p20"
-      "p8  p21"
-      "p9  p22"
-      "p10 p23"
-      "p11 p24"
-      "p12 p25"
-      "p13 p26";
-    border-radius: 10pt;
-  }
-
-}
-
-section#app[data-sidebar='hide'][data-layout='rank'][data-event='FINAL'] section#live-scores {
-
-  @include tablet {
-    grid-template-columns: 1fr 1fr 1fr 1fr !important;
-    grid-template-rows: repeat(8, 1fr) !important;
-    grid-template-areas:
-	  "p1 p5   p13 p21"
-      "p1 p6   p14 p22"
-      "p2 p7   p15 p23"
-      "p2 p8   p16 p24"
-      "p3 p9   p17 p25"
-      "p3 p10  p18 p26"
-      "p4 p11  p19 ."
-      "p4 p12  p20 ." !important;
-    border-radius: 0 !important;
-  }
-
-}
-
-section#app[data-sidebar='hide'][data-layout='running'][data-event='FINAL'] section#live-scores {
-
-  @include tablet {
-    grid-template-columns: 1fr 1fr 1fr 1fr !important;
-    grid-template-rows: repeat(7, 1fr) !important;
-    grid-template-areas:
-	  "p1 p8   p15 p22"
-      "p2 p9   p16 p23"
-      "p3 p10  p17 p24"
-      "p4 p11  p18 p25"
-      "p5 p12  p19 p26"
-      "p6 p13  p20 ."
-      "p7 p14  p21 ." !important;
-  }
-
-}
-
-section#app[data-sidebar='show'][data-layout='rank'][data-event='FINAL'] section#live-scores {
-  @include tablet() {
-    article.country-scorecard[data-rank='1'] {
-      border-top-left-radius: 10pt;
-    }
-    article.country-scorecard[data-rank='14'] {
-      border-top-right-radius: 10pt;
-    }
-    article.country-scorecard[data-rank='13'] {
-      border-bottom-left-radius: 10pt;
-    }
-    article.country-scorecard[data-rank='26'] {
-      border-bottom-right-radius: 10pt;
-    }
-  }
-}
-
-section#app[data-sidebar='show'][data-layout='running'][data-event='FINAL'] section#live-scores {
-  @include tablet() {
-    article.country-scorecard[data-runningorder='1'] {
-      border-top-left-radius: 10pt;
-    }
-    article.country-scorecard[data-runningorder='14'] {
-      border-top-right-radius: 10pt;
-    }
-    article.country-scorecard[data-runningorder='13'] {
-      border-bottom-left-radius: 10pt;
-    }
-    article.country-scorecard[data-runningorder='26'] {
-      border-bottom-right-radius: 10pt;
-    }
-  }
 }
 
 section#app[data-layout='rank'] section#live-scores {
@@ -475,7 +411,7 @@ section#app[data-layout='rank'] section#live-scores {
   article.country-scorecard[data-rank='26'] {
     background: var(--gradient26);
   }
-  background: var(--gradient26);
+  
   color: var(--gradientScoreTextBlack);
 
   p {
@@ -567,7 +503,7 @@ section#app[data-layout='running'] section#live-scores {
   article.country-scorecard[data-runningorder='26'] {
     background: var(--gray-gradient26);
   }
-  background: var(--gray-gradient26);
+
 }
 
 
@@ -579,20 +515,11 @@ section#app[data-layout='running'] section#live-scores .scores-pos:after {
   content: attr(data-runningorder);
 }
 
-section#app section.container#page-scores section#live-scores {
-  display: grid;
-}
-
-section#app[data-fullscreen='false']section.container#page-scores {
-  @include tablet() {
-    padding: 0 0 $container-padding * 4 !important;
-  }
-}
 section#app[data-fullscreen='true'] section.container#page-scores {
 
   @include tablet {
-    min-height: 100vh;
-    max-width:  100% !important;
+    max-height: 100vh;
+    max-width:  100vw !important;
     padding: 0;
     margin: 0;
     display: grid;
@@ -605,6 +532,7 @@ section#app[data-fullscreen='true'] section.container#page-scores {
 
     section#live-scores {
       height: 100vh;
+      padding: $container-padding;
 	  grid-template-columns: 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
@@ -613,6 +541,6 @@ section#app[data-fullscreen='true'] section.container#page-scores {
 }
 
 .score svg {
-    max-height: 40px;
-    max-width: 40px;
+    max-height: 30px;
+    max-width: 30px;
 }

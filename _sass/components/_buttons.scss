@@ -8,8 +8,8 @@
   
   border-radius: 10px;
   border: 2px solid;
-  border-color: var(--systemSidebarForegroundActive);
-  color: var(--systemSidebarForegroundActive);
+  border-color: var(--systemTabsForegroundActive);
+  color: var(--systemTabsForegroundActive);
 
   @each $style, $sizes in $toggle {
 	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
@@ -23,11 +23,11 @@
   &:active,
   &.active,
   &[data-status='active'] {
-		color: var(--systemSidebarBackgroundActive);
-		background: var(--systemSidebarForegroundActive);
+		color: var(--systemTabsBackgroundActive);
+		background: var(--systemTabsForegroundActive);
     text-decoration: none;
 		path {
-			fill: var(--systemSidebarForegroundActive);
+			fill: var(--systemTabsForegroundActive);
 		}
 	}
 }
@@ -44,10 +44,10 @@ button.fullscreen {
   background: none;
   
   border: 2px solid;
-  border-color: var(--systemSidebarForegroundActive);
+  border-color: var(--systemTabsForegroundActive);
   border-radius: 10pt;
   margin: 20px 0 0;
-  color: var(--systemSidebarForegroundActive);
+  color: var(--systemTabsForegroundActive);
 
   @each $style, $sizes in $toggle {
 	  @include toggleSizes($style, map-get($sizes, "xs"),  map-get($sizes, "sm"),  map-get($sizes, "md"),  map-get($sizes, "lg"),  map-get($sizes, "xl"));
@@ -60,11 +60,11 @@ button.fullscreen {
 	&:active,
 	&.active,
   &[data-status='active'] {
-		color: var(--systemSidebarBackgroundActive);
-		background: var(--systemSidebarForegroundActive);
+		color: var(--systemTabsBackgroundActive);
+		background: var(--systemTabsForegroundActive);
 
 		path {
-			fill: var(--systemSidebarForegroundActive);
+			fill: var(--systemTabsForegroundActive);
 		}
 	}
 }
@@ -72,7 +72,7 @@ button.fullscreen {
 .undo-button {
   display: inline-block;
   padding: $container-padding * 0.5 !important;
-  color: var(--systemSidebarForegroundActive);
+  color: var(--systemTabsForegroundActive);
 }
 
 button[data-visible='false'] {
