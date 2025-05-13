@@ -26,7 +26,9 @@ section#app {
                 "p13"
                 "p14"
                 "p15"
-                "p16";
+                "p16"
+                "p17"
+                "p18";
         }
     }
     &[data-event='FINAL'] {
@@ -151,7 +153,7 @@ div.vote {
         $depth: 1, 
         $inset: false,
         $radius: 45px,
-        $bg: transparent,
+        $bg: var(--systemBackgroundTransparent),
         $blur: true
     );
   

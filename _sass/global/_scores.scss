@@ -28,20 +28,26 @@ section#app {
                     "p13"
                     "p14"
                     "p15"
-                    "p16";
+                    "p16"
+                    "p17"
+                    "p18"
+                    "p19"
+                    "p20";
                 
                 @include tablet {
                     grid-template-columns: 1fr 1fr;
                     grid-template-rows: repeat(8, 2fr);
                     grid-template-areas:
-                    "p1  p9"
-                    "p2  p10"
-                    "p3  p11"
-                    "p4  p12"
-                    "p5  p13"
-                    "p6  p14"
-                    "p7  p15"
-                    "p8  p16";
+                    "p1  p11"
+                    "p2  p12"
+                    "p3  p13"
+                    "p4  p14"
+                    "p5  p15"
+                    "p6  p16"
+                    "p7  p17"
+                    "p8  p18"
+                    "p9  p19"
+                    "p10 p20";
                 }
             }
         }
@@ -49,12 +55,13 @@ section#app {
             section#live-scores {
                 @include tablet {
                     grid-template-columns: 1fr 1fr 1fr 1fr !important;
-                    grid-template-rows: repeat(4, 1fr) !important;
+                    grid-template-rows: repeat(5, 1fr) !important;
                     grid-template-areas:
                     "p1 p5  p9  p13"
                     "p2 p6  p10 p14"
                     "p3 p7  p11 p15"
-                    "p4 p8  p12 p16" !important;
+                    "p4 p8  p12 p16"
+                    "p17 p18 p19 p20" !important;
                 }
             }
         }
